@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom"; 
 
 export default function LoginPage() {
+  const [showPass, setShowPass] = useState(false);
+
+  function toggleShow() {
+    setShowPass((s) => !s);
+  }
   return (
     <div className="page-root text-center">
       <header className="">
@@ -70,7 +75,20 @@ export default function LoginPage() {
             </div>
             <div className="form-field2">
               <label>รหัสผ่าน</label>
-              <input type="password" placeholder="********" />
+              <div className="password-wrapper">
+                <input
+                  type={showPass ? "text" : "password"}
+                  placeholder="********"
+                />
+                <button
+                  type="button"
+                  className="password-toggle"
+                  onClick={toggleShow}
+                  aria-label={showPass ? "ซ่อนรหัสผ่าน" : "แสดงรหัสผ่าน"}
+                >
+                  {showPass ? "🙈" : "👁️"}
+                </button>
+              </div>
             </div>
             <p></p>
             <button type="submit" className="btn btn-brand mt-4 w-full">

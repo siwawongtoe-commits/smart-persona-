@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
 export default function RegisterPage() {
+  const [showPass, setShowPass] = useState(false);
+
   return (
    
    <div className="register-fullscreen">
@@ -103,12 +105,17 @@ export default function RegisterPage() {
 
                 <div className="form-field">
                   <label className="form-label" htmlFor="reg-pass">กำหนดรหัสผ่าน</label>
-                  <input
-                    id="reg-pass"
-                    className="form-input"
-                    type="password"
-                    placeholder="********"
-                  />
+                  <div className="password-wrapper">
+                    <input
+                      id="reg-pass"
+                      className="form-input"
+                      type={showPass ? "text" : "password"}
+                      placeholder="********"
+                    />
+                    <button type="button" className="password-toggle" onClick={() => setShowPass(s => !s)} aria-label="toggle password">
+                      {showPass ? '🙈' : '👁️'}
+                    </button>
+                  </div>
                 </div>
 
                 <button type="submit" className="btn btn-submit">
