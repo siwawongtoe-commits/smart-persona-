@@ -1,28 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./HRLogin.css";
 import { Link } from "react-router-dom";
 
 export default function Login() {
+  const [showPass, setShowPass] = useState(false);
+
   return (
     <div className="login-page">
-      {/* ปุ่มกลับ */}
+
       <button className="back-btn">
         <span className="icon">⟵</span> กลับเข้าสู่หน้าหลัก
       </button>
 
-      {/* โลโก้ชื่อระบบ */}
       <h1 className="title">PerFile</h1>
-      {/* ข้อความบนขวา */}
+
       <div className="top-right-text2">
         <a href="http://localhost:4000/"> คุณเป็นผู้หางานหรือเปล่า?</a>
       </div>
-      {/* กล่อง login */}
+
       <div className="login-box">
 
         <p className="login-title">เข้าสู่ระบบ</p>
 
-        {/* ปุ่ม Google */}
-        <button className="google-btn">
+         <button className="google-btn">
           {/* ⬇️ โค้ด SVG ไอคอน Google ใหม่ ⬇️ */}
           <svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg">
             <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.15 30.49 0 24 0 14.65 0 6.68 5.3 3.29 13.01l7.66 5.86C12.59 13.78 17.81 9.5 24 9.5z" />
@@ -35,20 +35,29 @@ export default function Login() {
           ดำเนินการด้วยบัญชี Google
         </button>
 
-        <div className="divider">
-          <span>หรือ</span>
-        </div>
+        <div className="divider"><span>หรือ</span></div>
 
-
-        {/* ฟอร์ม */}
         <div className="form-group">
           <label>อีเมล</label>
           <input type="email" placeholder="Email" />
         </div>
 
+      
         <div className="form-group">
           <label>รหัสผ่าน</label>
-          <input type="password" placeholder="Password" />
+          <div className="password-wrapper">
+            <input
+              type={showPass ? "text" : "password"}
+              placeholder="Password"
+            />
+            <button
+              type="button"
+              className="password-toggle"
+              onClick={() => setShowPass(!showPass)}
+            >
+              {showPass ? "🙈" : "👁️"}
+            </button>
+          </div>
         </div>
 
         <button className="submit-btn">เข้าสู่ระบบ</button>

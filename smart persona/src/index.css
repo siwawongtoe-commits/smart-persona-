@@ -58,7 +58,7 @@ img { max-width: 100%; height: auto; }
 
 /* Page specific adjustments */
 .page-root { background-color: #ffffff; color: #213547; min-width: 320px; }
-.login-main { padding: 2rem 1rem; }
+.login-main { padding: 2rem 1rem;  }
 .muted-small { color: #6b7280; }
 .link-brand { color: #16174F; font-weight: 600; text-decoration: none; }
 .legal { color: #9ca3af; }
@@ -83,6 +83,8 @@ img { max-width: 100%; height: auto; }
   display: flex;
   flex-direction: column;
   gap: calc(var(--g));
+    border: 2px solid #2b3fe3; 
+
 }
 
 /* Buttons adjusted for desktop look */
@@ -155,6 +157,7 @@ header > .container { padding-top: 8px; padding-bottom: 20px; }
   
   
 }
+
 
 .btn-brand:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(14,16,50,0.18); }
 .btn-brand:active { transform: translateY(0); }
@@ -944,3 +947,4 @@ button:focus-visible {
   text-align: right; 
   z-index: 10; 
 }
+

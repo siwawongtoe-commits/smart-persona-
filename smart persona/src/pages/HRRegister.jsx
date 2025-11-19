@@ -1,32 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./HRRegister.css";
 import { Link } from "react-router-dom";
 
 export default function HRRegister() {
+  const [showPass, setShowPass] = useState(false);
+
   return (
     <div className="register-page">
 
-      {/* ปุ่มกลับ */}
       <button className="back-btn">
         <span className="icon">⟵</span> กลับเข้าสู่หน้าหลัก
       </button>
 
-      {/* ชื่อระบบ */}
       <h1 className="title">PerFile</h1>
 
-      {/* กล่องสมัคร */}
       <div className="register-box">
 
-        {/* ข้อความบนขวา */}
         <div className="top-right-text">
           <a href="http://localhost:4000/"> คุณเป็นผู้หางานหรือเปล่า?</a>
         </div>
 
         <p className="register-title">ลงทะเบียน</p>
-
         <p className="sub-warn">*ใช้ข้อมูลของทางบริษัท</p>
 
-        {/* ปุ่ม Google */}
         <button className="google-btn">
           {/* ⬇️ โค้ด SVG ไอคอน Google ใหม่ ⬇️ */}
           <svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg">
@@ -40,12 +36,10 @@ export default function HRRegister() {
           ดำเนินการด้วยบัญชี Google
         </button>
 
-
         <div className="divider">
           <span>หรือ</span>
         </div>
 
-        {/* ฟอร์ม */}
         <div className="form-group">
           <label>ชื่อบริษัท</label>
           <input type="text" placeholder="ชื่อบริษัท" />
@@ -61,9 +55,22 @@ export default function HRRegister() {
           <input type="email" placeholder="อีเมล" />
         </div>
 
+      
         <div className="form-group">
           <label>กำหนดรหัสผ่าน</label>
-          <input type="password" placeholder="รหัสผ่าน" />
+          <div className="password-wrapper">
+            <input
+              type={showPass ? "text" : "password"}
+              placeholder="รหัสผ่าน"
+            />
+            <button
+              type="button"
+              className="password-toggle"
+              onClick={() => setShowPass(!showPass)}
+            >
+              {showPass ? "🙈" : "👁️"}
+            </button>
+          </div>
         </div>
 
         <button className="submit-btn">ลงทะเบียน</button>
@@ -71,6 +78,7 @@ export default function HRRegister() {
         <p className="login-text">
           ยังมีบัญชีแล้วใช่ไหม? <a href="http://localhost:4000/HRLogin">เข้าสู่ระบบ</a>
         </p>
+
       </div>
     </div>
   );

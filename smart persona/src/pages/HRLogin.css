@@ -166,3 +166,33 @@ input::placeholder {
     
     background-color: white; 
 }
+.password-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* เว้นที่ให้ปุ่ม */
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #000; /* สีดำเข้มตามที่ขอ */
+}
+
+.password-toggle:hover {
+  color: #333;
+}
+
