@@ -227,16 +227,17 @@
     
     background-color: white; 
 }
+/* Top Right Text (HR Login) */
 .top-right-text4 {
     position: absolute;
     top: 90px;
-    right: 738px;
+    left: 50%;
+    transform: translateX(-260px); /* ดันไปด้านขวาแบบสวย */
     font-size: 14px;
     color: #2b3fe3;
     cursor: pointer;
-    text-align: right;
     z-index: 10;
-    width: auto;    /* ไม่เต็ม card */
+    white-space: nowrap;
 }
 
 .top-right-text4 a {

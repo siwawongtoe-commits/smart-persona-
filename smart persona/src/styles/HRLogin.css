@@ -134,15 +134,15 @@ input::placeholder {
   color: #000000;
 }
 
-.top-right-text2{
+.top-right-text2 {
   position: absolute;
-  top: 156px; /* ปรับระยะจากบนหน้า */
-  transform: translateY(-20px); 
-  right: calc(50% - 170px); /* เพราะกล่อง login กว้าง 380px */
+  top: 135px;
+  left: 50%;
+  transform: translateX(40px); /* ลดจาก 210 → 170 px */
   font-size: 14px;
   color: #000;
-  right: 658px;
 }
+
 .divider{
   
     display: flex; 
