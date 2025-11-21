@@ -241,7 +241,12 @@
 }
 
 .top-right-text4 a {
-    color: #2b3fe3;
+    color: #ff0000;
     text-decoration: none;
 }
 
+/* เปลี่ยนสีลิงก์ใน div.top-right-text4 */
+
+.top-right-text4 a:hover {
+  color: #ff0000; /* สีเมื่อเอาเมาส์ชี้ */
+}

@@ -134,13 +134,13 @@ input::placeholder {
   color: #000000;
 }
 
-.top-right-text2 {
+.top-right-text2 a{
   position: absolute;
   top: 135px;
   left: 50%;
   transform: translateX(40px); /* ลดจาก 210 → 170 px */
   font-size: 14px;
-  color: #000;
+  color: #ff0000;
 }
 
 .divider{
