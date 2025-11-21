@@ -155,3 +155,11 @@
 @media (min-width: 768px) {
     .card { padding: 48px 40px; } /* ลด padding เล็กน้อยบน desktop */
 }
+.google-btn2 .google-icon {
+    margin-left: -0px;  /* ขยับโลโก้ไปทางซ้าย */
+}
+.google-login svg {
+    margin-left: -30px;
+}
+
+
