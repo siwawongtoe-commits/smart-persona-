@@ -8,7 +8,7 @@ export default function Login() {
   return (
     <div className="login-page">
 
-      <button className="back-btn1">
+      <button className="back-btn">
         <span className="icon">⟵</span> กลับเข้าสู่หน้าหลัก
       </button>
 
