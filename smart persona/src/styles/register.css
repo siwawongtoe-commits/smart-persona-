@@ -64,38 +64,40 @@
 
 /* Register Card */
 .register-card { 
-    padding: 40px 56px; 
+    padding: 28px 72px;     /* บนล่างลดลง, ซ้ายขวายังคงกว้างและบาลานซ์ */
     border-radius: 12px; 
     border: 2px solid #2b2bd6; 
     box-shadow: 0 18px 36px rgba(11,17,80,0.06);
-    max-width: 520px;
+    max-width: 640px;       /* กล่องกว้างขึ้น */
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;              /* เดิม 16px → ให้กระชับขึ้น */
     margin: 0 auto;
 }
+
+
 .register-card .card-title { 
-    font-size: 1.8rem; 
-    margin-bottom: 8px; 
-    color: #111827; 
-    font-weight: 700;
-}
-.register-card .subtitle { 
-    color: #6b7280; 
-    font-size: 0.95rem; 
-    line-height: 1.4;
+    font-size: 1.7rem;
+    margin-bottom: 2px;     /* เดิม 8px → ลดลง */
 }
 
+.register-card .subtitle {
+    font-size: 0.9rem;
+    margin-top: 0px;        /* ลดความสูงรวม */
+    margin-bottom: 4px;
+}
+
+
 /* Provider Buttons */
-.provider-wrapper { display:flex; flex-direction:column; gap:14px; align-items:center; }
+.provider-wrapper { display:flex; flex-direction:column; gap:10px; align-items:center; }
 .provider-btn {
     display:flex;
     align-items:center;
     justify-content:center;
     gap:16px;
     width: 100%;
-    padding: 12px 16px; 
+    padding: 10px 14px; 
     border-radius: 8px; 
     border: 1px solid rgba(11,17,80,0.08);
     font-weight: 600;
@@ -132,7 +134,7 @@
 .or-text { font-size: 0.9rem; padding: 8px 12px; background: #fff; }
 
 /* Form Fields */
-.form-group { width: 100%; display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
+.form-group { width: 100%; display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
 .form-field { display: flex; flex-direction: column; gap: 6px; text-align: left; }
 .form-label {
     font-size: 0.9rem;
@@ -144,7 +146,7 @@
     background: #fff; 
     color: #111827; 
     box-shadow: none;
-    padding: 11px 14px;
+    padding: 9px 12px;
     border-radius: 8px;
     border: 1px solid #d1d5db;
     width: 100%;
@@ -164,7 +166,7 @@
     align-items: center;
     gap: 12px;
     justify-content: center;
-    padding: 11px 18px;
+    padding: 9px 16px;
     border-radius: 28px;
     width: 240px;
     margin: 18px auto 0;
@@ -200,6 +202,7 @@
      text-align: center;
   margin: 16px 0;
   color: #888;
+  
 }
 .or-container{
   
@@ -230,8 +233,8 @@
 /* Top Right Text (HR Login) */
 .top-right-text4 {
     position: absolute;
-    top: 90px;
-    left: 50%;
+    top: 110px;
+    left: 51%;
     transform: translateX(-260px); /* ดันไปด้านขวาแบบสวย */
     font-size: 14px;
     color: #2b3fe3;
@@ -249,4 +252,7 @@
 
 .top-right-text4 a:hover {
   color: #ff0000; /* สีเมื่อเอาเมาส์ชี้ */
+}
+.register-card .subtitle:nth-of-type(2) {
+  margin-top: -18px;
 }

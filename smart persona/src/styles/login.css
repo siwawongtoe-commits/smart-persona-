@@ -1,22 +1,22 @@
 .page-root .header-title {
     text-align: center;
     color: #2b3fe3;
-    font-size: 1.8rem;
+    font-size: 1.98rem;
     font-weight: 700;
-    margin-top: 0px; /* เพิ่มระยะลงจากบน */
+    margin-top: 20px; /* เพิ่มระยะลงจากบน */
     margin-bottom: 1.5rem;
 }
 
 /* Card */
 .page-wrapper > .container > .card { 
-    transform: translateY(-30px); /* เลื่อนลงจากเดิม (-50px → -30px) */
+    transform: translateY(-40px); /* เลื่อนลงจากเดิม (-50px → -30px) */
 }
 
 /* หากต้องการปรับ padding ให้สมดุล */
 .card { 
     --g: 20px;
     background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%); 
-    padding: 40px 30px; 
+     padding: 28px 30px 36px; 
     border-radius: 14px; 
     border: 2px solid #2b3fe3; 
     box-shadow: 0 20px 40px rgba(12, 17, 43, 0.08), inset 0 1px 0 rgba(255,255,255,0.6);
@@ -25,7 +25,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 10px;
     position: relative;
     font-size: 0.9rem;
 }
@@ -117,10 +117,10 @@
     color: #000000;               /* ตัวอักษรสีดำ */
     border: 2px solid #2b3fe3;    /* ขอบสีน้ำเงิน */
     border-radius: 10px;
-    padding: 14px; /* ลด padding */
+    padding: 14px ; /* ลด padding */
     font-weight: 600;
     font-size: 0.9rem; /* ลดจาก 0.95rem */
-    margin-top: 6px;
+    margin-top: -10px;
     transition: all 0.2s ease;
     cursor: pointer;
     width: 100%;
