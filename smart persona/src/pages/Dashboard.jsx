@@ -1,155 +1,248 @@
-import React from 'react';
+import React, { useState, useMemo } from "react";
 import {
-    Bookmark, Search, Menu, Settings, Plus, Home, LayoutDashboard, Bell, User, LogOut
-} from 'lucide-react';
+  Search,
+  LogOut,
+  Plus,
+  Home,
+  Bookmark,
+  ChevronDown,
+  Filter, // Filter icon (funnel) is used for the search bar
+  Users,
+  Bell,
+  Settings,
+  Grid,
+  Menu,
+  MessageCircle,
+  BarChart,
+  User,
+} from "lucide-react";
 
-// --- 1. ข้อมูลตัวอย่างสำหรับ Profile Cards (7 รายการ) ---
-const profileData = [
-    { name: "สมชาย ใจดีมาก", role: "Web Developer", location: "Thailand", experience: "4 years", skills: ["Laravel", "Vue.js", "SEO"], avatar: "https://placehold.co/100x100/38bdf8/ffffff?text=SM" },
-    { name: "ปิยพฤกษ์ วงศ์สถิตย์", role: "Software Developer", location: "Thailand | USA", experience: "2.5 years", skills: ["Python", "Javascript", "React"], avatar: "https://placehold.co/100x100/a78bfa/ffffff?text=PY" },
-    { name: "กวิน กุลวัฒน์", role: "UX/UI Designer", location: "Thailand", experience: "6 years", skills: ["Photoshop", "Illustrator", "Design"], avatar: "https://placehold.co/100x100/fb7185/ffffff?text=KW" },
-    { name: "พีรธีร์ อนันตกูล", role: "Web Developer", location: "Thailand", experience: "4 years", skills: ["Laravel", "Vue.js", "Tailwind"], avatar: "https://placehold.co/100x100/10b981/ffffff?text=PT" },
-    { name: "เบน ธนภูมิ", role: "Mobile App Developer", location: "Thailand", experience: "3.5 years", skills: ["Kotlin", "Flutter", "Swift"], avatar: "https://placehold.co/100x100/f59e0b/ffffff?text=BN" },
-    { name: "ธนากร หลายพันธ์ศรี", role: "Data Scientist", location: "Thailand | Singapore", experience: "4 years", skills: ["Python", "Machine Learning", "SQL"], avatar: "https://placehold.co/100x100/6366f1/ffffff?text=TK" },
-    { name: "ภัชรินทร์ เกษมสุข", role: "Cybersecurity Analyst", location: "Thailand", experience: "5 years", skills: ["Network Security", "Linux", "Penetration Testing"], avatar: "https://placehold.co/100x100/ef4444/ffffff?text=PC" },
+// The base data structure remains the same, adding a couple more profiles for variety
+const profiles = [
+  { name: "สมชาย ใจดีมาก", title: "Web Developer", country: "Thailand", exp: "4 years", tags: ["Laravel", "Vue js", "SEO"] },
+  { name: "ปพิชญา วงศ์สถิตย์", title: "Software Developer", country: "Thailand | USA", exp: "2.5 years", tags: ["Python", "Javascript", "React"] },
+  { name: "กวิน สุวีวรินทร์", title: "UX/UI Designer", country: "Thailand", exp: "6 years", tags: ["Photoshop", "Illustrator", "Design"] },
+  { name: "ศิริ วัฒนกุล", title: "Web Developer", country: "Thailand", exp: "4 years", tags: ["Laravel", "Vue js", "SEO"] },
+  { name: "เชน ธนภูมิ", title: "Mobile App Developer", country: "Thailand", exp: "3.5 years", tags: ["Kotlin", "Flutter", "Swift"] },
+  { name: "ธนการ หลายพันธ์", title: "Data Scientist", country: "Thailand | Singapore", exp: "4 years", tags: ["Python", "Machine Learning", "SQL"] },
+  { name: "ณิชาพัชร์ เกษมสุข", title: "Cybersecurity Analyst", country: "Thailand", exp: "5 years", tags: ["Network Security", "Linux", "Penetration Testing"] },
+  { name: "รารัช เจริญธรรม", title: "Video Editor", country: "Thailand", exp: "4 years", tags: ["Premiere Pro", "After Effects", "DaVinci Resolve"] },
+  { name: "ปรเมศวร์ วงษ์สุกรี", title: "Marketing Analyst", country: "Thailand", exp: "3.5 years", tags: ["Data Studio", "Excel", "Google Analytics"] },
+  { name: "แพรว แสงสุวรรณ", title: "Product Developer", country: "Thailand", exp: "5 years", tags: ["Roadmapping", "Agile", "Market Research"] }
 ];
 
-// --- 2. ProfileCard Component (ใช้ Tailwind CSS) ---
+// Utility function to generate initials from a name string.
+const getInitials = (name) => {
+  const parts = name.split(" ");
+  if (parts.length >= 2) {
+    return parts[0][0] + parts[1][0];
+  }
+  return parts[0][0];
+};
+
+// Reusable component for sidebar icons
+const SidebarItem = ({ Icon, label, active }) => (
+  <button
+    className={`flex items-center gap-3 py-2 px-4 rounded-lg w-full text-left transition-colors duration-200
+      ${active
+        ? "bg-blue-100 text-blue-700 font-semibold"
+        : "text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+      }`}
+  >
+    <Icon className="w-5 h-5" />
+    <span className="text-sm">{label}</span>
+  </button>
+);
+
+// Dedicated Sidebar component
+const Sidebar = () => (
+  <aside className="w-60 bg-white p-4 flex flex-col gap-6 border-r border-gray-100 shadow-sm hidden lg:flex">
+    {/* Create Button */}
+    <button className="flex items-center justify-center gap-2 p-3 bg-blue-600 text-white rounded-xl shadow-lg hover:bg-blue-700 transition-colors">
+      <Plus className="w-5 h-5" />
+      <span className="font-semibold text-sm">Create</span>
+    </button>
+
+    {/* Navigation */}
+    <nav className="space-y-2">
+      <SidebarItem Icon={Home} label="Home" active />
+      <SidebarItem Icon={Grid} label="Dashboard" />
+      <SidebarItem Icon={Users} label="Members" />
+      <SidebarItem Icon={Bookmark} label="Bookmarked" />
+      <SidebarItem Icon={Bell} label="Notifications" />
+      <SidebarItem Icon={Settings} label="Settings" />
+      <SidebarItem Icon={MessageCircle} label="Messages" />
+      <SidebarItem Icon={BarChart} label="Statistics" />
+    </nav>
+  </aside>
+);
+
+// Dedicated Profile Card component
 const ProfileCard = ({ profile }) => {
-    return (
-        <div className="bg-white/5 border border-white/10 rounded-xl p-5 shadow-xl transition-transform duration-300 hover:scale-[1.02] cursor-pointer backdrop-blur-sm">
-            <div className="flex justify-between items-start mb-4">
-                {/* Avatar */}
-                <img 
-                    src={profile.avatar} 
-                    alt="Profile Avatar" 
-                    className="w-16 h-16 rounded-full object-cover border-2 border-indigo-400 shadow-lg" 
-                    onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/100x100/334155/ffffff?text=User" }}
-                />
-                {/* Bookmark Icon */}
-                <Bookmark className="w-5 h-5 text-indigo-400 hover:text-indigo-300 transition-colors" />
-            </div>
-            
-            <div className="space-y-1 mb-4">
-                <h3 className="text-xl font-bold text-gray-50 truncate">{profile.name}</h3>
-                <p className="text-sm font-medium text-indigo-300">{profile.role}</p>
-                <p className="text-xs text-gray-400">{profile.location}</p>
-                <p className="text-xs text-gray-300 italic mt-2">
-                    <span className="font-semibold text-indigo-400">ประสบการณ์:</span> {profile.experience}
-                </p>
-            </div>
-            
-            <div className="flex flex-wrap gap-2 pt-3 border-t border-white/10">
-                {profile.skills.map((skill, index) => (
-                    <span 
-                        key={index} 
-                        className="text-xs font-medium bg-gray-700 text-gray-100 px-3 py-1 rounded-full hover:bg-indigo-600 transition-colors"
-                    >
-                        {skill}
-                    </span>
-                ))}
-            </div>
-        </div>
-    );
-};
-
-// --- 3. Dashboard Component หลัก (ใช้ Tailwind CSS) ---
-const Dashboard = () => {
-    // กำหนดความกว้างของ Sidebar สำหรับ Desktop และ Tablet
-    const sidebarWidth = "w-20 lg:w-64"; 
-
-    // รายการนำทาง
-    const navItems = [
-        { icon: Plus, text: "Create", active: true },
-        { icon: Home, text: "Home", active: false },
-        { icon: LayoutDashboard, text: "Dashboard", active: false },
-        { icon: Bell, text: "Notifications", active: false },
+  const initials = getInitials(profile.name);
+  const avatarBg = useMemo(() => {
+    const colors = [
+      "from-red-300 to-red-100",
+      "from-green-300 to-green-100",
+      "from-blue-300 to-blue-100",
+      "from-yellow-300 to-yellow-100",
+      "from-purple-300 to-purple-100",
     ];
+    // Simple hash to pick a consistent color for each name
+    let hash = 0;
+    for (let i = 0; i < profile.name.length; i++) {
+      hash = profile.name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const colorIndex = Math.abs(hash) % colors.length;
+    return colors[colorIndex];
+  }, [profile.name]);
 
-    return (
-        <div className="min-h-screen bg-gray-900 text-white flex">
-            {/* Sidebar */}
-            <aside className={`fixed z-20 h-screen bg-gray-800/80 backdrop-blur-md border-r border-gray-700 p-4 transition-all duration-300 ${sidebarWidth} shadow-2xl`}>
-                <div className="flex items-center justify-center lg:justify-start mb-8 h-10">
-                    <span className="text-2xl font-extrabold text-indigo-400 lg:block hidden">PerFile</span>
-                    <span className="text-2xl font-extrabold text-indigo-400 lg:hidden block">P</span>
-                </div>
-                
-                <nav className="space-y-2">
-                    {navItems.map((item) => (
-                        <a 
-                            key={item.text}
-                            href="#"
-                            className={`flex items-center p-3 rounded-lg transition-colors duration-200 group 
-                                ${item.active 
-                                    ? 'bg-indigo-600/80 text-white shadow-lg' 
-                                    : 'text-gray-300 hover:bg-gray-700/70 hover:text-indigo-300'
-                                }`}
-                            title={item.text}
-                        >
-                            <item.icon className={`w-5 h-5 flex-shrink-0 ${item.active ? 'text-white' : 'text-gray-400 group-hover:text-indigo-300'}`} />
-                            <span className="ml-4 text-sm font-medium hidden lg:inline">{item.text}</span>
-                        </a>
-                    ))}
-                    
-                    {/* User Profile Icon */}
-                    <div className="pt-4 mt-4 border-t border-gray-700/50 flex justify-center lg:justify-start">
-                        <User className="w-6 h-6 p-1 rounded-full text-gray-300 bg-gray-700/50 hover:bg-indigo-500 hover:text-white transition-colors cursor-pointer" />
-                        <span className="ml-4 text-sm font-medium hidden lg:inline self-center">Profile</span>
-                    </div>
-                </nav>
-            </aside>
+  return (
+    // Outer container with gradient background and 2px padding for the border effect
+    <article className="p-[2px] rounded-xl shadow-lg relative hover:shadow-xl transition-all duration-200 
+                        bg-gradient-to-br from-[#8889C8] via-[#5EB4FF] to-[#9092FF]">
+      
+      {/* Inner container to hold the content, must be solid white */}
+      <div className="bg-white rounded-xl p-4 h-full">
 
-            {/* Main Content Area */}
-            <main className={`flex-1 transition-all duration-300 p-4 sm:p-8 lg:ml-64 ml-20`}>
-                
-                {/* Top Navigation Bar & Search */}
-                <header className="flex items-center justify-between h-16 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-10 -mx-4 sm:-mx-8 px-4 sm:px-8">
-                    <div className="flex items-center w-full max-w-lg bg-gray-800 rounded-xl p-2 border border-gray-700 shadow-inner">
-                        <Search className="w-5 h-5 text-gray-400 ml-2 flex-shrink-0" />
-                        <input 
-                            type="text" 
-                            placeholder="Search Profile, User..." 
-                            className="flex-grow bg-transparent text-sm text-white placeholder-gray-500 outline-none px-3" 
-                        />
-                        <div className="p-1 bg-gray-700 rounded-lg hover:bg-indigo-600 transition-colors cursor-pointer">
-                            <Menu className="w-5 h-5 text-gray-300" />
-                        </div>
-                    </div>
-                    
-                    <button className="flex items-center bg-red-600 text-white text-sm font-medium py-2 px-4 rounded-lg shadow-md hover:bg-red-700 transition-colors">
-                        <LogOut className="w-4 h-4 mr-1" />
-                        <span className="hidden sm:inline">Log out</span>
-                    </button>
-                </header>
-
-                {/* Content Header & Filter */}
-                <div className="mt-8 mb-6 flex items-center justify-between border-b border-gray-700 pb-4">
-                    <h1 className="text-2xl sm:text-3xl font-light text-indigo-300">
-                        ค้นหาผู้เชี่ยวชาญด้าน IT ในไทย
-                    </h1>
-                    <div className="flex items-center space-x-3">
-                        <input 
-                            type="text" 
-                            placeholder="คำที่ค้นหา :" 
-                            className="bg-gray-800 text-sm text-white placeholder-gray-500 p-2 rounded-lg border border-gray-700 focus:ring-2 focus:ring-indigo-500 outline-none w-32 sm:w-48"
-                        />
-                        <div className="p-2 bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer shadow-md">
-                            <Settings className="w-5 h-5 text-white" />
-                        </div>
-                    </div>
-                </div>
-
-                {/* Profiles Grid */}
-                <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {profileData.map((profile, index) => (
-                        <ProfileCard key={index} profile={profile} />
-                    ))}
-                </div>
-                
-            </main>
+        {/* Bookmark icon */}
+        <div className="absolute top-3 right-3 text-gray-400">
+          <Bookmark className="w-5 h-5 fill-current" />
         </div>
-    );
+
+        {/* avatar */}
+        <div className="flex flex-col items-center gap-2">
+          <div className={`w-20 h-20 rounded-full bg-gradient-to-tr ${avatarBg} flex items-center justify-center shadow-md`}>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z" fill="#fff" />
+              <path d="M3 20c0-3.866 3.582-7 8.5-7S20 16.134 20 20v1H3v-1z" fill="#fff" />
+            </svg>
+          </div>
+
+          <div className="text-center">
+            <h3 className="font-medium text-sm text-gray-800">{profile.name}</h3>
+            <div className="text-xs text-blue-600 font-medium">{profile.title}</div>
+            <div className="text-xs text-gray-500">{profile.country}</div>
+          </div>
+
+          <div className="mt-2 text-xs text-gray-500 font-medium">&lt; - Experience - &gt;</div>
+          <div className="text-sm font-semibold text-blue-800">{profile.exp}</div>
+        </div>
+
+        {/* tags */}
+        <div className="mt-4 flex flex-wrap gap-2 justify-center">
+          {profile.tags.map((t, i) => (
+            <span key={i} className="px-3 py-1 border border-gray-300 rounded-full text-xs bg-white shadow-sm text-gray-700">
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
 };
 
-export default Dashboard;
+export default function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [localSearchQuery, setLocalSearchQuery] = useState("");
+
+  const filteredProfiles = useMemo(() => {
+    if (!localSearchQuery) return profiles;
+    const query = localSearchQuery.toLowerCase();
+    return profiles.filter(
+      (p) =>
+        p.name.toLowerCase().includes(query) ||
+        p.title.toLowerCase().includes(query) ||
+        p.tags.some((tag) => tag.toLowerCase().includes(query))
+    );
+  }, [localSearchQuery]);
+
+  return (
+    <div className="min-h-screen bg-gray-100 font-sans antialiased text-gray-700">
+      <div className="max-w-[1400px] mx-auto bg-white shadow-lg rounded-xl overflow-hidden my-6">
+
+        {/* Header - ปรับปรุงการจัดเรียงให้ช่องค้นหาอยู่ตรงกลาง */}
+        <header className="bg-blue-800 text-white p-4 flex items-center justify-between">
+          
+          {/* Logo/Title - ซ้าย */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <div className="text-2xl font-bold pl-2">PerFile</div>
+          </div>
+
+          {/* Search Bar - ตรงกลาง (ถูกปรับให้มีความกว้างจำกัดและจัดอยู่กึ่งกลาง) */}
+          <div className="flex-1 flex justify-center px-4">
+            <div className="relative w-full max-w-xl">
+              <input
+                type="text"
+                placeholder="Search Profile, User"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                // ** เพิ่ม pr-10 เพื่อเว้นที่ว่างสำหรับไอคอนด้านขวา **
+                className="w-full rounded-full py-2 px-4 pl-10 pr-10 text-sm focus:outline-none text-gray-900 placeholder-[#8889C8] border-4 border-[#5EB4FF]"
+              />
+              {/* ไอคอนค้นหา - ซ้าย */}
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#5EB4FF]" />
+
+              {/* ** ไอคอนตัวกรอง - ขวา (เปลี่ยนกลับเป็น Filter icon (กรวย) ตามภาพ) ** */}
+              <Filter className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#5EB4FF] cursor-pointer hover:opacity-80 transition-opacity" />
+
+            </div>
+          </div>
+
+          {/* Log out Button - ขวา (เพิ่ม border border-white) */}
+          <button className="bg-red-600 px-4 py-1 rounded text-sm hover:bg-red-700 transition-colors flex-shrink-0 border border-white">
+            Log out
+          </button>
+        </header>
+
+        <div className="flex">
+          {/* Sidebar */}
+          <Sidebar />
+
+          {/* Main Content Area */}
+          <main className="flex-1 p-6">
+            {/* Top Search Bar (Local Filter) */}
+            <div className="mb-6">
+              <div className="bg-white rounded-full px-4 py-2 shadow-inner border border-gray-200 flex items-center">
+                <input
+                  className="w-full outline-none text-sm placeholder-gray-400"
+                  placeholder="ค้นหาชื่อ :"
+                  value={localSearchQuery}
+                  onChange={(e) => setLocalSearchQuery(e.target.value)}
+                />
+                <Search className="w-4 h-4 text-gray-400 ml-2" />
+              </div>
+            </div>
+
+            {/* Controls row (Sort & Filter) */}
+            <div className="flex justify-end items-center mb-6 gap-4 text-gray-600">
+              <button className="flex items-center gap-1 p-2 rounded-lg bg-white shadow border border-gray-200 text-sm hover:bg-gray-50 transition-colors">
+                Sort <ChevronDown className="w-4 h-4" />
+              </button>
+              <button className="flex items-center gap-1 p-2 rounded-lg bg-white shadow border border-gray-200 text-sm hover:bg-gray-50 transition-colors">
+                Filter <Menu className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Grid of cards */}
+            {filteredProfiles.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                {filteredProfiles.map((p, idx) => (
+                    <ProfileCard key={idx} profile={p} />
+                ))}
+                </div>
+            ) : (
+                <div className="text-center p-10 bg-white rounded-xl shadow-lg mt-8 border border-gray-200">
+                    <h3 className="text-xl font-semibold text-gray-600">ไม่พบโปรไฟล์</h3>
+                    <p className="text-gray-400 mt-2">ลองปรับเกณฑ์การค้นหาของคุณ</p>
+                </div>
+            )}
+
+            {/* bottom spacing */}
+            <div className="h-16" />
+          </main>
+        </div>
+      </div>
+    </div>
+  );
+}

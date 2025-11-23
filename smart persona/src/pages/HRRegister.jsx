@@ -17,7 +17,7 @@ export default function HRRegister() {
       <div className="register-box">
 
         <div className="top-right-text">
-          <a href="http://localhost:4000/"> คุณเป็นผู้หางานหรือเปล่า?</a>
+          <a href="http://localhost:5173/"> คุณเป็นผู้หางานหรือเปล่า?</a>
         </div>
 
         <p className="register-title">ลงทะเบียน</p>
