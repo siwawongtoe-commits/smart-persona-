@@ -14,8 +14,9 @@ export default function RegisterPage() {
               <span className="icon">⟵</span> กลับเข้าสู่หน้าหลัก
             </button>
             <div className="top-right-text4">
-              <a href="http://localhost:4000/HRLogin">คุณเป็นผู้ประกอบการหรือเปล่า?</a>
+              <Link to="/HRLogin">คุณเป็นผู้ประกอบการหรือเปล่า?</Link>
             </div>
+
             <div className="brand-title">PerFile</div>
 
             <div

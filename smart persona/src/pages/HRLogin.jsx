@@ -15,14 +15,15 @@ export default function Login() {
       <h1 className="title">PerFile</h1>
 
       <div className="top-right-text2">
-        <a href="http://localhost:5173/"> คุณเป็นผู้หางานหรือเปล่า?</a>
+        <Link to="/">คุณเป็นผู้หางานหรือเปล่า?</Link>
       </div>
+
 
       <div className="login-box">
 
         <p className="login-title">เข้าสู่ระบบ</p>
 
-         <button className="google-btn">
+        <button className="google-btn">
           {/* ⬇️ โค้ด SVG ไอคอน Google ใหม่ ⬇️ */}
           <svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg">
             <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.15 30.49 0 24 0 14.65 0 6.68 5.3 3.29 13.01l7.66 5.86C12.59 13.78 17.81 9.5 24 9.5z" />
@@ -42,7 +43,7 @@ export default function Login() {
           <input type="email" placeholder="Email" />
         </div>
 
-      
+
         <div className="form-group">
           <label>รหัสผ่าน</label>
           <div className="password-wrapper">

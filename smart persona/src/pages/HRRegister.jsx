@@ -17,8 +17,9 @@ export default function HRRegister() {
       <div className="register-box">
 
         <div className="top-right-text">
-          <a href="http://localhost:5173/"> คุณเป็นผู้หางานหรือเปล่า?</a>
+          <Link to="/">คุณเป็นผู้หางานหรือเปล่า?</Link>
         </div>
+
 
         <p className="register-title">ลงทะเบียน</p>
         <p className="sub-warn">*ใช้ข้อมูลของทางบริษัท</p>
@@ -55,7 +56,7 @@ export default function HRRegister() {
           <input type="email" placeholder="อีเมล" />
         </div>
 
-      
+
         <div className="form-group">
           <label>กำหนดรหัสผ่าน</label>
           <div className="password-wrapper">
