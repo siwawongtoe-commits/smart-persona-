@@ -6,6 +6,25 @@ body {
     color: #333;
 }
 
+/* --- Dashboard specific wrappers (matches DashboardAdmin.jsx semantic classes) --- */
+.dashboard-admin {
+    min-height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, #E7E9FF 0%, #CCDAFF 100%);
+    font-family: inherit;
+    color: #374151;
+}
+
+.dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 20px 40px rgba(2,6,23,0.08), 0 6px 12px rgba(2,6,23,0.04);
+    border-radius: 24px;
+    overflow: hidden;
+}
+
 /* --- App Layout --- */
 .app-container {
     display: flex;
@@ -103,6 +122,24 @@ body {
     color: white;
     border-radius: 0 0 0 20px; /* มุมโค้งด้านซ้ายล่าง */
 }
+
+/* Dashboard header & main (matching JSX semantic classes) */
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: linear-gradient(90deg, #0f172a, #1e3a8a);
+    color: white;
+}
+
+.dashboard-main {
+    padding: 24px;
+}
+
+.local-search { width: 100%; border-radius: 9999px; }
+
+.profile-card-outer { padding: 2px; border-radius: 16px; position: relative; }
 
 .search-bar {
     display: flex;

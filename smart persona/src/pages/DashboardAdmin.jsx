@@ -62,39 +62,37 @@ const ProfileCard = ({ profile }) => {
 
   return (
     // Outer container with gradient background and 2px padding for the border effect
-    <article className="p-[2px] rounded-2xl shadow-xl relative hover:shadow-2xl transition-all duration-200 
-                        bg-gradient-to-br from-[#8889C8] via-[#5EB4FF] to-[#9092FF] cursor-pointer">
+    <article className="profile-card-outer p-[2px] rounded-2xl shadow-xl relative hover:shadow-2xl transition-all duration-200 bg-gradient-to-br from-[#8889C8] via-[#5EB4FF] to-[#9092FF] cursor-pointer">
       
       {/* Inner container to hold the content, must be solid white */}
-      <div className="bg-white rounded-2xl p-6 h-full flex flex-col items-center">
+      <div className="profile-card bg-white rounded-2xl p-6 h-full flex flex-col items-center">
 
         {/* Bookmark icon */}
-        <div className="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors">
+        <div className="bookmark-icon absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors">
           <Bookmark className="w-5 h-5 fill-current" />
         </div>
 
         {/* Avatar */}
-        <div className={`w-20 h-20 rounded-full bg-gradient-to-tr ${avatarBg} flex items-center justify-center shadow-lg ring-4 ring-white`}>
+        <div className={`profile-avatar w-20 h-20 rounded-full bg-gradient-to-tr ${avatarBg} flex items-center justify-center shadow-lg ring-4 ring-white`}>
           {/* Using User icon for generic avatar as in the image */}
           <User className="w-10 h-10 text-white" />
         </div>
 
         <div className="text-center mt-3">
-          <h3 className="font-semibold text-lg text-gray-800">{profile.name}</h3>
-          <div className="text-sm text-blue-600 font-medium mt-0.5">{profile.title}</div>
-          <div className="text-xs text-gray-500 mt-1">{profile.country}</div>
+          <h3 className="profile-name font-semibold text-lg text-gray-800">{profile.name}</h3>
+          <div className="profile-role text-sm text-blue-600 font-medium mt-0.5">{profile.title}</div>
+          <div className="profile-location text-xs text-gray-500 mt-1">{profile.country}</div>
         </div>
 
         <div className="mt-4 text-xs text-gray-500 font-medium select-none"> &lt; - Experience - &gt; </div>
-        <div className="text-base font-bold text-blue-800">{profile.exp}</div>
+        <div className="profile-experience text-base font-bold text-blue-800">{profile.exp}</div>
 
         {/* Tags */}
-        <div className="mt-4 flex flex-wrap gap-2 justify-center">
+        <div className="card-footer mt-4 flex flex-wrap gap-2 justify-center">
           {profile.tags.map((t, i) => (
             <span 
               key={i} 
-              // Styling tags to look like rounded blue pills as in the image
-              className="px-3 py-1 rounded-full text-xs bg-blue-50 text-blue-700 font-medium border border-blue-200 hover:bg-blue-100 transition-colors"
+              className="skill-tag px-3 py-1 rounded-full text-xs bg-blue-50 text-blue-700 font-medium border border-blue-200 hover:bg-blue-100 transition-colors"
             >
               {t}
             </span>
@@ -122,11 +120,11 @@ export default function App() {
 
   return (
     // 1. Outer Container: Soft blue/purple background and large rounding to match the whole page canvas
-    <div className="min-h-screen p-4 sm:p-8 bg-gradient-to-b from-[#E7E9FF] to-[#CCDAFF] font-sans antialiased text-gray-700">
-      <div className="max-w-[1400px] mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden">
+    <div className="dashboard-admin min-h-screen p-4 sm:p-8 bg-gradient-to-b from-[#E7E9FF] to-[#CCDAFF] font-sans antialiased text-gray-700">
+      <div className="dashboard-container max-w-[1400px] mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden">
 
         {/* Header (Top Navigation) */}
-        <header className="bg-blue-800 text-white p-4 flex items-center justify-between">
+        <header className="dashboard-header bg-blue-800 text-white p-4 flex items-center justify-between">
           
           {/* Logo/Title - Left */}
           <div className="flex items-center gap-3 flex-shrink-0">
@@ -160,14 +158,14 @@ export default function App() {
         </header>
 
         {/* Main Content Area (Full Width since Sidebar is removed) */}
-        <main className="flex-1 p-6 w-full">
+        <main className="dashboard-main flex-1 p-6 w-full">
           
           {/* Top Local Filter Bar */}
-          <div className="mb-6 flex justify-between items-center gap-4">
+          <div className="content-header mb-6 flex justify-between items-center gap-4">
             
-            <div className="relative flex-1">
+              <div className="relative flex-1">
               <input
-                className="w-full outline-none text-sm placeholder-gray-400 rounded-full px-4 py-2 shadow-inner border border-gray-200"
+                className="local-search w-full outline-none text-sm placeholder-gray-400 rounded-full px-4 py-2 shadow-inner border border-gray-200"
                 placeholder="ค้นหาชื่อ :"
                 value={localSearchQuery}
                 onChange={(e) => setLocalSearchQuery(e.target.value)}
@@ -183,11 +181,11 @@ export default function App() {
 
           {/* Grid of cards */}
           {filteredProfiles.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-              {filteredProfiles.map((p, idx) => (
+                <div className="profiles-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                {filteredProfiles.map((p, idx) => (
                   <ProfileCard key={idx} profile={p} />
-              ))}
-              </div>
+                ))}
+                </div>
           ) : (
               <div className="text-center p-10 bg-white rounded-xl shadow-lg mt-8 border border-gray-200">
                   <h3 className="text-xl font-semibold text-gray-600">ไม่พบโปรไฟล์</h3>
