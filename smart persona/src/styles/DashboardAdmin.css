@@ -20,9 +20,10 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     background: white;
-    box-shadow: 0 20px 40px rgba(2,6,23,0.08), 0 6px 12px rgba(2,6,23,0.04);
-    border-radius: 24px;
+    box-shadow: 0 18px 36px rgba(2,6,23,0.08), 0 6px 12px rgba(2,6,23,0.04);
+    border-radius: 28px;
     overflow: hidden;
+    padding: 18px; /* add breathing room so inner content shows rounded corners */
 }
 
 /* --- App Layout --- */
@@ -128,18 +129,26 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px;
-    background: linear-gradient(90deg, #0f172a, #1e3a8a);
+    padding: 14px 22px;
+    background: linear-gradient(90deg, #17216a 0%, #1e3a8a 100%);
     color: white;
 }
 
 .dashboard-main {
-    padding: 24px;
+    padding: 26px;
 }
 
 .local-search { width: 100%; border-radius: 9999px; }
 
 .profile-card-outer { padding: 2px; border-radius: 16px; position: relative; }
+
+/* Increase grid gap and padding to match prototype spacing */
+.profiles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+    padding: 22px 26px;
+}
 
 .search-bar {
     display: flex;
@@ -231,12 +240,14 @@ body {
 /* --- Profile Card --- */
 .profile-card {
     background-color: white;
-    border-radius: 15px; /* มุมโค้งมนกว่าเดิม */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 10px 20px rgba(16,24,40,0.06);
+    padding: 18px 16px 20px 16px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    min-height: 220px;
+    align-items: center;
 }
 
 .card-header {
@@ -247,12 +258,11 @@ body {
 }
 
 .profile-avatar {
-    width: 70px; /* ขนาดวงกลมเล็กลงเล็กน้อย */
-    height: 70px;
+    width: 80px; /* match JSX w-20 (80px) */
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    /* สีของขอบจะเปลี่ยนไปตามเพศในภาพ */
-    border: 3px solid #0d47a1; 
+    box-shadow: 0 6px 12px rgba(16,24,40,0.06);
 }
 
 /* การ์ดที่มีอวาตาร์สีชมพู/แดง (สมมติว่าเป็นเพศหญิง) */
@@ -263,8 +273,16 @@ body {
 }
 
 .bookmark-icon {
-    color: #999;
+    color: #6b7280;
     cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(16,24,40,0.06);
 }
 
 .card-body {
@@ -299,19 +317,20 @@ body {
 .card-footer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* จัดให้อยู่ตรงกลางด้านล่าง */
+    justify-content: center;
     gap: 8px;
     margin-top: auto;
 }
 
 .skill-tag {
-    /* การออกแบบแท็กให้เป็นสี่เหลี่ยมผืนผ้าโค้งมน */
-    background-color: #e8eaf6; 
-    color: #3f51b5;
+    background: #fff;
+    color: #2563eb;
     padding: 6px 10px;
-    border-radius: 6px; 
+    border-radius: 999px;
     font-size: 0.75em;
     font-weight: 600;
+    border: 1px solid rgba(94,180,255,0.25);
+    box-shadow: 0 2px 4px rgba(94,180,255,0.05);
 }
 
 /* --- Responsive Adjustments --- */
