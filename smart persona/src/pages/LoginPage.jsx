@@ -15,20 +15,28 @@ export default function LoginPage() {
   e.preventDefault();
 
   const users = JSON.parse(localStorage.getItem("users")) || [];
+const loggedUsers = JSON.parse(localStorage.getItem("loggedUsers")) || [];
+const found = users.find((u) => u.email === email);
 
-  // ตรวจแค่อีเมลพอ
-  const found = users.find((u) => u.email === email);
+if (!found) {
+  alert("ไม่พบอีเมลนี้");
+  return;
+}
 
-  if (!found) {
-    alert("อีเมลนี้ไม่พบในระบบ");
-    return;
-  }
+if (found.password !== password) {
+  alert("รหัสผ่านไม่ถูกต้อง");
+  return;
+}
 
-  // บันทึกผู้ใช้ที่ล็อกอิน
-  localStorage.setItem("currentUser", JSON.stringify(found));
+// ถ้า user ยังไม่อยู่ใน loggedUsers ก็เพิ่ม
+if (!loggedUsers.some(u => u.email === found.email)) {
+  loggedUsers.push(found);
+}
 
-  alert("เข้าสู่ระบบสำเร็จ!");
-  window.location.href = "/home";
+localStorage.setItem("loggedUsers", JSON.stringify(loggedUsers));
+
+alert("เข้าสู่ระบบสำเร็จ!");
+window.location.href = "/home";
 }
 
   return (

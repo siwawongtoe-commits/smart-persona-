@@ -4,26 +4,27 @@ import "../styles/register.css";
 
 export default function RegisterPage() {
   const [showPass, setShowPass] = useState(false);
-
-  // เก็บค่า input
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // ฟังก์ชันสมัครสมาชิก
  function handleRegister(e) {
   e.preventDefault();
 
   const users = JSON.parse(localStorage.getItem("users")) || [];
 
-  // เช็คอีเมลซ้ำ
+  // ตรวจว่ามีอีเมลนี้มาก่อนหรือยัง
   const exists = users.find((u) => u.email === email);
   if (exists) {
-    alert("อีเมลนี้ถูกใช้แล้ว");
+    alert("อีเมลนี้ถูกใช้ไปแล้ว");
     return;
   }
 
-  // บันทึกเฉพาะ email
-  const newUser = { email };
+  // สร้างผู้ใช้ใหม่
+  const newUser = {
+    email,
+    password
+  };
+
   users.push(newUser);
 
   localStorage.setItem("users", JSON.stringify(users));
@@ -31,6 +32,7 @@ export default function RegisterPage() {
   alert("สมัครสมาชิกสำเร็จ!");
   window.location.href = "/login";
 }
+
 
 
   return (
