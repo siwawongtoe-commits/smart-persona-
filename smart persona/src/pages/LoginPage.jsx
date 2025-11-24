@@ -1,12 +1,36 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
+
 export default function LoginPage() {
   const [showPass, setShowPass] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   function toggleShow() {
     setShowPass((s) => !s);
   }
+
+ function handleLogin(e) {
+  e.preventDefault();
+
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  // ตรวจแค่อีเมลพอ
+  const found = users.find((u) => u.email === email);
+
+  if (!found) {
+    alert("อีเมลนี้ไม่พบในระบบ");
+    return;
+  }
+
+  // บันทึกผู้ใช้ที่ล็อกอิน
+  localStorage.setItem("currentUser", JSON.stringify(found));
+
+  alert("เข้าสู่ระบบสำเร็จ!");
+  window.location.href = "/home";
+}
+
   return (
     <div className="page-root text-center">
       <header className="">
@@ -25,10 +49,10 @@ export default function LoginPage() {
               <Link to="/HRLogin">คุณเป็นผู้ประกอบการหรือเปล่า?</Link>
             </div>
 
-            <h1 id="login-title" className="card-title font-bold mb-2  ">เข้าสู่ระบบ</h1>
+            <h1 id="login-title" className="card-title font-bold mb-2">เข้าสู่ระบบ</h1>
             <p className="mb-8 muted-small">ต้องการเข้าสู่ระบบด้วยอะไร?</p>
 
-            <div className="provider-wrapper2">
+             <div className="provider-wrapper2">
               <button className="google-btn google-login">
                 <svg viewBox="0 0 48 48" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
                   <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.15 30.49 0 24 0 14.65 0 6.68 5.3 3.29 13.01l7.66 5.86C12.59 13.78 17.81 9.5 24 9.5z" />
@@ -50,20 +74,30 @@ export default function LoginPage() {
 
             </div>
 
-            <div class="divider-or">
+            <div className="divider-or">
               <span>หรือ</span>
             </div>
 
+            {/* Email */}
             <div className="form-field2">
               <label>อีเมล</label>
-              <input type="email" placeholder="example@mail.com" />
+              <input
+                type="email"
+                placeholder="example@mail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
+
+            {/* Password */}
             <div className="form-field2">
               <label>รหัสผ่าน</label>
               <div className="password-wrapper">
                 <input
                   type={showPass ? "text" : "password"}
                   placeholder="********"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <button
                   type="button"
@@ -75,21 +109,24 @@ export default function LoginPage() {
                 </button>
               </div>
             </div>
-            <p></p>
-            <button type="submit" className="btn btn-brand mt-4 w-full">
+
+            <button
+              type="submit"
+              className="btn btn-brand mt-4 w-full"
+              onClick={handleLogin}
+            >
               เข้าสู่ระบบ
             </button>
 
             <p className="mt-8 text-sm">
-              ไม่เคยเข้าใช้งานใช่ไหม? <Link to="/register" className="link-brand font-semibold">ลงทะเบียน</Link>
+              ไม่เคยเข้าใช้งานใช่ไหม?{" "}
+              <Link to="/" className="link-brand font-semibold">
+                ลงทะเบียน
+              </Link>
             </p>
-
-
           </div>
         </div>
       </main>
-
-
     </div>
   );
 }

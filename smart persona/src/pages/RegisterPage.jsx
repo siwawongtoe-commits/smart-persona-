@@ -1,11 +1,39 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/register.css";
+
 export default function RegisterPage() {
   const [showPass, setShowPass] = useState(false);
 
-  return (
+  // เก็บค่า input
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  // ฟังก์ชันสมัครสมาชิก
+ function handleRegister(e) {
+  e.preventDefault();
+
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  // เช็คอีเมลซ้ำ
+  const exists = users.find((u) => u.email === email);
+  if (exists) {
+    alert("อีเมลนี้ถูกใช้แล้ว");
+    return;
+  }
+
+  // บันทึกเฉพาะ email
+  const newUser = { email };
+  users.push(newUser);
+
+  localStorage.setItem("users", JSON.stringify(users));
+
+  alert("สมัครสมาชิกสำเร็จ!");
+  window.location.href = "/login";
+}
+
+
+  return (
     <div className="register-fullscreen">
       <div className="page-root text-center">
         <main className="page-wrapper">
@@ -13,22 +41,17 @@ export default function RegisterPage() {
             <button className="back-btn">
               <span className="icon">⟵</span> กลับเข้าสู่หน้าหลัก
             </button>
+
             <div className="top-right-text4">
               <Link to="/HRLogin">คุณเป็นผู้ประกอบการหรือเปล่า?</Link>
             </div>
 
             <div className="brand-title">PerFile</div>
 
-            <div
-              className="card register-card"
-              role="region"
-              aria-labelledby="register-title"
-            >
+            <div className="card register-card" role="region" aria-labelledby="register-title">
+              <h1 id="register-title" className="card-title">ลงทะเบียน</h1>
 
-              <h1 id="register-title" className="card-title">
-                ลงทะเบียน
-              </h1>
-              <p className="subtitle">เลือกแอพพลิเคชันเพื่อสร้าง Main Profile</p>
+              <p className="subtitle">เลือกแอพเพื่อสร้าง Main Profile</p>
 
               <div className="provider-wrapper" style={{ marginTop: 8 }}>
                 {/* Google */}
@@ -86,13 +109,15 @@ export default function RegisterPage() {
                 </button> */}
               </div>
 
+
               <div className="or-container" aria-hidden>
                 <span className="or-text">หรือ</span>
               </div>
 
               <p className="subtitle">สร้าง Main Profile ด้วยตนเอง</p>
 
-              <form className="form-group">
+              <form className="form-group" onSubmit={handleRegister}>
+                {/* Email */}
                 <div className="form-field">
                   <label className="form-label" htmlFor="reg-email">อีเมล</label>
                   <input
@@ -100,9 +125,13 @@ export default function RegisterPage() {
                     className="form-input"
                     type="email"
                     placeholder="example@mail.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
                   />
                 </div>
 
+                {/* Password */}
                 <div className="form-field">
                   <label className="form-label" htmlFor="reg-pass">กำหนดรหัสผ่าน</label>
                   <div className="password-wrapper">
@@ -111,13 +140,22 @@ export default function RegisterPage() {
                       className="form-input"
                       type={showPass ? "text" : "password"}
                       placeholder="********"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
                     />
-                    <button type="button" className="password-toggle" onClick={() => setShowPass(s => !s)} aria-label="toggle password">
-                      {showPass ? '🙈' : '👁️'}
+                    <button
+                      type="button"
+                      className="password-toggle"
+                      onClick={() => setShowPass((s) => !s)}
+                      aria-label="toggle password"
+                    >
+                      {showPass ? "🙈" : "👁️"}
                     </button>
                   </div>
                 </div>
 
+                {/* Submit */}
                 <button type="submit" className="btn btn-submit">
                   <span className="icon" aria-hidden>✍️</span>
                   <span>สร้าง Main Profile</span>
@@ -125,10 +163,8 @@ export default function RegisterPage() {
               </form>
 
               <p className="login-text">
-                ยังมีบัญชีอยู่แล้วใช่ไหม? กลับไปหน้า{" "}
-                <Link to="/" className="link-brand">
-                  เข้าสู่ระบบ
-                </Link>
+                มีบัญชีอยู่แล้วใช่ไหม? กลับไปหน้า{" "}
+                <Link to="/login" className="link-brand">เข้าสู่ระบบ</Link>
               </p>
             </div>
           </div>
