@@ -164,7 +164,7 @@ export default function RegisterPage() {
                 </button>
               </form>
 
-              <p className="login-text">
+              <p className="login-text1">
                 มีบัญชีอยู่แล้วใช่ไหม? กลับไปหน้า{" "}
                 <Link to="/login" className="link-brand">เข้าสู่ระบบ</Link>
               </p>

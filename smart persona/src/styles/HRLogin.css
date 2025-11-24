@@ -44,7 +44,7 @@ body {
 
 /* กล่อง login */
 .login-box {
-  margin-top: 20px;
+  margin-top: 40px;
   width: 380px;
   padding: 28px;
   border: 2px solid #1d2dbb;
@@ -58,7 +58,7 @@ body {
   text-align: center;
   font-size: 22px;
   font-weight: 700;
-  color: #2026c9;
+  color: #000000;
 }
 
 /* ปุ่ม google */
@@ -119,7 +119,7 @@ input {
 
 .register-text {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
 .register-text a {
@@ -136,7 +136,7 @@ input::placeholder {
 
 .top-right-text2 a{
   position: absolute;
-  top: 135px;
+  top: 155px;
   left: 50%;
   transform: translateX(40px); /* ลดจาก 210 → 170 px */
   font-size: 14px;

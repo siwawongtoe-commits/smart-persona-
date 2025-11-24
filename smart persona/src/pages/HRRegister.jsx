@@ -2,29 +2,47 @@ import React, { useState } from "react";
 import "../styles/HRRegister.css";
 import { Link } from "react-router-dom";
 
+
 export default function HRRegister() {
   const [showPass, setShowPass] = useState(false);
+  const [company, setCompany] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  function handleRegister(e) {
+    e.preventDefault();
+
+    const hrUsers = JSON.parse(localStorage.getItem("hrUsers")) || [];
+
+    if (hrUsers.some(u => u.email.trim() === email.trim())) {
+      alert("อีเมลนี้ถูกใช้ไปแล้ว");
+      return;
+    }
+
+    const newUser = { company, name, email: email.trim(), password };
+    hrUsers.push(newUser);
+    localStorage.setItem("hrUsers", JSON.stringify(hrUsers));
+
+    alert("ลงทะเบียนสำเร็จ!");
+    setCompany(""); setName(""); setEmail(""); setPassword("");
+  }
   return (
     <div className="register-page">
-
       <button className="back-btn">
-        <span className="icon">⟵</span>กลับเข้าสู่หน้าหลัก
+        <span className="icon">⟵</span>กลับหน้าหลัก
       </button>
 
       <h1 className="title">PerFile</h1>
 
       <div className="register-box">
-
         <div className="top-right-text">
           <Link to="/">คุณเป็นผู้หางานหรือเปล่า?</Link>
         </div>
 
-
-        <p className="register-title">ลงทะเบียน</p>
+        <p className="register-title">ลงทะเบียน HR</p>
         <p className="sub-warn">*ใช้ข้อมูลของทางบริษัท</p>
-
-        <button className="google-btn">
+           <button className="google-btn">
           {/* ⬇️ โค้ด SVG ไอคอน Google ใหม่ ⬇️ */}
           <svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg">
             <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.15 30.49 0 24 0 14.65 0 6.68 5.3 3.29 13.01l7.66 5.86C12.59 13.78 17.81 9.5 24 9.5z" />
@@ -37,49 +55,37 @@ export default function HRRegister() {
           ดำเนินการด้วยบัญชี Google
         </button>
 
-        <div className="divider">
-          <span>หรือ</span>
-        </div>
 
         <div className="form-group">
           <label>ชื่อบริษัท</label>
-          <input type="text" placeholder="ชื่อบริษัท" />
+          <input type="text" value={company} onChange={e=>setCompany(e.target.value)} placeholder="ชื่อบริษัท" />
         </div>
 
         <div className="form-group">
           <label>ชื่อพนักงาน</label>
-          <input type="text" placeholder="ชื่อพนักงาน" />
+          <input type="text" value={name} onChange={e=>setName(e.target.value)} placeholder="ชื่อพนักงาน" />
         </div>
 
         <div className="form-group">
           <label>อีเมล</label>
-          <input type="email" placeholder="อีเมล" />
+          <input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="อีเมล" />
         </div>
 
-
         <div className="form-group">
-          <label>กำหนดรหัสผ่าน</label>
+          <label>รหัสผ่าน</label>
           <div className="password-wrapper">
-            <input
-              type={showPass ? "text" : "password"}
-              placeholder="รหัสผ่าน"
-            />
-            <button
-              type="button"
-              className="password-toggle"
-              onClick={() => setShowPass(!showPass)}
-            >
+            <input type={showPass ? "text" : "password"} value={password} onChange={e=>setPassword(e.target.value)} placeholder="รหัสผ่าน" />
+            <button type="button" className="password-toggle" onClick={()=>setShowPass(!showPass)}>
               {showPass ? "🙈" : "👁️"}
             </button>
           </div>
         </div>
 
-        <button className="submit-btn">ลงทะเบียน</button>
+        <button className="submit-btn" onClick={handleRegister}>ลงทะเบียน</button>
 
         <p className="login-text">
-          ยังมีบัญชีแล้วใช่ไหม? <a href="http://localhost:4000/HRLogin">เข้าสู่ระบบ</a>
+          มีบัญชีแล้ว? <Link to="/HRLogin">เข้าสู่ระบบ</Link>
         </p>
-
       </div>
     </div>
   );

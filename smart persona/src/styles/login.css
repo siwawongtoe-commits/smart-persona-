@@ -18,7 +18,7 @@
 .card {
     --g: 20px;
     background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
-    padding: 28px 30px 36px;
+     padding: 28px 30px 16px;
     border-radius: 14px;
     border: 2px solid #2b3fe3;
     box-shadow: 0 20px 40px rgba(12, 17, 43, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
@@ -163,7 +163,7 @@
 .divider-or {
     display: flex;
     align-items: center;
-    margin: 18px 0;
+    margin: 10px 0;
     text-align: center;
     font-size: 12px;
     /* ลดจาก 14px */
