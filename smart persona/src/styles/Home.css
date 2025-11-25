@@ -82,6 +82,29 @@
   box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.header-dashboard-btn {
+  background: #3b82f6;
+  color: white;
+  border: 2px solid white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.header-dashboard-btn:hover {
+  background: #2563eb;
+}
+
 .header-logout {
   background: #dc2626;
   color: white;
