@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/noRegister" element={<NoRegister />} />   
+        <Route path="/noRegister" element={<NoRegister />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<RegisterPage />} />
         {/* <Route path="/home" element={<Dashboard />} /> */}
