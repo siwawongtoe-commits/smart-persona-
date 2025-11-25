@@ -9,7 +9,7 @@ export default function HRLogin() {
 
   // ตัวอย่าง admin 5 คน
   const admins = [
-    { email: "admin1@company.com", password: "admin123", name: "Admin1" },
+    { email: "siwawong.toe@spumail.net", password: "67122203", name: "67122203" },
     { email: "admin2@company.com", password: "admin123", name: "Admin2" },
     { email: "admin3@company.com", password: "admin123", name: "Admin3" },
     { email: "admin4@company.com", password: "admin123", name: "Admin4" },
@@ -19,51 +19,46 @@ export default function HRLogin() {
   // ดึง HR users จาก localStorage
   const hrUsers = JSON.parse(localStorage.getItem("hrUsers")) || [];
 
- function handleLogin(e) {
-  e.preventDefault();
+  function handleLogin(e) {
+    e.preventDefault();
 
-  const foundHR = hrUsers.find(u => u.email.trim() === email.trim() && u.password === password);
-  const foundAdmin = admins.find(a => a.email.trim() === email.trim() && a.password === password);
+    const foundHR = hrUsers.find(u => u.email.trim() === email.trim() && u.password === password);
+    const foundAdmin = admins.find(a => a.email.trim() === email.trim() && a.password === password);
 
-  // โหลด currentUsers แค่ครั้งเดียว
-  let currentUsers = JSON.parse(localStorage.getItem("currentUserHR")) || { HR: [], Admin: [] };
+    // โหลด currentUsers แค่ครั้งเดียว
+    let currentUsers = JSON.parse(localStorage.getItem("currentUserHR")) || { HR: [], Admin: [] };
 
-  const addUser = (role, user) => {
-    // เพิ่ม user ใหม่ ถ้า email ยังไม่มี
-    if (!currentUsers[role].some(u => u.email === user.email)) {
-      const newUser = {
-        id: currentUsers[role].length + 1,
-        role,
-        ...user
-      };
-      currentUsers[role].push(newUser);
+    const addUser = (role, user) => {
+      // เพิ่ม user ใหม่ ถ้า email ยังไม่มี
+      if (!currentUsers[role].some(u => u.email === user.email)) {
+        const newUser = {
+          id: currentUsers[role].length + 1,
+          role,
+          ...user
+        };
+        currentUsers[role].push(newUser);
 
-      // เก็บกลับ localStorage
-      localStorage.setItem("currentUserHR", JSON.stringify(currentUsers));
+        // เก็บกลับ localStorage
+        localStorage.setItem("currentUserHR", JSON.stringify(currentUsers));
+      }
+    };
+
+    if (foundHR) {
+      addUser("HR", foundHR);
+      alert("เข้าสู่ระบบ HR สำเร็จ!");
+      window.location.href = "/home";
+      return;
     }
-  };
 
-  if (foundHR) {
-    addUser("HR", foundHR);
-    alert("เข้าสู่ระบบ HR สำเร็จ!");
-    window.location.href = "/home";
-    return;
+    if (foundAdmin) {
+      addUser("Admin", foundAdmin);
+      alert("เข้าสู่ระบบ Admin สำเร็จ!");
+      window.location.href = "/home";
+      return;
+    }
+
+    alert("อีเมลหรือรหัสผ่านไม่ถูกต้อง หรือไม่ใช่ HR/Admin");
   }
-
-  if (foundAdmin) {
-    addUser("Admin", foundAdmin);
-    alert("เข้าสู่ระบบ Admin สำเร็จ!");
-    window.location.href = "/home";
-    return;
-  }
-
-  alert("อีเมลหรือรหัสผ่านไม่ถูกต้อง หรือไม่ใช่ HR/Admin");
-}
-
-
-
-
-
   return (
     <div className="login-page">
       <button className="back-btn">
@@ -81,14 +76,14 @@ export default function HRLogin() {
 
         <div className="form-group">
           <label>อีเมล</label>
-          <input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="Email" />
+          <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" />
         </div>
 
         <div className="form-group">
           <label>รหัสผ่าน</label>
           <div className="password-wrapper">
-            <input type={showPass ? "text" : "password"} value={password} onChange={e=>setPassword(e.target.value)} placeholder="Password" />
-            <button type="button" className="password-toggle" onClick={()=>setShowPass(!showPass)}>
+            <input type={showPass ? "text" : "password"} value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
+            <button type="button" className="password-toggle" onClick={() => setShowPass(!showPass)}>
               {showPass ? "🙈" : "👁️"}
             </button>
           </div>

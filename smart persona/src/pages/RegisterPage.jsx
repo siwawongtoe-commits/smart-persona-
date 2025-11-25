@@ -166,7 +166,7 @@ export default function RegisterPage() {
 
               <p className="login-text1">
                 มีบัญชีอยู่แล้วใช่ไหม? กลับไปหน้า{" "}
-                <Link to="/login" className="link-brand">เข้าสู่ระบบ</Link>
+                <Link to="/Login" className="link-brand">เข้าสู่ระบบ</Link>
               </p>
             </div>
           </div>
