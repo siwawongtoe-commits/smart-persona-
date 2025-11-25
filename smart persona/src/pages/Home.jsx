@@ -27,13 +27,16 @@ const profiles = [
 // Sidebar component
 const Sidebar = () => (
 	<aside className="sidebar">
-		<button className="sidebar-create-btn">
+		<div className="sidebar-create-btn">
 			<Plus className="w-5 h-5" />
 			<span>Create</span>
-		</button>
-		<button className="sidebar-dashboard-btn">
+		</div>
+		<div className="sidebar-home-btn">
+			Home
+		</div>
+				<div className="sidebar-dashboard-btn">
 			Dashboard
-		</button>
+		</div>
 		<nav className="sidebar-nav">
 			<button className="sidebar-item active">
 				<HomeIcon className="w-5 h-5" />

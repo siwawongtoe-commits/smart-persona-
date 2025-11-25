@@ -117,8 +117,9 @@
 
 /* ===== Sidebar ===== */
 .sidebar {
-  width: 60px;
-  background: #e0e7ff;
+  width: 65px;
+  height: 449px;
+  background: #9CD1FF;
   border-radius: 16px;
   padding: 12px;
   display: flex;
@@ -131,9 +132,7 @@
 .sidebar-create-btn {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  background: #3b82f6;
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   display: flex;
   align-items: center;
@@ -145,30 +144,50 @@
   gap: 4px;
 }
 
-.sidebar-create-btn:hover {
+.sidebar-home-btn {
+  width: 44px;
+  height: 44px;
+  color: rgb(0, 0, 0);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 12px;
+  flex-direction: column;
+  gap: 4px;
+  margin: 5px;
+  padding: 40px;
+}
 
-  .sidebar-dashboard-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: #3b82f6;
-    color: white;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.2s;
-    font-size: 12px;
-    flex-direction: column;
-    gap: 4px;
-  }
+.sidebar-dashboard-btn {
+  width: 44px;
+  height: 50px;
+  color: rgb(0, 0, 0);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 11px;
+  flex-direction: column;
+  gap: 4px;
+  margin: 5px;
+  padding: 10px;
+}
+
+
+
+.sidebar-create-btn:hover 
+
+
 
   .sidebar-dashboard-btn:hover {
     background: #2563eb;
+  
   }
-  background: #2563eb;
-}
 
 .sidebar-nav {
   display: flex;
