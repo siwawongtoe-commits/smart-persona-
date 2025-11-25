@@ -15,18 +15,7 @@ import {
 import "../styles/HomeAdmin.css";
 
 // Profile data from DashboardAdmin
-const profiles = [
-  { name: "สมชาย ใจดีมาก", title: "Web Developer", country: "Thailand", exp: "4 years", tags: ["Laravel", "Vue js", "SEO"], status: "pending" },
-  { name: "ปพิชญา วงศ์สถิตย์", title: "Software Developer", country: "Thailand | USA", exp: "2.5 years", tags: ["Python", "Javascript", "React"], status: "verified" },
-  { name: "กวิน สุวีวรินทร์", title: "UX/UI Designer", country: "Thailand", exp: "6 years", tags: ["Photoshop", "Illustrator", "Design"], status: "pending" },
-  { name: "ศิริ วัฒนกุล", title: "Web Developer", country: "Thailand", exp: "4 years", tags: ["Laravel", "Vue js", "SEO"], status: "verified" },
-  { name: "เชน ธนภูมิ", title: "Mobile App Developer", country: "Thailand", exp: "3.5 years", tags: ["Kotlin", "Flutter", "Swift"], status: "pending" },
-  { name: "ธนการ หลายพันธ์", title: "Data Scientist", country: "Thailand | Singapore", exp: "4 years", tags: ["Python", "Machine Learning", "SQL"], status: "verified" },
-  { name: "ณิชาพัชร์ เกษมสุข", title: "Cybersecurity Analyst", country: "Thailand", exp: "5 years", tags: ["Network Security", "Linux", "Penetration Testing"], status: "pending" },
-  { name: "รารัช เจริญธรรม", title: "Video Editor", country: "Thailand", exp: "4 years", tags: ["Premiere Pro", "After Effects", "DaVinci Resolve"], status: "verified" },
-  { name: "ปรเมศวร์ วงษ์สุกรี", title: "Marketing Analyst", country: "Thailand", exp: "3.5 years", tags: ["Data Studio", "Excel", "Google Analytics"], status: "pending" },
-  { name: "แพรว แสงสุวรรณ", title: "Product Developer", country: "Thailand", exp: "5 years", tags: ["Roadmapping", "Agile", "Market Research"], status: "verified" },
-];
+const profiles = [];
 
 // Sidebar component
 const Sidebar = () => (
