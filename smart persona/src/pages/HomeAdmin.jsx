@@ -19,30 +19,24 @@ const profiles = [];
 
 // Sidebar component
 const Sidebar = () => (
-  <aside className="sidebar-admin">
-    <button className="sidebar-create-btn-admin">
-      <Plus className="w-5 h-5" />
-    </button>
-    <nav className="sidebar-nav-admin">
-      <button className="sidebar-item-admin active">
-        <HomeIcon className="w-5 h-5" />
-      </button>
-      <button className="sidebar-item-admin">
-        <Grid className="w-5 h-5" />
-      </button>
-      <button className="sidebar-item-admin">
-        <Users className="w-5 h-5" />
-      </button>
-      <button className="sidebar-item-admin">
-        <Bookmark className="w-5 h-5" />
-      </button>
-      <button className="sidebar-item-admin">
-        <Bell className="w-5 h-5" />
-      </button>
-      <button className="sidebar-item-admin">
-        <Settings className="w-5 h-5" />
-      </button>
-    </nav>
+  <aside className="sidebar">
+    <div className="sidebar-create-btn">
+      <HomeIcon className="w-5 h-5" />
+      <span>Home</span>
+    </div>
+    <div className="sidebar-create-btn">
+      <Grid className="w-5 h-5" />
+      <span>Dsahboard</span>
+    </div>
+    <div className="sidebar-create-btn">
+      <Bell className="w-5 h-5" />
+      <span>Notification</span>
+    </div>
+    <div className="sidebar-create-btn">
+      <User className="w-5 h-5" />
+      <span>User</span>
+    </div>	
+
   </aside>
 );
 
