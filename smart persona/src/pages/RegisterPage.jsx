@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/register.css";
 
 export default function RegisterPage() {
   const [showPass, setShowPass] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
  function handleRegister(e) {
   e.preventDefault();
@@ -30,7 +31,7 @@ export default function RegisterPage() {
   localStorage.setItem("users", JSON.stringify(users));
 
   alert("สมัครสมาชิกสำเร็จ!");
-  window.location.href = "/login";
+  navigate("/home");
 }
 
 

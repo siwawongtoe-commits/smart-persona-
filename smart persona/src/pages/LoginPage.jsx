@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/login.css";
 
 export default function LoginPage() {
@@ -10,6 +10,8 @@ export default function LoginPage() {
   function toggleShow() {
     setShowPass((s) => !s);
   }
+
+ const navigate = useNavigate();
 
  function handleLogin(e) {
   e.preventDefault();
@@ -36,7 +38,7 @@ if (!loggedUsers.some(u => u.email === found.email)) {
 localStorage.setItem("loggedUsers", JSON.stringify(loggedUsers));
 
 alert("เข้าสู่ระบบสำเร็จ!");
-window.location.href = "/home";
+  navigate("/home");
 }
 
   return (
