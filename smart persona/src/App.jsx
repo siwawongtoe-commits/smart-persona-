@@ -13,6 +13,7 @@ function App() {
         <Route path="/noRegister" element={<NoRegister />} />   
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<RegisterPage />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/home-profile" element={<Home />} />
         <Route path="/hrLogin" element={<HRLogin />} />
         <Route path="/hrRegister" element={<HRRegister />} />
