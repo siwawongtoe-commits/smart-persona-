@@ -31,32 +31,22 @@ const Sidebar = () => (
 			<Plus className="w-5 h-5" />
 			<span>Create</span>
 		</div>
-		<div className="sidebar-home-btn">
-			Home
+	<div className="sidebar-create-btn">
+			<HomeIcon className="w-5 h-5" />
+			<span>Home</span>
 		</div>
-				<div className="sidebar-dashboard-btn">
-			Dashboard
+	<div className="sidebar-create-btn">
+			<Grid className="w-5 h-5" />
+			<span>Dashboard</span>
 		</div>
-		<nav className="sidebar-nav">
-			<button className="sidebar-item active">
-				<HomeIcon className="w-5 h-5" />
-			</button>
-			<button className="sidebar-item">
-				<Grid className="w-5 h-5" />
-			</button>
-			<button className="sidebar-item">
-				<Users className="w-5 h-5" />
-			</button>
-			<button className="sidebar-item">
-				<Bookmark className="w-5 h-5" />
-			</button>
-			<button className="sidebar-item">
-				<Bell className="w-5 h-5" />
-			</button>
-			<button className="sidebar-item">
-				<Settings className="w-5 h-5" />
-			</button>
-		</nav>
+			<div className="sidebar-create-btn">
+			<Bell className="w-5 h-5" />
+			<span>Notification</span>
+		</div>
+					<div className="sidebar-create-btn">
+			<User className="w-5 h-5" />
+			<span>Users</span>
+		</div>
 	</aside>
 );
 
