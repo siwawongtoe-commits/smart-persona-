@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "../styles/HRLogin.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function HRLogin() {
   const [showPass, setShowPass] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   // ตัวอย่าง admin 5 คน
   const admins = [
@@ -45,15 +46,13 @@ export default function HRLogin() {
 
     if (foundHR) {
       addUser("HR", foundHR);
-      alert("เข้าสู่ระบบ HR สำเร็จ!");
-      window.location.href = "/homeHR";
+      navigate("/home-hr");
       return;
     }
 
     if (foundAdmin) {
       addUser("Admin", foundAdmin);
-      alert("เข้าสู่ระบบ Admin สำเร็จ!");
-      window.location.href = "/homeHR";
+      navigate("/home-admin");
       return;
     }
 

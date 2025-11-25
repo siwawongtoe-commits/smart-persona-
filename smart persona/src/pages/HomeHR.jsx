@@ -3,7 +3,7 @@ import {
   Search,
   LogOut,
   Plus,
-  Home,
+  Home as HomeIcon,
   Bookmark,
   ChevronDown,
   Filter,
@@ -40,7 +40,7 @@ const Sidebar = () => (
     </button>
     <nav className="sidebar-nav-hr">
       <button className="sidebar-item-hr active">
-        <Home className="w-5 h-5" />
+        <HomeIcon className="w-5 h-5" />
       </button>
       <button className="sidebar-item-hr">
         <Grid className="w-5 h-5" />

@@ -137,20 +137,23 @@ export default function Home() {
 				<div className="header-left">
 					<h1 className="header-title">PerFile</h1>
 				</div>
-				<div className="header-search">
-					<div className="search-input-wrapper">
-						<Search className="search-icon" />
-						<input
-							type="text"
-							placeholder="Search Profile, User"
-							value={searchQuery}
-							onChange={(e) => setSearchQuery(e.target.value)}
-							className="search-input"
-						/>
-						<Filter className="filter-icon" />
-					</div>
+			<div className="header-search">
+				<div className="search-input-wrapper">
+					<Search className="search-icon" />
+					<input
+						type="text"
+						placeholder="Search Profile, User"
+						value={searchQuery}
+						onChange={(e) => setSearchQuery(e.target.value)}
+						className="search-input"
+					/>
+					<Filter className="filter-icon" />
 				</div>
+			</div>
+			<div className="header-actions">
+				<button className="header-dashboard-btn">Dashboard</button>
 				<button className="header-logout">Log out</button>
+			</div>
 			</header>
 
 			<div className="home-layout">
