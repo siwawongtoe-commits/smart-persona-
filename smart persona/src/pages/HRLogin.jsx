@@ -46,14 +46,12 @@ export default function HRLogin() {
 
     if (foundHR) {
       addUser("HR", foundHR);
-      alert("เข้าสู่ระบบ HR สำเร็จ!");
       navigate("/home-hr");
       return;
     }
 
     if (foundAdmin) {
       addUser("Admin", foundAdmin);
-      alert("เข้าสู่ระบบ Admin สำเร็จ!");
       navigate("/home-admin");
       return;
     }
