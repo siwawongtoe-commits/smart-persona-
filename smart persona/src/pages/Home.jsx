@@ -31,6 +31,9 @@ const Sidebar = () => (
 			<Plus className="w-5 h-5" />
 			<span>Create</span>
 		</button>
+		<button className="sidebar-dashboard-btn">
+			Dashboard
+		</button>
 		<nav className="sidebar-nav">
 			<button className="sidebar-item active">
 				<HomeIcon className="w-5 h-5" />
@@ -151,7 +154,6 @@ export default function Home() {
 				</div>
 			</div>
 			<div className="header-actions">
-				<button className="header-dashboard-btn">Dashboard</button>
 				<button className="header-logout">Log out</button>
 			</div>
 			</header>
