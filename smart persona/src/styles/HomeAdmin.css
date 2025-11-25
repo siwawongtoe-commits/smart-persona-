@@ -109,9 +109,10 @@
 }
 
 /* ===== Sidebar ===== */
-.sidebar-admin {
-  width: 60px;
-  background: #e0e7ff;
+.sidebar {
+  width: 65px;
+  height: 200px;
+  background: #9CD1FF;
   border-radius: 16px;
   padding: 12px;
   display: flex;
@@ -121,32 +122,76 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.sidebar-create-btn-admin {
+.sidebar-create-btn {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  background: #3b82f6;
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: background 0.2s;
+  font-size: 12px;
+  flex-direction: column;
+  gap: 4px;
+  margin: 5px;
+ 
 }
 
-.sidebar-create-btn-admin:hover {
-  background: #2563eb;
+.sidebar-home-btn {
+  width: 44px;
+  height: 44px;
+  color: rgb(0, 0, 0);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 12px;
+  flex-direction: column;
+  gap: 4px;
+  margin: 5px;
+  padding: 40px;
 }
 
-.sidebar-nav-admin {
+.sidebar-dashboard-btn {
+  width: 44px;
+  height: 50px;
+  color: rgb(0, 0, 0);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 11px;
+  flex-direction: column;
+  gap: 4px;
+  margin: 5px;
+  padding: 10px;
+}
+
+
+
+.sidebar-create-btn:hover 
+
+
+
+  .sidebar-dashboard-btn:hover {
+    background: #2563eb;
+  
+  }
+
+.sidebar-nav {
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 100%;
 }
 
-.sidebar-item-admin {
+.sidebar-item {
   width: 44px;
   height: 44px;
   border-radius: 12px;
@@ -161,17 +206,16 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.sidebar-item-admin:hover {
+.sidebar-item:hover {
   background: #f3f4f6;
   color: #6b7280;
 }
 
-.sidebar-item-admin.active {
+.sidebar-item.active {
   background: #dbeafe;
   color: #3b82f6;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }
-
 /* ===== Main Content ===== */
 .home-main-admin {
   flex: 1;
