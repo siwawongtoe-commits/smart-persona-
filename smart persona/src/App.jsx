@@ -7,6 +7,7 @@ import RegisterPage from "./pages/RegisterPage";
 // import Home from "./pages/Home";
 // import HomeAdmin from "./pages/HomeAdmin";
 // import HomeHR from "./pages/HomeHR";
+// import CreateProfile1 from "./CreateProfile/CreateProfile1";
 import HRLogin from "./pages/HRLogin";
 import HRRegister from "./pages/HRRegister";
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/hrLogin" element={<HRLogin />} />
         <Route path="/hrRegister" element={<HRRegister />} />
         {/* <Route path="/home-hr" element={<HomeHR />} /> */}
+        {/* <Route path="/create-profile-1" element={<CreateProfile1 />} /> */}
       </Routes>
     </Router>
   );
