@@ -47,14 +47,22 @@ export default function HRLogin() {
     if (foundHR) {
       addUser("HR", foundHR);
       alert("เข้าสู่ระบบ HR สำเร็จ!");
+<<<<<<< HEAD
       navigate("/home-hr");
+=======
+      window.location.href = "/homeHR";
+>>>>>>> 7a61d673e80903c42a3436b5530a6b27e6943934
       return;
     }
 
     if (foundAdmin) {
       addUser("Admin", foundAdmin);
       alert("เข้าสู่ระบบ Admin สำเร็จ!");
+<<<<<<< HEAD
       navigate("/home-admin");
+=======
+      window.location.href = "/homeHR";
+>>>>>>> 7a61d673e80903c42a3436b5530a6b27e6943934
       return;
     }
 
