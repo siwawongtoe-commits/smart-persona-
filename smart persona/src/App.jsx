@@ -10,6 +10,7 @@ import HomeHR from "./pages/HomeHR";
 import HRLogin from "./pages/HRLogin";
 import HRRegister from "./pages/HRRegister";
 import Setting from "./pages/Setting";
+// import CreateProfile from "./CreateProfile/CreateProfile";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/hrLogin" element={<HRLogin />} />
         <Route path="/hrRegister" element={<HRRegister />} />
         <Route path="/setting" element={<Setting />} />
+        {/* <Route path="/CreateProfile" element={<CreateProfile />} /> */}
       </Routes>
     </Router>
   );
