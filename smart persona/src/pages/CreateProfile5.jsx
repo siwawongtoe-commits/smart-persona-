@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "../CreateProfileCSS/CreateProfile5.css";
+import "../styles/CreateProfile5.css";
 import { Link } from "react-router-dom";
 
 // NOTE: Import the styled components from the CSS file (assuming styled-components is used)

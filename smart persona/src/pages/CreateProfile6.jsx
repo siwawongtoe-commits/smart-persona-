@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "../CreateProfileCSS/CreateProfile6.css";
+import "../styles/CreateProfile6.css";
 import { Link } from "react-router-dom";
 
 // --- Static Data ---

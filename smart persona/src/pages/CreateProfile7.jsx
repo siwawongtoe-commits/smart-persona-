@@ -1,6 +1,6 @@
 import React from "react";
 // Import CSS file
-import "../CreateProfileCSS/CreateProfile7.css"; 
+import "../styles/CreateProfile7.css"; 
 // Assuming you still want to use Link for navigation
 import { Link } from "react-router-dom"; 
 
