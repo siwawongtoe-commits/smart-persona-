@@ -162,7 +162,7 @@ export default function Home() {
 				<main className="home-main">
 					{/* Title Section */}
 					<div className="home-title-section">
-						<h2 className="home-section-title">เริ่มสำรวจรูปเมื่อด้วยตัวคุณเองหรือรับจากคนอื่น</h2>
+						<h2 className="home-section-title">เริ่มสร้างเรซูเม่ด้วยตัวตนแท้จริงของคุณ</h2>
 						<div className="home-controls">
 							<div className="search-local">
 								<input
