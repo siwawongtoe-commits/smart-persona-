@@ -89,7 +89,7 @@
   flex-shrink: 0;
 }
 
-.action-button {
+.header-logout {
   background: #dc2626;
   color: white;
   border: none;
@@ -98,12 +98,13 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background 0.2s;
   flex-shrink: 0;
 }
 
 .header-logout:hover {
-  background: #FFFFFF;
+  background: #dc2626;
+  color: white;
 }
 
 /* ===== Layout ===== */
