@@ -2,85 +2,99 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../CreateProfileCSS/CreateProfile1.css";
 
-export default function CreateResume() {
+export default function CreateProfile1() {
+  const steps = [
+    "Data From",
+    "Photo",
+    "Basic Data",
+    "Education",
+    "Skills",
+    "Attributes",
+    "Work Experience",
+    "Career Goals",
+  ];
+
+  const sidebarItems = [
+    "Name",
+    "Basic Data",
+    "Education",
+    "Career Goals",
+    "Skills",
+    "Work Experience",
+    "Attributes",
+  ];
+
+  // กำหนด Step ปัจจุบัน (หน้าแรก = 0)
+  const currentStepIndex = 0;
+
   return (
-    <div className="resume-container">
-      <header className="header">
-        <div className="logo">PerFile</div>
-      </header>
+    <div className="page-bg">
+      <div className="resume-card full-card">
 
-      <h2 className="title">Create Your Resume</h2>
+        <header className="card-header">
+          <div className="logo">PerFile</div>
+        </header>
 
-      <div className="search-box">
-        <input type="text" placeholder="Search Resume Templates" />
-        <button className="filter-btn">⚙️</button>
-      </div>
+        <div className="card-body">
 
-      <div className="steps">
-        {[
-          "Data From",
-          "Photo",
-          "Basic Data",
-          "Education",
-          "Skills",
-          "Attributes",
-          "Work Experience",
-          "Career Goals"
-        ].map((txt, i) => (
-          <div key={i} className="step-item">
-            <span className="step-number">{i + 1}</span>
-            <span>{txt}</span>
-          </div>
-        ))}
-      </div>
+          <h2 className="title">Create Your Resume</h2>
 
-      <div className="main-content">
-        <div className="sidebar">
-          {[
-            "Name",
-            "Basic Data",
-            "Education",
-            "Career Goals",
-            "Skills",
-            "Work Experience",
-            "Attributes"
-          ].map((item, i) => (
-            <div key={i} className="sidebar-item">{item}</div>
-          ))}
-        </div>
-
-        <div className="form-section">
-          <h3>กรอกข้อมูลอัตโนมัติ</h3>
-
-          <div className="social-row">
-            {["linkedin", "facebook", "instagram", "tiktok", "youtube", "x"].map(
-              (s, i) => (
-                <button key={i} className="social-btn">
-                  {s}
-                </button>
-              )
-            )}
+          <div className="search-row">
+            <div className="search-pill">
+              <input className="search-input" type="text" placeholder="Search Resume Templates" />
+              <button className="filter-btn">⚙️</button>
+            </div>
           </div>
 
-          <p className="note">
-            *สามารถกรอกข้อมูลได้ในด้านข้อมูลส่วนเท่านั้น
-          </p>
+          {/* Step Bar */}
+          <div className="progress-wrapper">
+            <div className="progress-line" />
+            <div className="steps">
+              {steps.map((txt, i) => (
+                <div
+                  key={i}
+                  className={`step-item 
+                    ${i === currentStepIndex ? "active" : ""} 
+                    ${i < currentStepIndex ? "completed" : ""}
+                  `}
+                >
+                  <span className="step-number">{i + 1}</span>
+                  <span className="step-label">{txt}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-          <div className="divider">หรือ</div>
+          <div className="main-grid">
+            <aside className="left-sidebar">
+              <div className="sidebar-card">
+                <div className="sidebar-list">
+                  {sidebarItems.map((item, i) => (
+                    <div key={i} className={`sidebar-item ${i === 0 ? "big" : ""}`}>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </aside>
 
-          {/* เปิดหน้าสร้างโปรไฟล์บน live server (เปิดแท็บใหม่) */}
-          <a
-            href={`${window.location.origin}/create-profile`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="manual-btn"
-          >
-            เริ่มกรอก (Open in Live Server)
-          </a>
+            <section className="right-panel">
+              <h3 className="panel-title">กรอกข้อมูลอัตโนมัติ</h3>
 
-          {/* ถ้าต้องการ internal navigation ใช้ Link แทน:
+              <div className="social-row">
+                {["linkedin", "facebook", "instagram", "tiktok", "youtube", "x"].map((s, i) => (
+                  <button key={i} className="social-btn">{s}</button>
+                ))}
+              </div>
+
+              <p className="note">*กรอกข้อมูลได้เฉพาะข้อมูลส่วนตัว</p>
+
+              <div className="divider">หรือ</div>
+
               <Link to="/create-profile" className="manual-btn">เริ่มกรอก</Link>
-          */}
+            </section>
+          </div>
+
         </div>
       </div>
     </div>
