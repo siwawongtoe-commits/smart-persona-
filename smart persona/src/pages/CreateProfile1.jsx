@@ -1,88 +1,119 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../styles/CreateProfile1.css";
+// import { Link } from "react-router-dom"; // Not used in this view
 
-export default function CreateResume() {
-  return (
-    <div className="resume-container">
-      <header className="header">
-        <div className="logo">PerFile</div>
-      </header>
+// Placeholder components for social media icons (in a real app, you'd use SVGs or an icon library)
+const SocialIcon = ({ type }) => <div className={`social-icon ${type}`}>{/* Icon */}</div>;
 
-      <h2 className="title">Create Your Resume</h2>
+export default function createprofile1() {
+    const steps = [
+        "Data From", "Photo", "Basic Data", "Education", "Skills", "Attributes", "Work Experience", "Career Goals",
+    ];
 
-      <div className="search-box">
-        <input type="text" placeholder="Search Resume Templates" />
-        <button className="filter-btn">⚙️</button>
-      </div>
+    // The order of items for the sidebar grid to match the image layout
+    const sidebarItems = [
+        { label: "Photo", className: "avatar-placeholder" }, // Placeholder for the avatar box
+        { label: "Name", className: "medium" },
+        { label: "Education", className: "medium" },
+        { label: "Skills", className: "medium" },
+        { label: "Attributes", className: "medium" },
+        { label: "Basic Data", className: "small" },
+        { label: "Career Goals", className: "small" },
+        { label: "Work Experience", className: "large" },
+    ];
 
-      <div className="steps">
-        {[
-          "Data From",
-          "Photo",
-          "Basic Data",
-          "Education",
-          "Skills",
-          "Attributes",
-          "Work Experience",
-          "Career Goals"
-        ].map((txt, i) => (
-          <div key={i} className="step-item">
-            <span className="step-number">{i + 1}</span>
-            <span>{txt}</span>
-          </div>
-        ))}
-      </div>
+    return (
+        <div className="page-bg">
+            <div className="resume-card">
+                {/* --- Header --- */}
+                <header className="card-header">
+                    <div className="logo">PerFile</div>
+                </header>
 
-      <div className="main-content">
-        <div className="sidebar">
-          {[
-            "Name",
-            "Basic Data",
-            "Education",
-            "Career Goals",
-            "Skills",
-            "Work Experience",
-            "Attributes"
-          ].map((item, i) => (
-            <div key={i} className="sidebar-item">{item}</div>
-          ))}
+                <div className="card-body">
+                    <h2 className="title">Create Your Resume</h2>
+
+                    {/* --- Search Bar --- */}
+                    <div className="search-row">
+                        <div className="search-pill">
+                            <span className="search-icon">🔍</span> 
+                            <input
+                                className="search-input"
+                                type="text"
+                                placeholder="Search Resume Templates"
+                            />
+                            <button className="filter-btn">☰</button>
+                        </div>
+                    </div>
+
+                    {/* --- Progress Steps (1-8 Straight Line) --- */}
+                    <div className="progress-wrapper">
+                        <div className="progress-line" />
+                        <div className="steps">
+                            {steps.map((txt, i) => (
+                                <div
+                                    key={i}
+                                    className={`step-item ${i === 0 ? "active" : ""}`}
+                                >
+                                    <span className="step-number">{i + 1}</span>
+                                    <span className="step-label">{txt}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    
+                    {/* --- Main Content: Sidebar and Panel --- */}
+                    <div className="main-grid">
+                        
+                        {/* Left Sidebar (The Preview/Outline) */}
+                        <aside className="left-sidebar">
+                            <div className="sidebar-grid">
+                                {sidebarItems.map((item, i) => (
+                                    <div 
+                                        key={i} 
+                                        // The class names are used to define the grid layout in CSS
+                                        className={`sidebar-item ${item.className}`}
+                                    >
+                                        {/* Special content for the Photo/Avatar block */}
+                                        {item.label === "Photo" && <span className="photo-icon">📷</span>}
+                                        {/* Content for other blocks */}
+                                        {item.label !== "Photo" && item.label}
+                                    </div>
+                                ))}
+                            </div>
+                        </aside>
+
+                        {/* Right Panel (Data Entry Options - No frame) */}
+                        <section className="right-panel">
+                            
+                            {/* Social Media Data Entry */}
+                            <h3 className="panel-heading">กรอกข้อมูลอัตโนมัติ</h3>
+                            <div className="social-icons-row">
+                                <SocialIcon type="linkedin" />
+                                <SocialIcon type="facebook" />
+                                <SocialIcon type="instagram" />
+                                <SocialIcon type="tiktok" />
+                                <SocialIcon type="youtube" />
+                                <SocialIcon type="x" />
+                                <SocialIcon type="pinterest" />
+                            </div>
+                            <p className="social-note">*สามารถกรอกข้อมูลได้แค่บางส่วนเท่านั้น</p>
+
+                            {/* Separator */}
+                            <div className="separator">
+                                <span className="separator-text">หรือ</span>
+                            </div>
+
+                            {/* Manual Data Entry */}
+                            <h3 className="panel-heading">กรอกข้อมูลเอง</h3>
+                            <button className="start-manual-btn">
+                                เริ่มกรอก <span className="info-icon">ⓘ</span>
+                            </button>
+
+                        </section>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div className="form-section">
-          <h3>กรอกข้อมูลอัตโนมัติ</h3>
-
-          <div className="social-row">
-            {["linkedin", "facebook", "instagram", "tiktok", "youtube", "x"].map(
-              (s, i) => (
-                <button key={i} className="social-btn">
-                  {s}
-                </button>
-              )
-            )}
-          </div>
-
-          <p className="note">
-            *สามารถกรอกข้อมูลได้ในด้านข้อมูลส่วนเท่านั้น
-          </p>
-
-          <div className="divider">หรือ</div>
-
-          {/* เปิดหน้าสร้างโปรไฟล์บน live server (เปิดแท็บใหม่) */}
-          <a
-            href={`${window.location.origin}/create-profile`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="manual-btn"
-          >
-            เริ่มกรอก (Open in Live Server)
-          </a>
-
-          {/* ถ้าต้องการ internal navigation ใช้ Link แทน:
-              <Link to="/create-profile" className="manual-btn">เริ่มกรอก</Link>
-          */}
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
