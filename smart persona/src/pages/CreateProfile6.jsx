@@ -81,10 +81,11 @@ const ResumeCreator = () => {
                 <span className="plus-icon">+</span> คุณสมบัติ
               </button>
             </div>
-            
+            <a href="/CreateProfile7">
             <button className="NextButton">
-              ถัดไป <span className="arrow">➜</span>
+              Next <span className="arrow">➜</span>
             </button>
+            </a>
           </div>
         </div>
       </div>

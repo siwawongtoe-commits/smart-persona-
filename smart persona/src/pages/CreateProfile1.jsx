@@ -106,9 +106,11 @@ export default function createprofile1() {
 
                             {/* Manual Data Entry */}
                             <h3 className="panel-heading">กรอกข้อมูลเอง</h3>
+                            <a href="/CreateProfile2">
                             <button className="start-manual-btn">
                                 เริ่มกรอก <span className="info-icon">ⓘ</span>
                             </button>
+                            </a>
 
                         </section>
                     </div>

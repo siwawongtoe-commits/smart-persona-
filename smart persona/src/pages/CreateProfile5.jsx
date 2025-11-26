@@ -153,9 +153,9 @@ const ResumeCreator = () => {
               <button className="AddButton">+ ทักษะเฉพาะทางเพิ่มเติม</button>
 
             </div>
-
-            <button className="NextButton">ถัดไป ➜</button>
-
+<a href="/CreateProfile6">
+            <button className="NextButton">Next ➜</button>
+</a>
           </div>
         </div>
       </div>

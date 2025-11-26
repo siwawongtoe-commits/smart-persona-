@@ -173,12 +173,16 @@ export default function CreateProfile2() {
 
                                 {/* Navigation Buttons */}
                                 <div className="navigation-buttons">
+                                    <a href="/CreateProfile2">
                                     <button className="nav-btn prev-btn">
-                                        <i className="arrow-icon">←</i> ย้อนกลับ
+                                        <i className="arrow-icon">←</i> Back
                                     </button>
+                                    </a>
+                                    <a href="/CreateProfile4">
                                     <button className="nav-btn next-btn">
-                                        ต่อไป <i className="arrow-icon">→</i>
+                                        Next <i className="arrow-icon">→</i>
                                     </button>
+                                    </a>
                                 </div>
                             </div>
                         </section>

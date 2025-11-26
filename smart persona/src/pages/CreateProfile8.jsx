@@ -109,7 +109,9 @@ export default function CreateResume() {
           </div>
 
           <div className="action-buttons">
-            <button className="next-btn">ต่อไป</button>
+            <a href="/Home">
+            <button className="next-btn">Success ✔</button>
+            </a>
             <button className="info-btn">i</button>
           </div>
         </div>

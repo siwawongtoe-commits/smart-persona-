@@ -80,8 +80,10 @@ export default function CreateProfile2() {
 							<div className="photo-box">
 								<div className="photo-placeholder">📷</div>
 								<div className="photo-actions">
-									<button className="upload-btn">เพิ่มรูปภาพในรูปแบบ</button>
-									<button className="next-btn">ถัดไป →</button>
+									<button className="upload-btn">Add Photo</button>
+									<a href="/CreateProfile3">
+									<button className="next-btn">Next →</button>
+									</a>
 								</div>
 							</div>
 						</section>
