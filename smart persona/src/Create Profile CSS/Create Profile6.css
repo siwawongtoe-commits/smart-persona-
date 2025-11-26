@@ -1,0 +1,263 @@
+/* Color Variables */
+:root {
+  --primary-color: #593DFF;
+  --background-light: #E6EFFF; /* Light blue/purple gradient background */
+  --background-dark: #AECBFF;
+  --card-background: #FFFFFF;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --nav-purple: #D4CFFF; /* Light purple for active/profile box */
+  --nav-default: #F0F0F0;
+  --nav-active-text: #593DFF;
+}
+
+/* Base and Layout Styles */
+.AppContainer.attributes-page {
+  /* Creating the soft blue-to-white gradient seen in the image background */
+  background-image: linear-gradient(to top, var(--background-dark) 0%, var(--background-light) 50%, #ffffff 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.PerFileHeader {
+  width: 100%;
+  max-width: 1200px;
+  color: var(--primary-color);
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 40px;
+}
+
+.ContentBox {
+  background-color: var(--card-background);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1200px;
+  padding: 40px;
+  margin: 20px 0;
+}
+
+.MainTitle {
+  text-align: center;
+  color: var(--text-primary);
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+/* --- Search Bar (Same as previous step) --- */
+.SearchContainer {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto 30px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 10px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.SearchIcon {
+  color: var(--text-secondary);
+  margin-right: 10px;
+}
+
+.SearchInput {
+  flex-grow: 1;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}
+
+.FilterIcon svg {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  color: var(--text-secondary);
+}
+
+/* --- Steps Navigation --- */
+.StepsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+.StepsContainer::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: #ddd;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.StepItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+  width: 12%; 
+}
+
+.StepNumber {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ddd;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.StepNumber.active {
+  background-color: var(--primary-color);
+}
+
+.StepLabel {
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* --- Main Content Area --- */
+.BodyContent {
+  display: flex;
+  gap: 30px;
+}
+
+/* --- Left Navigation --- */
+.LeftNav {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; /* Allows items to wrap if they can't fit vertically */
+  gap: 15px;
+  height: 480px; /* Fixed height to match the layout in the image */
+}
+
+.ProfileIconBox {
+  background-color: var(--nav-purple);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 15px;
+}
+
+.ProfileIconBox svg {
+  width: 40px;
+  height: 40px;
+}
+
+.NavLink {
+  background-color: var(--nav-default);
+  color: var(--text-primary);
+  border-radius: 8px;
+  font-weight: normal;
+  text-align: center;
+  cursor: pointer;
+  /* Setting dimensions for the two-column grid layout */
+  width: 100px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.NavLink.active {
+  background-color: var(--nav-purple);
+  color: var(--nav-active-text);
+  font-weight: bold;
+}
+
+.NavLink.larger {
+  height: 155px; /* Size adjustment for Work Experience based on image */
+}
+
+/* --- Right Content (Attributes Section) --- */
+.RightContent.attributes-section {
+  flex-grow: 1;
+  padding: 10px 0;
+  min-height: 400px;
+}
+
+.ContentHeader {
+  margin-bottom: 25px;
+}
+
+.HeaderTitle {
+  font-size: 20px;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.InputRow {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.AttributeInput {
+  flex-grow: 0.25;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  min-width: 150px;
+}
+
+.AddAttributeButton {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.AddAttributeButton .plus-icon {
+  font-size: 18px;
+}
+
+.NextButton {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
+  margin-top: 300px; /* Position button at the bottom right */
+}
+
+.NextButton:hover {
+  background-color: #4a2bd4;
+}
