@@ -24,6 +24,10 @@ export default function CreateProfile2() {
 		"Attributes",
 	];
 
+	// กำหนด Step ปัจจุบัน และ Sidebar ที่ active
+	const currentStepIndex = 1; // หน้า Photo
+	const currentSidebarIndex = 0; // Name
+
 	return (
 		<div className="page-bg">
 			<div className="resume-card">
@@ -45,13 +49,16 @@ export default function CreateProfile2() {
 						</div>
 					</div>
 
+					{/* Step Bar */}
 					<div className="progress-wrapper">
 						<div className="progress-line" />
 						<div className="steps">
 							{steps.map((txt, i) => (
 								<div
 									key={i}
-									className={`step-item ${i === 0 ? "active" : ""}`}
+									className={`step-item 
+										${i === currentStepIndex ? "active" : ""} 
+										${i < currentStepIndex ? "completed" : ""}`}
 								>
 									<span className="step-number">{i + 1}</span>
 									<span className="step-label">{txt}</span>
@@ -63,10 +70,14 @@ export default function CreateProfile2() {
 					<div className="main-grid">
 						<aside className="left-sidebar">
 							<div className="sidebar-card">
-								<div className="avatar-placeholder"> </div>
+								<div className="avatar-placeholder">📷</div>
 								<div className="sidebar-list">
 									{sidebarItems.map((item, i) => (
-										<div key={i} className={`sidebar-item ${i === 0 ? "big" : ""}`}>
+										<div
+											key={i}
+											className={`sidebar-item 
+												${i === currentSidebarIndex ? "highlight" : ""}`}
+										>
 											{item}
 										</div>
 									))}
@@ -93,4 +104,3 @@ export default function CreateProfile2() {
 		</div>
 	);
 }
-
