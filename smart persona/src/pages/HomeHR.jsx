@@ -34,30 +34,24 @@ const profiles = [
 
 // Sidebar component
 const Sidebar = () => (
-  <aside className="sidebar-hr">
-    <button className="sidebar-create-btn-hr">
-      <Plus className="w-5 h-5" />
-    </button>
-    <nav className="sidebar-nav-hr">
-      <button className="sidebar-item-hr active">
-        <HomeIcon className="w-5 h-5" />
-      </button>
-      <button className="sidebar-item-hr">
-        <Grid className="w-5 h-5" />
-      </button>
-      <button className="sidebar-item-hr">
-        <Users className="w-5 h-5" />
-      </button>
-      <button className="sidebar-item-hr">
-        <Bookmark className="w-5 h-5" />
-      </button>
-      <button className="sidebar-item-hr">
-        <Bell className="w-5 h-5" />
-      </button>
-      <button className="sidebar-item-hr">
-        <Settings className="w-5 h-5" />
-      </button>
-    </nav>
+  <aside className="sidebar"> 
+    <div className="sidebar-create-btn">
+      <HomeIcon className="w-5 h-5" />
+      <span>Home</span>
+    </div>
+    <div className="sidebar-create-btn">
+      <Grid className="w-5 h-5" />
+      <span>Dsahboard</span>
+    </div>
+    <div className="sidebar-create-btn">
+      <Bell className="w-5 h-5" />
+      <span>Notification</span>
+    </div>
+    <div className="sidebar-create-btn">
+      <User className="w-5 h-5" />
+      <span>User</span>
+    </div>	
+
   </aside>
 );
 
@@ -148,7 +142,7 @@ export default function HomeHR() {
         <main className="home-main-hr">
           {/* Title Section */}
           <div className="home-title-section-hr">
-            <h2 className="home-section-title-hr">เริ่มค้นหารูปเพิ่มเติมจากปังรับสองคุณ</h2>
+            <h2 className="home-section-title-hr">เริ่มค้นหาผู้ร่วมทีมบริษัทของคุณ</h2>
             <div className="home-controls-hr">
               <div className="search-local-hr">
                 <input

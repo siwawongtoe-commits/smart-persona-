@@ -130,7 +130,7 @@ alert("เข้าสู่ระบบสำเร็จ!");
 
             <p className="mt-8 text-sm">
               ไม่เคยเข้าใช้งานใช่ไหม?{" "}
-              <Link to="/" className="link-brand font-semibold">
+              <Link to="/register" className="link-brand font-semibold">
                 ลงทะเบียน
               </Link>
             </p>

@@ -118,7 +118,7 @@
 /* ===== Sidebar ===== */
 .sidebar {
   width: 65px;
-  height: 365px;
+  height: 449px;
   background: #9CD1FF;
   border-radius: 16px;
   padding: 12px;
@@ -142,7 +142,6 @@
   font-size: 12px;
   flex-direction: column;
   gap: 4px;
-  margin: 7px
 }
 
 .sidebar-home-btn {

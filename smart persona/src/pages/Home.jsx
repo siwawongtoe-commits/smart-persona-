@@ -31,22 +31,32 @@ const Sidebar = () => (
 			<Plus className="w-5 h-5" />
 			<span>Create</span>
 		</div>
-	<div className="sidebar-create-btn">
-			<HomeIcon className="w-5 h-5" />
-			<span>Home</span>
+		<div className="sidebar-home-btn">
+			Home
 		</div>
-	<div className="sidebar-create-btn">
-			<Grid className="w-5 h-5" />
-			<span>Dashboard</span>
+				<div className="sidebar-dashboard-btn">
+			Dashboard
 		</div>
-			<div className="sidebar-create-btn">
-			<Bell className="w-5 h-5" />
-			<span>Notification</span>
-		</div>
-					<div className="sidebar-create-btn">
-			<User className="w-5 h-5" />
-			<span>Users</span>
-		</div>
+		<nav className="sidebar-nav">
+			<button className="sidebar-item active">
+				<HomeIcon className="w-5 h-5" />
+			</button>
+			<button className="sidebar-item">
+				<Grid className="w-5 h-5" />
+			</button>
+			<button className="sidebar-item">
+				<Users className="w-5 h-5" />
+			</button>
+			<button className="sidebar-item">
+				<Bookmark className="w-5 h-5" />
+			</button>
+			<button className="sidebar-item">
+				<Bell className="w-5 h-5" />
+			</button>
+			<button className="sidebar-item">
+				<Settings className="w-5 h-5" />
+			</button>
+		</nav>
 	</aside>
 );
 
@@ -161,7 +171,7 @@ export default function Home() {
 				<main className="home-main">
 					{/* Title Section */}
 					<div className="home-title-section">
-						<h2 className="home-section-title">เริ่มสำรวจรูปเมื่อด้วยตัวคุณเองหรือรับจากคนอื่น</h2>
+						<h2 className="home-section-title">เริ่มสร้างเรซูเม่ด้วยตัวตนแท้จริงของคุณ</h2>
 						<div className="home-controls">
 							<div className="search-local">
 								<input
