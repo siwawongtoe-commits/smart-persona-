@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/CreateProfile3.css";
 import { Link } from "react-router-dom";
 
-export default function CreateProfile2() {
+export default function CreateProfile3() {
     const steps = [
         "Data From",
         "Photo",
