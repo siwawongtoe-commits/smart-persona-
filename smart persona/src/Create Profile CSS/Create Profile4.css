@@ -1,0 +1,194 @@
+/* --- Variables --- */
+:root {
+    --primary-color: #6a67ff; /* Main purple/blue color */
+    --accent-color: #f0f0ff; /* Light background for sidebar */
+    --page-bg: #e6e6fa; /* Overall light-blue background */
+    --card-bg: #fff;
+    --text-color: #333;
+    --placeholder-color: #aaa;
+    --border-color: #ddd;
+    --completed-color: #4CAF50; /* Green */
+    --font-family: Arial, sans-serif;
+}
+
+/* Base styles (as before, shortened for brevity) */
+/* ... (Keep the existing styles for .page-bg, .resume-card, .card-header, .logo, .title, .search-row, .search-pill, .step-indicator, .steps, .step-item etc. unchanged) ... */
+
+/* --- Main Content Grid --- */
+.main-grid {
+    display: flex;
+    gap: 30px;
+    min-height: 500px;
+}
+
+/* --- Left Sidebar --- */
+.left-sidebar {
+    flex: 0 0 250px; 
+}
+
+.sidebar-card {
+    padding: 20px;
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ... (Keep the existing styles for .avatar-placeholder, .avatar-icon) ... */
+
+.sidebar-list {
+    display: grid; /* ใช้ grid แทน flex-direction: column */
+    grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์ตามรูป */
+    gap: 15px; /* ช่องว่างระหว่างรายการ */
+}
+
+.sidebar-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 15px 10px; /* เพิ่ม padding ให้ดูใหญ่ขึ้น */
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s, border-color 0.2s;
+    text-align: center;
+    font-weight: 500;
+}
+
+.sidebar-item.big {
+    /* ในรูปใหม่ รายการส่วนใหญ่ใหญ่เท่ากัน */
+    /* แต่เนื่องจากโค้ดเดิมใช้ "big" ผมจะคงไว้ แต่กำหนดให้ทุกรายการมีขนาดใกล้เคียงกัน */
+    padding: 15px 10px;
+}
+
+.sidebar-item.highlight {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* --- Right Panel (Form) --- */
+.right-panel {
+    flex: 1;
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.panel-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* เพิ่มช่องว่างระหว่างกลุ่มฟอร์ม */
+}
+
+.input-with-label {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    display: none; /* ซ่อน label ที่อยู่เหนือ input/select เพราะในรูปไม่มี */
+}
+
+/* Input Styles */
+.text-input, .select-input {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.select-input {
+    appearance: none; 
+    background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23333" d="M6 9l-4-4h8z"/></svg>') no-repeat right 10px center;
+    background-size: 10px;
+    padding-right: 30px;
+}
+
+
+/* Education Form Layouts */
+
+/* Row 1: 4 columns */
+.form-group.education-row-1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 5px; /* ลดช่องว่างเพื่อให้อยู่ใกล้กับ Row 2 */
+}
+
+/* Row 2: 3 columns */
+.form-group.education-row-2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* มหาวิทยาลัยใหญ่กว่า ประเภท/เกรดเฉลี่ย */
+    gap: 15px;
+}
+
+/* Hide label that displays above input/select */
+.education-row-1 .input-with-label label,
+.education-row-2 .input-with-label label {
+    display: none;
+}
+
+/* Custom placeholder for select/input to match the image */
+.education-row-1 .select-input,
+.education-row-1 .text-input {
+    color: var(--text-color); /* ให้ตัวอักษรเป็นสีเข้ม */
+}
+
+/* Add Education Button */
+.add-education-row {
+    margin-top: 10px;
+}
+
+.add-education-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-icon {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+/* Navigation Buttons (Same as before) */
+.navigation-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.prev-btn {
+    background-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.next-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+}
