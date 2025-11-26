@@ -142,7 +142,7 @@ export default function HomeHR() {
         <main className="home-main-hr">
           {/* Title Section */}
           <div className="home-title-section-hr">
-            <h2 className="home-section-title-hr">เริ่มค้นหารูปเพิ่มเติมจากปังรับสองคุณ</h2>
+            <h2 className="home-section-title-hr">เริ่มค้นหาผู้ร่วมทีมบริษัทของคุณ</h2>
             <div className="home-controls-hr">
               <div className="search-local-hr">
                 <input
