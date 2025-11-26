@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import "../CreateProfileCSS/CreateProfile5.css";
+import { Link } from "react-router-dom";
 
 // NOTE: Import the styled components from the CSS file (assuming styled-components is used)
 // import { AppContainer, PerFileHeader, ContentBox, ... } from './styles.js';

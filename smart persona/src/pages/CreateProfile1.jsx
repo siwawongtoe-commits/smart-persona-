@@ -1,5 +1,5 @@
 import React from "react";
-import CreateProfile from "./CreateProfile/CreateProfile1";
+import "../CreateProfileCSS/CreateProfile1.css";
 import { Link } from "react-router-dom";
 
 export default function CreateResume() {
@@ -68,7 +68,19 @@ export default function CreateResume() {
 
           <div className="divider">หรือ</div>
 
-          <button className="manual-btn">เริ่มกรอก</button>
+          {/* เปิดหน้าสร้างโปรไฟล์บน live server (เปิดแท็บใหม่) */}
+          <a
+            href={`${window.location.origin}/create-profile`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="manual-btn"
+          >
+            เริ่มกรอก (Open in Live Server)
+          </a>
+
+          {/* ถ้าต้องการ internal navigation ใช้ Link แทน:
+              <Link to="/create-profile" className="manual-btn">เริ่มกรอก</Link>
+          */}
         </div>
       </div>
     </div>

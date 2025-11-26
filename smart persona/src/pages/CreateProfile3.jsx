@@ -1,12 +1,13 @@
 import React from "react";
-import "../createResume.css";
+import "../CreateProfileCSS/CreateProfile3.css";
+import { Link } from "react-router-dom";
 
 export default function CreateProfile2() {
     const steps = [
         "Data From",
         "Photo",
-        "Basic Data",
-        "Education", // Active Step Index = 3
+        "Basic Data", // Active Step Index = 2
+        "Education",
         "Skills",
         "Attributes",
         "Work Experience",
@@ -16,17 +17,17 @@ export default function CreateProfile2() {
     const sidebarItems = [
         "Name",
         "Basic Data",
-        "Education", // Active Sidebar Index = 2
+        "Education",
         "Career Goals",
         "Skills",
         "Work Experience",
         "Attributes",
     ];
 
-    // กำหนดให้ขั้นตอนปัจจุบันคือ Education (Index 3)
-    const currentStepIndex = 3;
-    // กำหนดให้ Sidebar ที่ active คือ Education (Index 2)
-    const currentSidebarIndex = 2;
+    // กำหนดให้ขั้นตอนปัจจุบันคือ Basic Data (Index 2)
+    const currentStepIndex = 2;
+    // กำหนดให้ Sidebar ที่ active คือ Basic Data (Index 1)
+    const currentSidebarIndex = 1;
 
     return (
         <div className="page-bg">
@@ -92,10 +93,9 @@ export default function CreateProfile2() {
                                         <div 
                                             key={i} 
                                             className={`sidebar-item 
-                                                ${i === 0 || i === 3 || i === 4 || i === 5 || i === 6 ? "big" : ""} 
+                                                ${i === 0 ? "big" : ""} 
                                                 ${i === currentSidebarIndex ? "highlight" : ""}
                                             `}
-                                            /* ปรับให้รายการ Name, Education, Skills, Work Experience, Attributes เป็น 'big' ตามรูป */
                                         >
                                             {item}
                                         </div>
@@ -104,55 +104,73 @@ export default function CreateProfile2() {
                             </div>
                         </aside>
 
-                        {/* Right Panel (Education Form) */}
+                        {/* Right Panel (Basic Data Form) */}
                         <section className="right-panel">
-                            <h3 className="panel-title">การศึกษา</h3>
+                            <h3 className="panel-title">ข้อมูลพื้นฐาน</h3>
 
-                            <div className="form-content education-form">
-                                
-                                {/* 1st Row: ระดับการศึกษา, จบการศึกษาเมื่อ, คณะ, สาขา (ใช้ select ทั้งหมด) */}
-                                <div className="form-group quadruple-row education-row-1">
+                            <div className="form-content">
+                                {/* 1. Name */}
+                                <div className="form-group row">
+                                    <label htmlFor="name">ชื่อ-นามสกุล</label>
+                                    <input type="text" id="name" placeholder="Name-Last Name" className="text-input" />
+                                </div>
+
+                                {/* 2. Gender, Age, Phone */}
+                                <div className="form-group triple-row">
                                     <div className="input-with-label">
-                                        <label>ระดับการศึกษา</label>
-                                        <select className="select-input"><option>ระดับการศึกษา</option></select>
+                                        <label>เพศ</label>
+                                        <div className="inline-group">
+                                            <select className="select-input">
+                                                <option>select</option>
+                                            </select>
+                                            <input type="text" defaultValue="00" className="small-input" maxLength="2" />
+                                        </div>
                                     </div>
                                     <div className="input-with-label">
-                                        <label>จบการศึกษาเมื่อ</label>
-                                        <select className="select-input"><option>จบการศึกษาเมื่อปี</option></select>
+                                        <label>อายุ</label>
+                                        <input type="text" defaultValue="00" className="small-input" maxLength="2" />
                                     </div>
-                                    <div className="input-with-label">
-                                        <label>คณะ</label>
-                                        <input type="text" className="text-input" />
-                                    </div>
-                                    <div className="input-with-label">
-                                        <label>สาขา</label>
-                                        <input type="text" className="text-input" />
+                                    <div className="input-with-label phone-group">
+                                        <label>เบอร์โทร</label>
+                                        <div className="input-mask-group">
+                                            {Array(10).fill(0).map((_, i) => (
+                                                <input key={i} type="text" className="mask-input" maxLength="1" />
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
 
-                                {/* 2nd Row: มหาวิทยาลัย/วิทยาลัย/โรงเรียน, ประเภท, เกรดเฉลี่ย */}
-                                <div className="form-group triple-row education-row-2">
+                                {/* 3. Email, Line ID */}
+                                <div className="form-group double-row">
                                     <div className="input-with-label">
-                                        <label>มหาวิทยาลัย/วิทยาลัย/โรงเรียน</label>
-                                        <input type="text" className="text-input" />
+                                        <label htmlFor="email">Email</label>
+                                        <input type="email" id="email" className="text-input" />
                                     </div>
                                     <div className="input-with-label">
-                                        <label>ประเภท</label>
-                                        <select className="select-input"><option>ประเภท</option></select>
-                                    </div>
-                                    <div className="input-with-label">
-                                        <label>เกรดเฉลี่ย</label>
-                                        <input type="text" className="text-input" />
+                                        <label htmlFor="lineId">ID Line</label>
+                                        <input type="text" id="lineId" className="text-input" />
                                     </div>
                                 </div>
 
-                                {/* Add Education Button */}
-                                <div className="add-education-row">
-                                    <button className="add-education-btn">
-                                        <i className="add-icon">+</i> เพิ่มระดับการศึกษา
-                                    </button>
+                                {/* 4. Address */}
+                                <h4 className="address-header">ที่อยู่</h4>
+                                <div className="form-group quadruple-row">
+                                    <select className="select-input address-select"><option>เลขที่บ้าน/อาคาร, หมู่/ซอย, ถนน</option></select>
+                                    <select className="select-input address-select"><option>แขวง/ตำบล</option></select>
+                                    <select className="select-input address-select"><option>เขต/อำเภอ</option></select>
+                                    <select className="select-input address-select"><option>จังหวัด</option></select>
                                 </div>
-                                
+
+                                {/* 5. Postal Code */}
+                                <div className="form-group postal-code-row">
+                                    <label>รหัสไปรษณีย์</label>
+                                    <div className="input-mask-group">
+                                        {Array(5).fill(0).map((_, i) => (
+                                            <input key={i} type="text" className="mask-input" maxLength="1" />
+                                        ))}
+                                    </div>
+                                </div>
+
                                 {/* Navigation Buttons */}
                                 <div className="navigation-buttons">
                                     <button className="nav-btn prev-btn">

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import "../CreateProfileCSS/CreateProfile6.css";
+import { Link } from "react-router-dom";
 
 // --- Static Data ---
 const resumeSections = [

@@ -1,5 +1,6 @@
 import React from "react";
-import "../createResume.css";
+import "../CreateProfileCSS/CreateProfile2.css";
+import { Link } from "react-router-dom";
 
 export default function CreateProfile2() {
 	const steps = [
