@@ -15,13 +15,13 @@ import "../styles/Home.css";
 
 // Profile data - same as Dashboard
 const profiles = [
-	{ name: "สมชาย ใจดีมาก", title: "Web Developer", country: "Thailand", exp: "4 years", tags: ["Laravel", "Vue js", "SEO"], type: "private", role: "Dev" },
-	{ name: "ปพิชญา วงศ์สถิตย์", title: "Software Developer", country: "Thailand | USA", exp: "2.5 years", tags: ["Python", "Javascript", "React"], type: "private", role: "Design" },
-	{ name: "กวิน สุวีวรินทร์", title: "UX/UI Designer", country: "Thailand", exp: "6 years", tags: ["Photoshop", "Illustrator", "Design"], type: "private", role: "UI/UX" },
-	{ name: "ศิริ วัฒนกุล", title: "Web Developer", country: "Thailand", exp: "4 years", tags: ["Laravel", "Vue js", "SEO"], type: "private", role: "Graphic" },
-	{ name: "เชน ธนภูมิ", title: "Mobile App Developer", country: "Thailand", exp: "3.5 years", tags: ["Kotlin", "Flutter", "Swift"], type: "private", role: "web design" },
-	{ name: "ธนการ หลายพันธ์", title: "Data Scientist", country: "Thailand | Singapore", exp: "4 years", tags: ["Python", "Machine Learning", "SQL"], type: "public", role: "web design", status: "online" },
-	{ name: "ณิชาพัชร์ เกษมสุข", title: "Cybersecurity Analyst", country: "Thailand", exp: "5 years", tags: ["Network Security", "Linux", "Penetration Testing"], type: "public", role: "web design", status: "offline" },
+	{ name: "สมชาย ใจดีมาก", title: "Web Developer", country: "Thailand", exp: "4 years", tags: ["Laravel", "Vue js", "SEO"], type: "private"  },
+	{ name: "ปพิชญา วงศ์สถิตย์", title: "Software Developer", country: "Thailand | USA", exp: "2.5 years", tags: ["Python", "Javascript", "React"], type: "private" },
+	{ name: "กวิน สุวีวรินทร์", title: "UX/UI Designer", country: "Thailand", exp: "6 years", tags: ["Photoshop", "Illustrator", "Design"], type: "private" },
+	{ name: "ศิริ วัฒนกุล", title: "Web Developer", country: "Thailand", exp: "4 years", tags: ["Laravel", "Vue js", "SEO"], type: "private" },
+	{ name: "เชน ธนภูมิ", title: "Mobile App Developer", country: "Thailand", exp: "3.5 years", tags: ["Kotlin", "Flutter", "Swift"], type: "private"},
+	{ name: "ธนการ หลายพันธ์", title: "Data Scientist", country: "Thailand | Singapore", exp: "4 years", tags: ["Python", "Machine Learning", "SQL"], type: "public" },
+	{ name: "ณิชาพัชร์ เกษมสุข", title: "Cybersecurity Analyst", country: "Thailand", exp: "5 years", tags: ["Network Security", "Linux", "Penetration Testing"], type: "public", },
 ];
 
 // Sidebar component
@@ -31,32 +31,23 @@ const Sidebar = () => (
 			<Plus className="w-5 h-5" />
 			<span>Create</span>
 		</div>
-		<div className="sidebar-home-btn">
-			Home
+		<div className="sidebar-create-btn">
+			<HomeIcon className="w-5 h-5" />
+			<span>Home</span>
 		</div>
-				<div className="sidebar-dashboard-btn">
-			Dashboard
+		<div className="sidebar-create-btn">
+			<Grid className="w-5 h-5" />
+			<span>Dashboard</span>
 		</div>
-		<nav className="sidebar-nav">
-			<button className="sidebar-item active">
-				<HomeIcon className="w-5 h-5" />
-			</button>
-			<button className="sidebar-item">
-				<Grid className="w-5 h-5" />
-			</button>
-			<button className="sidebar-item">
-				<Users className="w-5 h-5" />
-			</button>
-			<button className="sidebar-item">
-				<Bookmark className="w-5 h-5" />
-			</button>
-			<button className="sidebar-item">
-				<Bell className="w-5 h-5" />
-			</button>
-			<button className="sidebar-item">
-				<Settings className="w-5 h-5" />
-			</button>
-		</nav>
+		<div className="sidebar-create-btn">
+			<Bell className="w-5 h-5" />
+			<span>Notification</span>
+		</div>
+		<div className="sidebar-create-btn">
+			<User className="w-5 h-5" />
+			<span>User</span>
+		</div>	
+
 	</aside>
 );
 

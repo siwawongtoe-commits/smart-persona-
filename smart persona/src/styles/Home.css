@@ -118,7 +118,7 @@
 /* ===== Sidebar ===== */
 .sidebar {
   width: 65px;
-  height: 449px;
+  height: 350px;
   background: #9CD1FF;
   border-radius: 16px;
   padding: 12px;
@@ -142,6 +142,8 @@
   font-size: 12px;
   flex-direction: column;
   gap: 4px;
+  margin: 5px;
+ 
 }
 
 .sidebar-home-btn {
@@ -189,8 +191,38 @@
   
   }
 
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
 
+.sidebar-item {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: white;
+  border: none;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
 
+.sidebar-item:hover {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.sidebar-item.active {
+  background: #dbeafe;
+  color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
 
 /* ===== Main Content ===== */
 .home-main {
@@ -314,14 +346,15 @@
 
 /* ===== Profile Card ===== */
 .profile-card {
-  background: white;
+  background: rgb(253, 253, 253);
   border-radius: 12px;
   padding: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid #f0f4ff;
+  border: 1px solid #9092FF;
   transition: all 0.2s;
   display: flex;
   flex-direction: column;
+
 }
 
 .profile-card:hover {
@@ -338,8 +371,8 @@
 }
 
 .profile-role-badge {
-  background: #dbeafe;
-  color: #1e40af;
+  background: #ffffff;
+  color: #000000;
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 12px;
@@ -372,7 +405,7 @@
 }
 
 .profile-bookmark-icon:hover {
-  color: #6b7280;
+  color: #c0b5b5;
 }
 
 .profile-card-avatar {
@@ -407,7 +440,7 @@
 
 .profile-title {
   font-size: 12px;
-  color: #3b82f6;
+  color: #000000;
   margin: 0 0 2px 0;
   font-weight: 500;
 }
@@ -427,7 +460,7 @@
 .experience-years {
   font-size: 13px;
   font-weight: 600;
-  color: #1e3a8a;
+  color: #000000;
   margin: 4px 0 0 0;
 }
 
@@ -441,13 +474,13 @@
 }
 
 .tag {
-  background: #f0f4ff;
-  color: #3b82f6;
+  background: #ffffff;
+  color: #111491;
   padding: 4px 8px;
   border-radius: 12px;
   font-size: 11px;
   font-weight: 500;
-  border: 1px solid #dbeafe;
+  border: 1px solid #5EB4FF;
 }
 
 /* ===== Profile Footer ===== */
