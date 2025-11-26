@@ -61,13 +61,13 @@ export default function HRLogin() {
   return (
     <div className="login-page">
       <button className="back-btn">
-        <span className="icon">⟵</span> กลับหน้าหลัก
+        <span className="icon">⟵</span> กลับเข้าสู่หน้าหลัก
       </button>
 
       <h1 className="title">PerFile</h1>
 
       <div className="top-right-text2">
-        <Link to="/">คุณเป็นผู้หางานหรือเปล่า?</Link>
+        <Link to="/login">คุณเป็นผู้หางานหรือเปล่า?</Link>
       </div>
 
       <div className="login-box">

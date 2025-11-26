@@ -13,9 +13,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/noRegister" element={<NoRegister />} />
+        <Route path="/" element={<NoRegister />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/" element={<RegisterPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         {/* <Route path="/home" element={<Dashboard />} /> */}
         <Route path="/home" element={<Home />} />
         <Route path="/home-profile" element={<Home />} />

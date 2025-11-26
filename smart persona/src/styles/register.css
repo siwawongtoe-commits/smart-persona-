@@ -68,7 +68,7 @@
     border-radius: 12px; 
     border: 2px solid #2b2bd6; 
     box-shadow: 0 18px 36px rgba(11,17,80,0.06);
-    max-width: 640px;       /* กล่องกว้างขึ้น */
+    max-width: 600px;       /* กล่องกว้างขึ้น */
     width: 100%;
     display: flex;
     flex-direction: column;
