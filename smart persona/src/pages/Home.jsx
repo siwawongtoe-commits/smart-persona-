@@ -33,7 +33,7 @@ const Sidebar = () => (
 		</div>
 		<a href="/Home">
 		<div className="sidebar-create-btn">
-			<Grid className="w-5 h-5" />
+			<HomeIcon className="w-5 h-5" />
 			<span>Home</span>
 		</div>
 		</a>

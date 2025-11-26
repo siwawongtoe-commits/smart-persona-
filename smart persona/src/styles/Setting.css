@@ -1,7 +1,8 @@
 :root {
   /* Colors */
-  --color-primary: #3b5998; /* Dark Blue for header/buttons */
-  --color-secondary: #f0f2f5; /* Light Gray/Blue background gradient start */
+  --color-primary: #111491;
+  --color-secondary: #ffffff;
+  /* Light Gray/Blue background gradient start */
   --color-background-start: #e8f0fe;
   --color-background-end: #ffffff;
   --color-text-dark: #333;
@@ -9,7 +10,8 @@
   --color-link-blue: #1877f2;
   --color-danger: #ff0000;
   --color-light-bg: #fff;
-  --color-light-blue-circle: #e0ecff; /* For the avatar background */
+  --color-light-blue-circle: #e0ecff;
+  /* For the avatar background */
 }
 
 /* Global Styles & Container */
@@ -19,7 +21,8 @@
   min-height: 100vh;
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, var(--color-background-start) 0%, var(--color-background-end) 100%);
-  padding-bottom: 50px; /* Space for the bottom buttons */
+  padding-bottom: 50px;
+  /* Space for the bottom buttons */
 }
 
 /* --- Header Bar --- */
@@ -27,15 +30,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 17px 27px;
   background-color: var(--color-primary);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .logo-section {
   font-weight: bold;
   font-size: 1.5em;
 }
+
 
 .back-button {
   background-color: white;
@@ -63,9 +67,14 @@
 .settings-title {
   display: flex;
   align-items: center;
-  font-size: 1.8em;
+  padding: 10px;
+  font-size: 1.2em;
   color: var(--color-text-dark);
-  margin-bottom: 30px;
+  margin-bottom: auto;
+}
+
+.MainTitle {
+  margin-right: 30px;
 }
 
 .title-icon {
@@ -87,7 +96,8 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: var(--color-light-blue-circle); /* Placeholder for the blue circle */
+  background-color: var(--color-light-blue-circle);
+  /* Placeholder for the blue circle */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,11 +141,12 @@
 .manage-button {
   background-color: var(--color-primary);
   color: white;
+  border: 1px solid var(--color-primary);
 }
 
 .download-button {
-  background-color: transparent;
-  color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: white;
   border: 1px solid var(--color-primary);
 }
 
@@ -164,7 +175,8 @@
 .settings-menu {
   display: flex;
   flex-direction: column;
-  gap: 5px; /* Spacing between menu items */
+  gap: 5px;
+  /* Spacing between menu items */
 }
 
 .setting-item {
@@ -193,7 +205,10 @@
 }
 
 /* Specific icon colors (e.g., Saved is a darker blue/purple in the image) */
-.setting-item:nth-child(1) .item-icon { color: #4b4b73; } 
+.setting-item:nth-child(1) .item-icon {
+  color: #4b4b73;
+}
+
 /* The icons in the image have subtle different colors which could be styled here */
 
 .item-title {
@@ -217,24 +232,45 @@
 
 .action-buttons-group .action-button {
   display: flex;
+  background: #dc2626;
+  color: white;
   align-items: center;
   justify-content: center;
   padding: 12px 25px;
   font-size: 1em;
   font-weight: 600;
   min-width: 200px;
+  transition: 0.2s;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: 1px solid #dc2626;
+}
+
+.manage-button:hover {
+  background: white;
+  color: #111491
+}
+
+.download-button:hover {
+  background-color: #FFFFFF;
+  color: #111491;
+}
+
+.action-button:hover {
+  background: white;
 }
 
 .action-buttons-group .action-button svg {
   margin-right: 8px;
 }
 
-.delete-button {
-  background-color: var(--color-primary); /* Dark blue */
+
+.logout-button {
+  background-color: #dc2626;
   color: white;
 }
 
-.logout-button {
-  background-color: var(--color-danger); /* Red */
-  color: white;
+.logout-button:hover {
+  background: white;
+  color: #dc2626;
 }
