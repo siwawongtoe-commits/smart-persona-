@@ -37,7 +37,7 @@ const Sidebar = () => (
 		</div>
 		<div className="sidebar-create-btn">
 			<Grid className="w-5 h-5" />
-			<span>Dsahboard</span>
+			<span>Dashboard</span>
 		</div>
 		<div className="sidebar-create-btn">
 			<Bell className="w-5 h-5" />
