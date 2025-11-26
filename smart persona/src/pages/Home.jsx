@@ -26,7 +26,7 @@ const profiles = [
 
 // Sidebar component
 const Sidebar = () => (
-	<aside className="sidebar">
+	<aside className="sidebar1">
 		<div className="sidebar-create-btn">
 			<Plus className="w-5 h-5" />
 			<span>Create</span>
@@ -47,7 +47,6 @@ const Sidebar = () => (
 			<User className="w-5 h-5" />
 			<span>User</span>
 		</div>	
-
 	</aside>
 );
 
