@@ -125,8 +125,12 @@ export default function HomeAdmin() {
             />
             <Filter className="filter-icon-admin" />
           </div>
-        </div>
-        <button className="header-logout-admin">Log out</button>
+				</div>
+				<div className="header-actions">
+					<a href="/Login" className="header-logout">
+						Log out
+					</a>
+				</div>
       </header>
 
       <div className="home-layout-admin">
