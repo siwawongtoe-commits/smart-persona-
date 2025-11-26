@@ -1,0 +1,230 @@
+body {
+  font-family: "Inter", sans-serif;
+  /* กำหนดพื้นหลังให้เป็นสีอ่อนเพื่อเสริมให้ container เด่น */
+  background: #f0f4ff; 
+}
+
+/* ภาชนะหลักเพื่อสร้างขอบโค้งและเงาเหมือนในรูป */
+.resume-container {
+  /* ลบ padding เดิมออกเพื่อควบคุมความกว้าง */
+  /* padding: 20px 40px; */ 
+  margin: 20px auto;
+  max-width: 1200px; /* เพิ่มความกว้างให้ใกล้เคียงรูป */
+  background: #ffffff; /* พื้นหลังสีขาว */
+  border-radius: 20px; /* ขอบโค้ง */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* เงาอ่อนๆ */
+  padding-bottom: 40px; /* เพิ่ม padding ด้านล่าง */
+}
+
+/* แถบหัวด้านบนสีน้ำเงินเข้ม */
+.header {
+  background: linear-gradient(to right, #2c3e50, #4a69bd); /* Gradient Blue */
+  /* รูปในภาพมีแถบสีเทาด้านบนสุด คล้าย header ด้านนอก */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 15px 40px; /* เพิ่ม padding แนวข้าง */
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+/* แก้ไขชื่อ header ให้เข้ากับรูป */
+.header-text {
+  font-size: 28px;
+  padding-left: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 32px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* แถบค้นหา */
+.search-box {
+  margin: 20px auto 40px auto; /* เพิ่ม margin บน-ล่าง */
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 25px; /* ทำให้โค้งมนทั้งกล่อง */
+  padding: 8px 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.search-box input {
+  flex: 1;
+  padding: 0;
+  border: none;
+  border-radius: 0; /* ลบ border-radius เดิม */
+  outline: none;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.filter-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #555;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+/* ส่วนของขั้นตอน (Steps) */
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* เพิ่มช่องว่างเล็กน้อย */
+  margin: 25px 0 50px 0; /* เพิ่ม margin ด้านล่าง */
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.step-item {
+  text-align: center;
+  font-size: 14px; /* ปรับขนาดตัวอักษร */
+  color: #555;
+  position: relative;
+  /* เพิ่มเส้นเชื่อมต่อระหว่างขั้นตอน (ต้องเพิ่ม HTML element สำหรับเส้นด้วย) */
+}
+
+.step-number {
+  /* สำหรับขั้นตอนที่ยังไม่ถูกเลือก */
+  background: #e0e0e0;
+  color: #888;
+  padding: 8px 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid #e0e0e0;
+}
+
+/* สำหรับขั้นตอนที่เลือกอยู่ (ตามรูปคือขั้นตอนที่ 1) */
+.step-item.active .step-number {
+  background: #fff;
+  color: #0c2fa3;
+  border: 2px solid #0c2fa3; /* เส้นขอบสีน้ำเงินเข้ม */
+}
+
+.step-item.active .step-text {
+    font-weight: bold;
+    color: #0c2fa3;
+}
+
+
+/* เนื้อหาหลักและแถบด้านข้าง */
+.main-content {
+  display: flex;
+  gap: 40px; /* เพิ่มช่องว่าง */
+  margin-top: 20px;
+  padding: 0 40px; /* เพิ่ม padding แนวข้างของ container */
+}
+
+.sidebar {
+  width: 400px; /* เพิ่มความกว้างของ sidebar เพื่อรองรับกล่องใหญ่ */
+  display: grid;
+  /* จัด layout ให้คล้ายกับในรูป */
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  gap: 15px;
+  /* กำหนดพื้นที่ของแต่ละ item */
+  grid-template-areas: 
+    "photo name"
+    "education basic-data"
+    "skills work-experience"
+    "attributes work-experience";
+}
+
+.sidebar-item {
+  background: #f0f4ff; /* สีพื้นหลังอ่อน (Light Blue/Purple) */
+  color: #1a2a4b;
+  padding: 20px;
+  border-radius: 12px; /* ขอบโค้งมน */
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+  min-height: 50px;
+}
+
+/* การจัดวางตาม Layout ในรูป */
+.sidebar-item.photo { grid-area: photo; }
+.sidebar-item.name { grid-area: name; }
+.sidebar-item.basic-data { grid-area: basic-data; }
+.sidebar-item.education { grid-area: education; }
+.sidebar-item.skills { grid-area: skills; }
+.sidebar-item.attributes { grid-area: attributes; }
+/* กล่อง 'Work Experience' กินพื้นที่ 2 แถว */
+.sidebar-item.work-experience { 
+    grid-area: work-experience; 
+    padding: 40px 20px; /* เพิ่ม padding ให้ดูใหญ่ขึ้น */
+}
+/* กล่อง 'Career Goals' (ไม่ปรากฏในโค้ดเดิมแต่มีในรูป) */
+.sidebar-item.career-goals { 
+    grid-area: career-goals; 
+    /* สมมติว่าต้องการให้ Career Goals อยู่คู่กับ Education */
+}
+
+/* ลบโค้ดส่วน Form Section และ Social ออก เพราะไม่จำเป็นในการสร้าง Layout หลัก */
+.form-section {
+  flex: 1;
+  text-align: left; /* ปรับให้ชิดซ้าย */
+  padding: 20px;
+}
+
+/* ส่วนของ "รูปภาพในเรซูเม่" */
+.photo-upload-section {
+    margin-top: 10px;
+}
+
+.photo-upload-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.upload-btn-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.upload-photo-btn {
+    background: #e0e0e0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.next-btn {
+    background: #0c2fa3; /* สีน้ำเงินเข้ม */
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ลบโค้ด social-row, social-btn, divider, manual-btn ที่ไม่ใช้ในส่วนนี้ออก */
+.social-row, .social-btn, .divider, .manual-btn {
+    display: none;
+}
