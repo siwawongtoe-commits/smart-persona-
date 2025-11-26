@@ -1,6 +1,6 @@
 import React from "react";
-import "../CreateProfileCSS/CreateProfile1.css";
 import { Link } from "react-router-dom";
+import "../CreateProfileCSS/CreateProfile1.css";
 
 export default function CreateResume() {
   return (
