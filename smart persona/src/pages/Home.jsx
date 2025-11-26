@@ -32,10 +32,10 @@ const Sidebar = () => (
 			<span>Create</span>
 		</div>
 		<a href="/Home">
-			<div className="sidebar-create-btn">
-				<HomeIcon className="w-5 h-5" />
-				<span>Home</span>
-			</div>
+		<div className="sidebar-create-btn">
+			<Grid className="w-5 h-5" />
+			<span>Home</span>
+		</div>
 		</a>
 		<a href="/Dashboard">
 			<div className="sidebar-create-btn">
