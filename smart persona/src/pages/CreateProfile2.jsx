@@ -1,5 +1,5 @@
 import React from "react";
-import "../CreateProfileCSS/CreateProfile2.css";
+import "../styles/CreateProfile2.css";
 import { Link } from "react-router-dom";
 
 export default function CreateProfile2() {

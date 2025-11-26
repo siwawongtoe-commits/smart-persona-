@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import "./CreateProfile5.css";
 
+import "../styles/CreateProfile5.css";
+import { Link } from "react-router-dom";
+
 const resumeSections = [
   'Data Form', 'Photo', 'Basic Data', 'Education', 
   'Skills', 'Attributes', 'Work Experience', 'Career Goals'

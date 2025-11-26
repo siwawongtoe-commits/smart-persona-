@@ -27,10 +27,12 @@ const profiles = [
 // Sidebar component
 const Sidebar = () => (
 	<aside className="sidebar1">
+		<a href="/CreateProfile1">
 		<div className="sidebar-create-btn">
 			<Plus className="w-5 h-5" />
 			<span>Create</span>
 		</div>
+		</a>
 		<a href="/Home">
 		<div className="sidebar-create-btn">
 			<HomeIcon className="w-5 h-5" />
