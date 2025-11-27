@@ -135,22 +135,7 @@ export default function App() {
 
           {/* Search Bar - Center */}
           <div className="flex-1 flex justify-center px-4">
-            <div className="relative w-full max-w-xl">
-              <input
-                type="text"
-                placeholder="Search Profile, User"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                // White background, colorful border as seen in the image
-                className="w-full rounded-full py-2 px-4 pl-10 pr-10 text-sm focus:outline-none text-gray-900 placeholder-gray-500 border-4 border-[#5EB4FF] shadow-inner"
-              />
-              {/* Search Icon - Left */}
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#5EB4FF]" />
-
-              {/* Filter Icon - Right (Funnel icon used for general filtering context) */}
-              <Filter className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#5EB4FF] cursor-pointer hover:opacity-80 transition-opacity" />
-
-            </div>
+           
           </div>
 
           {/* Log out Button - Right */}
