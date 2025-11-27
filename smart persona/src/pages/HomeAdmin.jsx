@@ -28,22 +28,28 @@ const profiles = [
 // Sidebar component
 const Sidebar = () => (
   <aside className="sidebar1">
+    <a href="/HomeAdmin">
     <div className="sidebar-create-btn">
       <HomeIcon className="w-5 h-5" />
       <span>Home</span>
     </div>
+    </a>
+    <a href="/DashboardAdmin">
     <div className="sidebar-create-btn">
       <Grid className="w-5 h-5" />
       <span>Dsahboard</span>
     </div>
+    </a>
     <div className="sidebar-create-btn">
       <Bell className="w-5 h-5" />
       <span>Notification</span>
     </div>
+    <a href="/Setting">
     <div className="sidebar-create-btn">
       <User className="w-5 h-5" />
       <span>User</span>
-    </div>	
+    </div>
+    </a>
 
   </aside>
 );
