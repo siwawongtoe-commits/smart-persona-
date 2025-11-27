@@ -119,8 +119,8 @@ export default function RegisterPage() {
 
               <form className="form-group" onSubmit={handleRegister}>
                 {/* Email */}
-                <div className="form-field">
-                  <label className="form-label" htmlFor="reg-email">อีเมล</label>
+                <div className="form-field2">
+                  อีเมล
                   <input
                     id="reg-email"
                     className="form-input"
@@ -133,8 +133,8 @@ export default function RegisterPage() {
                 </div>
 
                 {/* Password */}
-                <div className="form-field">
-                  <label className="form-label" htmlFor="reg-pass">กำหนดรหัสผ่าน</label>
+                <div className="form-field2">
+                 กำหนดรหัสผ่าน
                   <div className="password-wrapper">
                     <input
                       id="reg-pass"

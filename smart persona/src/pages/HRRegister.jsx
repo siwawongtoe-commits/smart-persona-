@@ -39,7 +39,7 @@ export default function HRRegister() {
         </div>
 
         <p className="register-title">ลงทะเบียน HR</p>
-        <p className="sub-warn">*ใช้ข้อมูลของทางบริษัท</p>
+        <p className="sub-warn">*ใช้อีเมลของทางบริษัท</p>
            <button className="google-btn">
           {/* ⬇️ โค้ด SVG ไอคอน Google ใหม่ ⬇️ */}
           <svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg">
@@ -52,27 +52,30 @@ export default function HRRegister() {
           {/* ⬆️ โค้ด SVG ไอคอน Google ใหม่ ⬆️ */}
           ดำเนินการด้วยบัญชี Google
         </button>
+         <div className="divider-or">
+              <span>หรือ</span>
+            </div>
 
 
         <div className="form-group">
-          <label>ชื่อบริษัท</label>
-          <input type="text" value={company} onChange={e=>setCompany(e.target.value)} placeholder="ชื่อบริษัท" />
+          ชื่อบริษัท
+          <input type="text" value={company} onChange={e=>setCompany(e.target.value)} placeholder="" />
         </div>
 
         <div className="form-group">
-          <label>ชื่อพนักงาน</label>
-          <input type="text" value={name} onChange={e=>setName(e.target.value)} placeholder="ชื่อพนักงาน" />
+         ชื่อพนักงาน
+          <input type="text" value={name} onChange={e=>setName(e.target.value)} placeholder="" />
         </div>
 
         <div className="form-group">
-          <label>อีเมล</label>
-          <input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="อีเมล" />
+          อีเมล
+          <input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="" />
         </div>
 
         <div className="form-group">
-          <label>รหัสผ่าน</label>
+          รหัสผ่าน
           <div className="password-wrapper">
-            <input type={showPass ? "text" : "password"} value={password} onChange={e=>setPassword(e.target.value)} placeholder="รหัสผ่าน" />
+            <input type={showPass ? "text" : "password"} value={password} onChange={e=>setPassword(e.target.value)} placeholder="" />
             <button type="button" className="password-toggle" onClick={()=>setShowPass(!showPass)}>
               {showPass ? "🙈" : "👁️"}
             </button>
