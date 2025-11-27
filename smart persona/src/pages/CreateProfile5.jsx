@@ -1,123 +1,234 @@
-import React, { useState } from 'react';
-import "../styles/CreateProfile5.css";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../styles/CreateProfile5.css";
 
-const resumeSections = [
-  'Data Form', 'Photo', 'Basic Data', 'Education', 
-  'Skills', 'Attributes', 'Work Experience', 'Career Goals'
-];
+// Component สำหรับหน้ากรอกข้อมูล Skills (ทักษะความสามารถ)
+export default function CreateProfile5() {
+    // กำหนดรายการขั้นตอนทั้งหมดใน Progress Bar
+    const steps = [
+        "Data From",
+        "Photo",
+        "Basic Data",
+        "Education",
+        "Skills", // Active Step Index = 4
+        "Attributes",
+        "Work Experience",
+        "Career Goals",
+    ];
 
-const mainNavigation = [
-  { label: 'Name', component: 'Name' },
-  { label: 'Basic Data', component: 'BasicData' },
-  { label: 'Education', component: 'Education' },
-  { label: 'Career Goals', component: 'CareerGoals' },
-  { label: 'Skills', component: 'Skills' },
-  { label: 'Work Experience', component: 'WorkExperience' },
-  { label: 'Attributes', component: 'Attributes' },
-];
+    // กำหนดรายการเมนูใน Sidebar Navigation
+    const sidebarItems = [
+        "Name",
+        "Basic Data",
+        "Education",
+        "Career Goals",
+        "Skills", // Active Sidebar Index = 4
+        "Work Experience",
+        "Attributes",
+    ];
 
-const skillTags = {
-  language: ['ภาษา', 'พูด', 'อ่าน', 'เขียน'],
-  microsoft: ['Word', 'Excel', 'PowerPoint'],
-  adobe: ['Photoshop', 'Illustrator', 'Lightroom', 'InDesign', 'Premiere Pro', 'After Effects', 'Audition'],
-  designSoftware: ['Canva', 'DaVinci Resolve', 'AutoCAD', 'โปรแกรมอื่น'],
-  generalSkills: ['การวิเคราะห์ข้อมูล (Data Analysis)', 'การบริหารโครงการ (Project Management)', 'การจัดการการสื่อสาร', 'การเงิน/บัญชี'],
-  frontend: ['HTML', 'CSS', 'JavaScript', 'React', 'Vue', 'Angular'],
-  backend: ['Python', 'Java', 'PHP', 'Go (Golang)'],
-};
+    // กำหนดให้ขั้นตอนปัจจุบันคือ Skills (Index 4)
+    const currentStepIndex = 4;
+    // กำหนดให้ Sidebar ที่ active คือ Skills (Index 4)
+    const currentSidebarIndex = 4;
 
-const ResumeCreator = () => {
-  const [activeStep, setActiveStep] = useState(5); // Step ปัจจุบันคือ Skills
-  const [selectedSkills, setSelectedSkills] = useState(new Set(['InDesign', 'JavaScript', 'Python']));
+    // State สำหรับการจัดการ Tab: 'skills' หรือ 'languages'
+    const [activeTab, setActiveTab] = useState('skills');
 
-  const toggleSkill = (skill) => {
-    setSelectedSkills(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(skill)) {
-        newSet.delete(skill);
-      } else {
-        newSet.add(skill);
-      }
-      return newSet;
-    });
-  };
+    // ข้อมูลทักษะจำลอง
+    const softSkills = ["การสื่อสาร", "การทำงานร่วมกัน", "การเป็นผู้นำ", "การแก้ปัญหา", "การบริหารเวลา", "การจัดการความขัดแย้ง"];
+    const profSkills = ["การวิเคราะห์ข้อมูล (Data Analysis)", "การบริหารจัดการโครงการ (Project Management)", "การจัดซื้อจัดจ้าง", "การเงิน/บัญชี"];
+    const techSkills = {
+        "Microsoft": ["Word", "Excel", "PowerPoint", "Outlook", "Teams"],
+        "Adobe": ["Photoshop", "Illustrator", "Premiere Pro", "After Effects", "Audition", "InDesign", "Lightroom"],
+        "Design & Tools": ["Canva", "DaVinci Resolve", "AutoCAD", "Figma", "Sketch", "Blender"],
+        "Front-end": ["HTML", "CSS", "JavaScript", "React", "Vue", "Angular", "Tailwind CSS"],
+        "Back-end": ["Python", "Java", "PHP", "Go (Golang)", "Node.js", "C#", "SQL"],
+    };
+    
+    // State สำหรับจำลองการเลือก Tag
+    const [selectedTags, setSelectedTags] = useState(["JavaScript", "React", "Photoshop", "การสื่อสาร"]);
 
-  const renderSkillGroup = (title, tags) => (
-    <div className="SkillGroup">
-      <div className="SkillTitle">{title}</div>
-      <div className="TagContainer">
-        {tags.map(tag => (
-          <div
-            key={tag}
-            className={`SkillTag ${selectedSkills.has(tag) ? 'active' : ''}`}
-            onClick={() => toggleSkill(tag)}
-          >
-            {tag}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    // Function สำหรับการเลือก/ยกเลิกการเลือก Tag
+    const toggleTag = (tag) => {
+        setSelectedTags(prev => 
+            prev.includes(tag) 
+                ? prev.filter(t => t !== tag) 
+                : [...prev, tag]
+        );
+    };
 
-  return (
-    <div className="AppContainer">
-      <div className="PerFileHeader">PerFile</div>
-      <div className="ContentBox">
-        <h1 className="MainTitle">Create Your Resume</h1>
-
-        {/* Steps Navigation */}
-        <div className="StepsContainer">
-          {resumeSections.map((section, index) => {
-            const isCompleted = index < activeStep - 1;
-            const isActive = index === activeStep - 1;
-            return (
-              <div key={section} className={`StepItem ${isCompleted ? 'completed' : ''} ${isActive ? 'active' : ''}`}>
-                <div className="StepNumber">{index + 1}</div>
-                <div className="StepLabel">{section}</div>
-              </div>
-            );
-          })}
+    // Component สำหรับแสดงกลุ่มทักษะ
+    const SkillGroup = ({ title, skills }) => (
+        <div className="skill-section">
+            <h4 className="skill-section-title">{title}</h4>
+            <div className="skill-tag-container">
+                {skills.map((skill) => (
+                    <span 
+                        key={skill} 
+                        className={`skill-tag ${selectedTags.includes(skill) ? 'selected' : ''}`}
+                        onClick={() => toggleTag(skill)}
+                    >
+                        {skill}
+                    </span>
+                ))}
+            </div>
         </div>
+    );
 
-        {/* Main Content */}
-        <div className="BodyContent">
-          <div className="LeftNav">
-            <div className="ProfileIconBox">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-              </svg>
-            </div>
-            {mainNavigation.map(item => (
-              <div key={item.label} className={`NavLink ${item.label === 'Skills' ? 'active' : ''}`}>
-                {item.label}
-              </div>
-            ))}
-          </div>
+    return (
+        <div className="page-bg">
+            <div className="resume-card">
+                <header className="card-header1">
+                    <div className="logo1">PerFile</div>
+                </header>
 
-          <div className="RightContent">
-            <div className="ContentHeader">
-              <h2 className="HeaderTitle">ทักษะ/ความสามารถ</h2>
-              <span className="HeaderSubtitle">คีย์หลักฐานความสามารถ</span>
-            </div>
+                <div className="card-body">
+                    <h2 className="title">Create Your Resume</h2>
 
-            <div className="SkillsSection">
-              {renderSkillGroup('ทักษะภาษาต่างประเทศ', skillTags.language)}
-              {renderSkillGroup('Microsoft', skillTags.microsoft)}
-              {renderSkillGroup('Adobe', skillTags.adobe)}
-              {renderSkillGroup('อื่นๆ', skillTags.designSoftware)}
-              {renderSkillGroup('ทักษะวิชาชีพ', skillTags.generalSkills)}
-              {renderSkillGroup('Front - end', skillTags.frontend)}
-              {renderSkillGroup('Back - end', skillTags.backend)}
+                    {/* Search Bar (นำมาจากโค้ดเดิม) */}
+                    <div className="search-row">
+                        <div className="search-pill">
+                            <i className="search-icon">🔍</i> 
+                            <input
+                                className="search-input"
+                                type="text"
+                                placeholder="Search Resume Templates"
+                            />
+                            <button className="filter-btn">
+                                <i className="filter-icon">&#x2630;</i>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Step Indicator */}
+                    <div className="progress-wrapper">
+                        <div className="progress-line" />
+                        <div className="steps">
+                            {steps.map((txt, i) => (
+                                <div
+                                    key={i}
+                                    className={`step-item 
+                                        ${i === currentStepIndex ? "active" : ""} 
+                                        ${i < currentStepIndex ? "completed" : ""}
+                                    `}
+                                >
+                                    <span className="step-number">{i + 1}</span>
+                                    <span className="step-label">{txt}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="main-grid">
+                        {/* Left Sidebar (Navigation/Preview) */}
+                        <aside className="left-sidebar">
+                            <div className="sidebar-card">
+                                {/* Avatar/Photo Section */}
+                                <div className="avatar-placeholder"> 
+                                    <i className="avatar-icon">👤</i>
+                                </div> 
+                                
+                                {/* Sidebar Navigation List */}
+                                <div className="sidebar-list">
+                                    {sidebarItems.map((item, i) => (
+                                        <div 
+                                            key={i} 
+                                            className={`sidebar-item 
+                                                ${i === 0 || i === 4 || i === 5 || i === 6 ? "big" : ""} 
+                                                ${i === currentSidebarIndex ? "highlight" : ""}
+                                            `}
+                                        >
+                                            {item}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </aside>
+
+                        {/* Right Panel (Skills Form) */}
+                        <section className="right-panel">
+                            <h3 className="panel-title">ทักษะและความสามารถ</h3>
+
+                            {/* Tab Navigation */}
+                            <div className="tab-navigation">
+                                <div 
+                                    className={`tab-item ${activeTab === 'skills' ? 'active' : ''}`}
+                                    onClick={() => setActiveTab('skills')}
+                                >
+                                    ทักษะความสามารถ
+                                </div>
+                                <div 
+                                    className={`tab-item ${activeTab === 'languages' ? 'active' : ''}`}
+                                    onClick={() => setActiveTab('languages')}
+                                >
+                                    ทักษะภาษาต่างประเทศ
+                                </div>
+                            </div>
+
+                            {activeTab === 'skills' && (
+                                <div className="form-content skills-form">
+                                    
+                                    {/* 1. Soft/General Skills */}
+                                    <SkillGroup 
+                                        title="ทั่วไปในองค์กร / Soft Skills" 
+                                        skills={softSkills} 
+                                    />
+
+                                    {/* 2. Professional Skills */}
+                                    <SkillGroup 
+                                        title="ทักษะวิชาชีพ" 
+                                        skills={profSkills} 
+                                    />
+                                    
+                                    {/* 3. Tech/Software Skills (Dynamic Categories) */}
+                                    {Object.entries(techSkills).map(([category, skills]) => (
+                                        <SkillGroup 
+                                            key={category}
+                                            title={category} 
+                                            skills={skills} 
+                                        />
+                                    ))}
+
+                                    {/* Custom Skill Input Row */}
+                                    <div className="add-custom-skill-row">
+                                        <input type="text" placeholder="พิมพ์ทักษะที่ต้องการเพิ่ม" className="custom-skill-input" />
+                                        <button className="add-skill-btn">
+                                            <i className="add-icon">+</i> เพิ่มทักษะเอง
+                                        </button>
+                                    </div>
+                                    
+                                    {/* Navigation Buttons */}
+                                    <div className="navigation-buttons">
+                                        <Link to="/CreateProfile4">
+                                            <button className="nav-btn prev-btn">
+                                                <i className="arrow-icon">←</i> Back
+                                            </button>
+                                        </Link>
+                                        <Link to="/CreateProfile6">
+                                            <button className="nav-btn next-btn">
+                                                Next <i className="arrow-icon">→</i>
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            )}
+
+                            {activeTab === 'languages' && (
+                                <div className="form-content language-form">
+                                    <h3 className="panel-title-sub">ทักษะภาษาต่างประเทศ</h3>
+                                    <p className="placeholder-text">
+                                        ในส่วนนี้คุณสามารถระบุความสามารถทางภาษา (เช่น อังกฤษ จีน ญี่ปุ่น) และระดับความเชี่ยวชาญ 
+                                        <br/>
+                                        (เช่น ดีเยี่ยม พอใช้ หรือคะแนนสอบ เช่น TOEIC, HSK)
+                                    </p>
+                                    {/* Add language input fields here later */}
+                                </div>
+                            )}
+                        </section>
+                    </div>
+                </div>
             </div>
-<a href="/CreateProfile6">
-            <button className="NextButton">Next ➜</button>
-</a>
-          </div>
         </div>
-      </div>
-    </div>
-  );
-};
-
-export default ResumeCreator;
+    );
+}
