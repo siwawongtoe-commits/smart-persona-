@@ -18,6 +18,7 @@ import CreateProfile5 from "./pages/CreateProfile5";
 import CreateProfile6 from "./pages/CreateProfile6";
 import CreateProfile7 from "./pages/CreateProfile7";
 import CreateProfile8 from "./pages/CreateProfile8";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/createprofile6" element={<CreateProfile6 />} />
         <Route path="/createprofile7" element={<CreateProfile7 />} />
         <Route path="/createprofile8" element={<CreateProfile8 />} />
+        <Route path="/userprofile" element={<UserProfile />} />
       </Routes>
     </Router>
   );
