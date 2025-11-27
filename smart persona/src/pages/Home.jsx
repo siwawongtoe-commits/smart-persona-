@@ -142,17 +142,7 @@ export default function Home() {
 					<h1 className="header-title">PerFile</h1>
 				</div>
 				<div className="header-search">
-					<div className="search-input-wrapper">
-						<Search className="search-icon" />
-						<input
-							type="text"
-							placeholder="Search Profile, User"
-							value={searchQuery}
-							onChange={(e) => setSearchQuery(e.target.value)}
-							className="search-input"
-						/>
-						<Filter className="filter-icon" />
-					</div>
+					
 				</div>
 				<div className="header-actions">
 					<a href="/Login" className="header-logout">
@@ -169,7 +159,7 @@ export default function Home() {
 				<main className="home-main">
 					{/* Title Section */}
 					<div className="home-title-section">
-						<h2 className="home-section-title">เริ่มสร้างเรซูเม่ด้วยตัวตนแท้จริงของคุณ</h2>
+					
 						<div className="home-controls">
 							<div className="search-local">
 								<input
@@ -181,9 +171,7 @@ export default function Home() {
 								/>
 								<Search className="search-icon-local" />
 							</div>
-							<button className="filter-btn">
-								<Filter className="w-4 h-4" />
-							</button>
+							
 						</div>
 					</div>
 
