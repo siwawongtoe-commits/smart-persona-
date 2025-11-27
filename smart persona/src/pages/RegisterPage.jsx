@@ -41,9 +41,7 @@ export default function RegisterPage() {
       <div className="page-root text-center">
         <main className="page-wrapper">
           <div className="">
-            <button className="back-btn">
-              <span className="icon">⟵</span> กลับเข้าสู่หน้าหลัก
-            </button>
+           
 
             <div className="top-right-text4">
               <Link to="/HRLogin">คุณเป็นผู้ประกอบการหรือเปล่า?</Link>
@@ -167,7 +165,7 @@ export default function RegisterPage() {
 
               <p className="login-text1">
                 มีบัญชีอยู่แล้วใช่ไหม? กลับไปหน้า{" "}
-                <Link to="/Login" className="link-brand">เข้าสู่ระบบ</Link>
+                <Link to="/" className="link-brand">เข้าสู่ระบบ</Link>
               </p>
             </div>
           </div>

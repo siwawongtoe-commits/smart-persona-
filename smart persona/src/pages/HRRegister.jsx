@@ -29,15 +29,13 @@ export default function HRRegister() {
   }
   return (
     <div className="register-page">
-      <button className="back-btn">
-        <span className="icon">⟵</span>กลับเข้าสู่หน้าหลัก
-      </button>
+     
 
       <h1 className="title">PerFile</h1>
 
       <div className="register-box">
         <div className="top-right-text">
-          <Link to="/login">คุณเป็นผู้หางานหรือเปล่า?</Link>
+          <Link to="/">คุณเป็นผู้หางานหรือเปล่า?</Link>
         </div>
 
         <p className="register-title">ลงทะเบียน HR</p>

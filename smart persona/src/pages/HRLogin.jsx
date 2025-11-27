@@ -11,7 +11,7 @@ export default function HRLogin() {
   // ตัวอย่าง admin 5 คน
   const admins = [
     { email: "siwawong.toe@spumail.net", password: "67122203", name: "67122203" },
-    { email: "admin2@company.com", password: "admin123", name: "Admin2" },
+    { email: "", password: "admin123", name: "Admin2" },
     { email: "admin3@company.com", password: "admin123", name: "Admin3" },
     { email: "admin4@company.com", password: "admin123", name: "Admin4" },
     { email: "admin5@company.com", password: "admin123", name: "Admin5" },
@@ -60,14 +60,12 @@ export default function HRLogin() {
   }
   return (
     <div className="login-page">
-      <button className="back-btn">
-        <span className="icon">⟵</span> กลับเข้าสู่หน้าหลัก
-      </button>
+      
 
       <h1 className="perfiletitle">PerFile</h1>
 
       <div className="top-right-text2">
-        <Link to="/login">คุณเป็นผู้หางานหรือเปล่า?</Link>
+        <Link to="/">คุณเป็นผู้หางานหรือเปล่า?</Link>
       </div>
 
       <div className="login-box">

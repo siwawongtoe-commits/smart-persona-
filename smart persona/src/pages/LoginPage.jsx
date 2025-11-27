@@ -47,9 +47,7 @@ alert("เข้าสู่ระบบสำเร็จ!");
         <div className="container">
           <div className="header-title">PerFile</div>
         </div>
-        <button className="back-btn">
-          <span className="icon">⟵</span> กลับเข้าสู่หน้าหลัก
-        </button>
+      
       </header>
 
       <main className="page-wrapper">

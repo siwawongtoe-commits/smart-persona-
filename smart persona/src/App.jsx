@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NoRegister from "./pages/NoRegister";
+
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Dashboard from "./pages/Dashboard";
@@ -18,14 +18,13 @@ import CreateProfile5 from "./pages/CreateProfile5";
 import CreateProfile6 from "./pages/CreateProfile6";
 import CreateProfile7 from "./pages/CreateProfile7";
 import CreateProfile8 from "./pages/CreateProfile8";
-import UserProfile from "./pages/UserProfile";
+// import UserProfile from "./pages/UserProfile";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<NoRegister />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/home" element={<Home />} />
@@ -43,7 +42,7 @@ function App() {
         <Route path="/createprofile6" element={<CreateProfile6 />} />
         <Route path="/createprofile7" element={<CreateProfile7 />} />
         <Route path="/createprofile8" element={<CreateProfile8 />} />
-        <Route path="/userprofile" element={<UserProfile />} />
+        {/* <Route path="/userprofile" element={<UserProfile />} /> */}
       </Routes>
     </Router>
   );
