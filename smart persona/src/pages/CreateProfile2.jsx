@@ -27,8 +27,8 @@ export default function CreateProfile2() {
 	return (
 		<div className="page-bg">
 			<div className="resume-card">
-				<header className="card-header">
-					<div className="logo">PerFile</div>
+				<header className="card-header1">
+					<div className="logo1">PerFile</div>
 				</header>
 
 				<div className="card-body">
@@ -51,7 +51,7 @@ export default function CreateProfile2() {
 							{steps.map((txt, i) => (
 								<div
 									key={i}
-									className={`step-item ${i === 0 ? "active" : ""}`}
+									className={`step-item ${i === 1 ? "active" : ""}`}
 								>
 									<span className="step-number">{i + 1}</span>
 									<span className="step-label">{txt}</span>
