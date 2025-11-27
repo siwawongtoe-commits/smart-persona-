@@ -26,8 +26,8 @@ export default function createprofile1() {
         <div className="page-bg">
             <div className="resume-card">
                 {/* --- Header --- */}
-                <header className="card-header">
-                    <div className="logo">PerFile</div>
+                <header className="card-header1">
+                    <div className="logo1">PerFile</div>
                 </header>
 
                 <div className="card-body">

@@ -32,8 +32,8 @@ export default function CreateProfile2() {
     return (
         <div className="page-bg">
             <div className="resume-card">
-                <header className="card-header">
-                    <div className="logo">PerFile</div>
+                <header className="card-header1">
+                    <div className="logo1">PerFile</div>
                 </header>
 
                 <div className="card-body">
