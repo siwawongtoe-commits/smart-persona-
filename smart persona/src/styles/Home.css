@@ -9,7 +9,7 @@
 /* ===== Header ===== */
 .home-header {
   background: #111491;
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 16px 24px;
   display: flex;
   align-items: center;
@@ -32,12 +32,15 @@
   display: flex;
   justify-content: center;
   margin: 0 24px;
+  
 }
+
 
 .search-input-wrapper {
   position: relative;
   width: 100%;
   max-width: 400px;
+  
 }
 
 .search-input-wrapper .search-icon {
@@ -47,7 +50,7 @@
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  color: #60a5fa;
+  color: #42a1d8;
 }
 
 .search-input-wrapper .filter-icon {
@@ -57,7 +60,7 @@
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  color: #60a5fa;
+  color: #2756d6;
   cursor: pointer;
 }
 
@@ -65,21 +68,22 @@
   width: 100%;
   padding: 10px 40px;
   border-radius: 24px;
-  border: 3px solid #60a5fa;
-  background: white;
-  color: #1f2937;
+  border: 3px solid #ffffff;
+  background: rgb(70, 126, 248);
+  color: #302c2c;
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s;
 }
 
 .search-input::placeholder {
-  color: #9ca3af;
+  color: #3b72eb;
+  padding-left: 50px;
 }
 
 .search-input:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+  border-color: #2a2df0;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
 .header-actions {
