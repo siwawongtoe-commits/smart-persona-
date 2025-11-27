@@ -28,13 +28,13 @@ const profiles = [
 // Sidebar component
 const Sidebar = () => (
   <aside className="sidebar1">
-    <a href="/HomeAdmin">
+    <a href="/Home-Admin">
     <div className="sidebar-create-btn">
       <HomeIcon className="w-5 h-5" />
       <span>Home</span>
     </div>
     </a>
-    <a href="/DashboardAdmin">
+    <a href="/Dashboard-Admin">
     <div className="sidebar-create-btn">
       <Grid className="w-5 h-5" />
       <span>Dsahboard</span>
