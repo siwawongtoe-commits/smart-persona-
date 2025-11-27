@@ -14,10 +14,10 @@ body {
 }
 
 /* โลโก้ PerFile */
-.title {
+.title1 {
   margin-top: 40px;
-  font-size: 36px;
-  color: #2026c9;
+  font-size: 30px;
+  color: #2b3fe3;
   font-weight: 700;
   text-align: center;
 }
@@ -50,6 +50,7 @@ body {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 4px;
+  
 }
 
 /* ข้อความเตือนแดง */

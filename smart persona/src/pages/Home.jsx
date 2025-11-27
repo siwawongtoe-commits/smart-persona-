@@ -145,7 +145,7 @@ export default function Home() {
 					
 				</div>
 				<div className="header-actions">
-					<a href="/Login" className="header-logout">
+					<a href="/" className="header-logout">
 						Log out
 					</a>
 				</div>

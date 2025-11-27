@@ -135,6 +135,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);;
 }
 
+
 .sidebar-create-btn {
   width: 44px;
   height: 44px;
@@ -357,13 +358,13 @@
 .profile-card1 {
   background: rgb(253, 253, 253);
   border-radius: 12px;
-  padding: 16px;
+  padding: 16px 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid #9092FF;
   transition: all 0.2s;
   display: flex;
   flex-direction: column;
-
+  ;
 }
 
 .profile-card:hover {
@@ -377,6 +378,7 @@
   justify-content: space-between;
   margin-bottom: 12px;
   gap: 8px;
+  
 }
 
 .profile-role-badge {

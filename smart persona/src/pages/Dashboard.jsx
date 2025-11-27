@@ -11,7 +11,7 @@ import {
 	Grid,
 	User,
 } from "lucide-react";
-import "../styles/Home.css";
+import "../styles/Dashboard.css";
 
 // Profile data - same as Dashboard
 const profiles = [
@@ -26,7 +26,7 @@ const profiles = [
 
 // Sidebar component
 const Sidebar = () => (
-	<aside className="sidebar1">
+	<aside className="sidebar4">
 		<a href="/CreateProfile1">
 		<div className="sidebar-create-btn">
 			<Plus className="w-5 h-5" />
@@ -141,21 +141,9 @@ export default function Home() {
 				<div className="header-left">
 					<h1 className="header-title">PerFile</h1>
 				</div>
-				<div className="header-search">
-					<div className="search-input-wrapper">
-						<Search className="search-icon" />
-						<input
-							type="text"
-							placeholder="Search Profile, User"
-							value={searchQuery}
-							onChange={(e) => setSearchQuery(e.target.value)}
-							className="search-input"
-						/>
-						<Filter className="filter-icon" />
-					</div>
-				</div>
+				
 				<div className="header-actions">
-					<a href="/Login" className="header-logout">
+					<a href="/" className="header-logout">
 						Log out
 					</a>
 				</div>
@@ -169,7 +157,7 @@ export default function Home() {
 				<main className="home-main">
 					{/* Title Section */}
 					<div className="home-title-section">
-						<h2 className="home-section-title">เริ่มสร้างเรซูเม่ด้วยตัวตนแท้จริงของคุณ</h2>
+					
 						<div className="home-controls">
 							<div className="search-local">
 								<input
@@ -181,9 +169,7 @@ export default function Home() {
 								/>
 								<Search className="search-icon-local" />
 							</div>
-							<button className="filter-btn">
-								<Filter className="w-4 h-4" />
-							</button>
+							
 						</div>
 					</div>
 

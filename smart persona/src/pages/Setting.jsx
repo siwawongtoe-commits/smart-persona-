@@ -73,7 +73,7 @@ const ResumeCreator = () => {
         </aside>
 
         <div className="action-buttons-group">
-          <a href="/Login">
+          <a href="/">
           <button className="action-button logout-button">Log Out</button>
           </a>
         </div>

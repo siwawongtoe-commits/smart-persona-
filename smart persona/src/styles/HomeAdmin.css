@@ -254,19 +254,20 @@
 
 .search-local-admin {
   position: relative;
-  width: 280px;
+  width: 500px;
 }
 
 .search-input-local-admin {
   width: 100%;
   padding: 10px 36px 10px 12px;
   border-radius: 20px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #0055ff;
   background: white;
   color: #1f2937;
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s;
+  
 }
 
 .search-input-local-admin::placeholder {

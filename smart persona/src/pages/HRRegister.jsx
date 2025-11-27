@@ -31,7 +31,7 @@ export default function HRRegister() {
     <div className="register-page">
      
 
-      <h1 className="title">PerFile</h1>
+      <h1 className="title1">PerFile</h1>
 
       <div className="register-box">
         <div className="top-right-text">
