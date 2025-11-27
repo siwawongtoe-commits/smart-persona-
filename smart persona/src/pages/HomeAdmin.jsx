@@ -27,7 +27,7 @@ const profiles = [
 
 // Sidebar component
 const Sidebar = () => (
-  <aside className="sidebar">
+  <aside className="sidebar1">
     <div className="sidebar-create-btn">
       <HomeIcon className="w-5 h-5" />
       <span>Home</span>
@@ -122,17 +122,7 @@ export default function HomeAdmin() {
           <h1 className="header-title-admin">PerFile</h1>
         </div>
         <div className="header-search-admin">
-          <div className="search-input-wrapper-admin">
-            <Search className="search-icon-admin" />
-            <input
-              type="text"
-              placeholder="Search Profile, User"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="search-input-admin"
-            />
-            <Filter className="filter-icon-admin" />
-          </div>
+
 				</div>
 				<div className="header-actions">
 					<a href="/Login" className="header-logout">
@@ -149,7 +139,7 @@ export default function HomeAdmin() {
         <main className="home-main-admin">
           {/* Title Section */}
           <div className="home-title-section-admin">
-            <h2 className="home-section-title-admin">ค้นหา User ที่ยังไม่ได้ยืนยัน</h2>
+            
             <div className="home-controls-admin">
               <div className="search-local-admin">
                 <input
@@ -161,9 +151,7 @@ export default function HomeAdmin() {
                 />
                 <Search className="search-icon-local-admin" />
               </div>
-              <button className="filter-btn-admin">
-                <Filter className="w-4 h-4" />
-              </button>
+             
             </div>
           </div>
 

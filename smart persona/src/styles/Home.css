@@ -122,7 +122,7 @@
 }
 
 /* ===== Sidebar ===== */
-.sidebar1 {
+.sidebar3 {
   width: 65px;
   height: 350px;
   background: #9CD1FF;
@@ -233,7 +233,7 @@
 /* ===== Main Content ===== */
 .home-main {
   flex: 1;
-  background: white;
+  background: rgb(255, 255, 255);
   border-radius: 20px;
   padding: 32px;
   overflow-y: auto;
@@ -354,7 +354,7 @@
 }
 
 /* ===== Profile Card ===== */
-.profile-card {
+.profile-card1 {
   background: rgb(253, 253, 253);
   border-radius: 12px;
   padding: 16px;

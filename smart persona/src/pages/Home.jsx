@@ -26,7 +26,7 @@ const profiles = [
 
 // Sidebar component
 const Sidebar = () => (
-	<aside className="sidebar1">
+	<aside className="sidebar3">
 		<a href="/CreateProfile1">
 		<div className="sidebar-create-btn">
 			<Plus className="w-5 h-5" />
@@ -60,7 +60,7 @@ const Sidebar = () => (
 
 // Profile Card component
 const ProfileCard = ({ profile }) => (
-	<div className="profile-card">
+	<div className="profile-card1">
 		<div className="profile-card-header">
 			<span className="profile-role-badge">{profile.role}</span>
 			{profile.status && (
