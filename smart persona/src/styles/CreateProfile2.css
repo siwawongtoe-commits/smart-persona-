@@ -1,204 +1,207 @@
 body {
-	font-family: "Inter", sans-serif;
-	background: #f0f4ff;
+    font-family: "Inter", sans-serif;
+    background: #f0f4ff;
 }
 
 .resume-card {
-	margin: 20px auto;
-	max-width: 1200px;
-	background: #ffffff;
-	border-radius: 20px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-	padding-bottom: 40px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding-bottom: 40px;
 }
 
 .card-header1 {
-	background: #111491;
-	border-top-left-radius: 20px;
-	border-top-right-radius: 20px;
-	padding: 15px 40px;
-	color: #fff;
-	font-size: 24px;
-	font-weight: bold;
+    background: #111491;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 15px 40px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .title {
-	text-align: center;
-	margin-top: 40px;
-	font-size: 32px;
-	font-weight: 500;
-	color: #333;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 32px;
+    font-weight: 500;
+    color: #333;
 }
 
 .search-row {
-	display: flex;
-	justify-content: center;
-	margin-top: 20px;
-	margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .search-pill {
-	display: flex;
-	align-items: center;
-	border: 1px solid #ddd;
-	border-radius: 25px;
-	padding: 8px 15px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    padding: 8px 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .search-input {
-	border: none;
-	outline: none;
-	font-size: 16px;
-	padding-left: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding-left: 10px;
 }
 
 .filter-btn {
-	border: none;
-	background: none;
-	cursor: pointer;
-	color: #555;
-	font-size: 20px;
-	padding-left: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #555;
+    font-size: 20px;
+    padding-left: 10px;
 }
 
 /* Step Bar */
 .progress-wrapper {
-	width: 100%;
-	margin-top: 25px;
-	position: relative;
+    width: 100%;
+    margin-top: 25px;
+    position: relative;
 }
 
 .progress-line {
-	position: absolute;
-	top: 22px;
-	left: 0;
-	right: 0;
-	height: 3px;
-	background: #d9d9d9;
-	z-index: 1;
+    position: absolute;
+    top: 22px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #d9d9d9;
+    z-index: 1;
 }
 
 .steps {
-	display: flex;
-	justify-content: space-between;
-	position: relative;
-	z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
 }
 
 .step-item {
-	text-align: center;
-	color: #777;
-	width: 12%;
+    text-align: center;
+    color: #777;
+    width: 12%;
 }
 
 .step-number {
-	background: #e6e6e6;
-	color: #777;
-	padding: 8px 12px;
-	border-radius: 50%;
-	display: inline-block;
-	font-weight: bold;
+    background: #e6e6e6;
+    color: #777;
+    padding: 8px 12px;
+    border-radius: 50%;
+    display: inline-block;
+    font-weight: bold;
 }
 
+/* ทำให้วงกลมเป็นสีเขียวเมื่อ Step นั้น active (กำลังทำงานอยู่) */
 .step-item.active .step-number {
-	background: #4e8fff;
-	color: white;
+    background: #4CAF50; /* สีเขียวเข้ม */
+    color: white;
 }
 
+/* ทำให้วงกลมเป็นสีเขียวเมื่อ Step นั้น completed (เสร็จสมบูรณ์/แก้ไขแล้ว) */
 .step-item.completed .step-number {
-	background: #8ab6ff;
-	color: white;
+    background: #66BB6A; /* สีเขียวอ่อนลงเล็กน้อยสำหรับสถานะเสร็จสมบูรณ์ */
+    color: white;
 }
 
+/* ทำให้ข้อความ label เป็นสีเขียวด้วยเมื่อ active หรือ completed */
 .step-item.active .step-label,
 .step-item.completed .step-label {
-	color: #4e8fff;
-	font-weight: 600;
+    color: #4CAF50; /* ใช้สีเขียวเดียวกับวงกลม */
+    font-weight: 600;
 }
 
 /* Main Layout */
 .main-grid {
-	display: flex;
-	gap: 40px;
-	margin-top: 20px;
-	padding: 0 40px;
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+    padding: 0 40px;
 }
 
 .left-sidebar {
-	width: 300px;
+    width: 300px;
 }
 
 .sidebar-card {
-	background: #f0f4ff;
-	border-radius: 12px;
-	padding: 20px;
+    background: #f0f4ff;
+    border-radius: 12px;
+    padding: 20px;
 }
 
 .avatar-placeholder {
-	text-align: center;
-	font-size: 50px;
-	margin-bottom: 20px;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 20px;
 }
 
 .sidebar-list {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .sidebar-item {
-	background: #e0e0e0;
-	padding: 12px 16px;
-	border-radius: 12px;
-	cursor: pointer;
-	font-weight: 500;
+    background: #e0e0e0;
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
 }
 
 .sidebar-item.highlight {
-	background: #4e8fff;
-	color: white;
+    background: #4e8fff;
+    color: white;
 }
 
 .right-panel {
-	flex: 1;
-	background: #ffffff;
-	border-radius: 12px;
-	padding: 20px;
-	box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    flex: 1;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .photo-box {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .photo-placeholder {
-	font-size: 80px;
+    font-size: 80px;
 }
 
 .photo-actions {
-	display: flex;
-	gap: 15px;
+    display: flex;
+    gap: 15px;
 }
 
 .upload-btn {
-	background: #e0e0e0;
-	padding: 10px 15px;
-	border-radius: 8px;
-	border: none;
-	font-weight: 500;
-	cursor: pointer;
+    background: #e0e0e0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 .next-btn {
-	background: #0c2fa3;
-	color: white;
-	padding: 10px 25px;
-	border-radius: 8px;
-	border: none;
-	font-weight: 500;
-	cursor: pointer;
+    background: #0c2fa3;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
 }

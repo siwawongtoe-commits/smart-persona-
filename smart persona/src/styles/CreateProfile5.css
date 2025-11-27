@@ -1,46 +1,507 @@
-/* CreateProfile5.css */
+/* -------------------- 1. Global Variables and Base Layout -------------------- */
 :root {
-  --primary-color: #593DFF;
-  --background-color: #E6EFFF;
-  --card-background: #FFFFFF;
-  --text-primary: #333333;
-  --text-secondary: #666666;
-  --nav-purple: #D4CFFF;
+    --primary-blue: #092c7d; /* น้ำเงินเข้ม */
+    --secondary-blue: #c4d7e8; /* ฟ้าอ่อนพื้นหลัง */
+    --accent-blue: #407fff; /* น้ำเงินสำหรับปุ่ม/ไฮไลท์ */
+    --light-gray: #f2f2f2;
+    --dark-text: #333333;
+    --light-text: #ffffff;
+    --border-radius: 12px;
+    --large-radius: 30px;
 }
 
-/* Base */
-.AppContainer { background-color: var(--background-color); min-height:100vh; display:flex; flex-direction:column; align-items:center; padding-top:20px; font-family:Arial,sans-serif;}
-.PerFileHeader { width:100%; max-width:1200px; color:var(--primary-color); font-size:24px; font-weight:bold; padding:10px 40px;}
-.ContentBox { background-color:var(--card-background); border-radius:20px; box-shadow:0 4px 20px rgba(0,0,0,0.1); width:90%; max-width:1200px; padding:40px; margin:20px 0;}
-.MainTitle { text-align:center; color:var(--text-primary); font-size:28px; margin-bottom:25px; font-weight:500;}
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
-/* Steps */
-.StepsContainer { display:flex; justify-content:space-between; width:90%; margin:0 auto 40px; position:relative;}
-.StepsContainer::before { content:''; position:absolute; top:50%; left:5%; right:5%; height:2px; background-color:#ddd; z-index:1; transform:translateY(-50%);}
-.StepItem { display:flex; flex-direction:column; align-items:center; position:relative; z-index:2;}
-.StepNumber { background-color:#ddd; color:white; border-radius:50%; width:30px; height:30px; display:flex; justify-content:center; align-items:center; margin-bottom:6px; font-weight:bold; border:2px solid #ddd;}
-.StepItem.completed .StepNumber { background-color:#4CAF50; border-color:#4CAF50; color:white;}
-.StepItem.active .StepNumber { background-color:#fff; border-color:var(--primary-color); color:var(--primary-color);}
-.StepLabel { font-size:14px; color:var(--text-secondary);}
-.StepItem.completed .StepLabel { color:#4CAF50; font-weight:bold;}
-.StepItem.active .StepLabel { color:var(--primary-color); font-weight:bold;}
+.page-bg {
+    background-color: var(--secondary-blue);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-/* Main Content */
-.BodyContent { display:flex; gap:30px;}
-.LeftNav { width:250px; display:flex; flex-direction:column; gap:15px;}
-.ProfileIconBox { background-color:var(--nav-purple); color:white; width:60px; height:60px; border-radius:15px; display:flex; justify-content:center; align-items:center; margin:0 auto 15px;}
-.NavLink { background-color:#F0F0F0; color:var(--text-primary); padding:12px 20px; border-radius:8px; text-align:left; cursor:pointer;}
-.NavLink.active { background-color:var(--nav-purple); color:var(--primary-color); font-weight:bold;}
-.RightContent { flex-grow:1; padding:10px 0;}
-.ContentHeader { margin-bottom:25px;}
-.HeaderTitle { font-size:20px; color:var(--text-primary); margin:0; display:inline-block; margin-right:15px;}
-.HeaderSubtitle { font-size:14px; color:var(--text-secondary);}
-.SkillsSection { background-color:#f7f7f7; padding:20px; border-radius:10px; border:1px solid #eee;}
-.SkillGroup { display:flex; align-items:flex-start; margin-bottom:15px;}
-.SkillTitle { color:var(--text-primary); font-weight:bold; font-size:14px; width:150px; min-width:150px; padding-top:8px;}
-.TagContainer { display:flex; flex-wrap:wrap; gap:10px; flex-grow:1;}
-.SkillTag { background-color:#fff; color:var(--text-primary); border:1px solid #ccc; padding:8px 15px; border-radius:20px; font-size:14px; cursor:pointer;}
-.SkillTag.active { background-color:var(--primary-color); color:white; border-color:var(--primary-color);}
-.SkillTag:hover { border-color:var(--primary-color);}
-.NextButton { background-color:var(--primary-color); color:white; border:none; padding:15px 30px; border-radius:25px; font-size:16px; font-weight:bold; cursor:pointer; float:right; margin-top:20px;}
-.NextButton:hover { background-color:#4a2bd4;}
+.resume-card {
+    background-color: var(--light-text);
+    width: 95%;
+    max-width: 1300px;
+    border-radius: var(--large-radius);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* -------------------- 2. Header and Step Indicator -------------------- */
+.card-header1 {
+    background-color: var(--primary-blue);
+    padding: 15px 40px;
+}
+
+.logo1 {
+    color: var(--light-text);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.card-body {
+    padding: 40px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+}
+
+/* Search Row (Copied from previous steps) */
+.search-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.search-pill {
+    display: flex;
+    align-items: center;
+    background-color: var(--light-gray);
+    border-radius: 50px;
+    padding: 5px 15px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 8px 10px;
+    color: var(--dark-text);
+}
+
+.search-icon, .filter-icon {
+    color: var(--dark-text);
+    font-size: 1.2rem;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+/* Step Indicator */
+.progress-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.progress-line {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background: #e0e0e0;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+    flex: 1;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    color: var(--dark-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 5px;
+    border: 3px solid var(--light-text);
+    transition: all 0.3s;
+}
+
+.step-label {
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: 500;
+}
+
+.step-item.active .step-number {
+    background-color: var(--accent-blue);
+    color: var(--light-text);
+    border-color: var(--light-text);
+    box-shadow: 0 0 0 5px var(--secondary-blue); /* วงแหวนรอบนอก */
+}
+
+.step-item.completed .step-number {
+    background-color: #66bb6a; /* สีเขียวสำหรับเสร็จสมบูรณ์ */
+    color: var(--light-text);
+}
+
+.step-item.active .step-label {
+    color: var(--accent-blue);
+}
+
+.step-item.completed .step-label {
+    color: var(--dark-text);
+}
+
+
+/* -------------------- 3. Main Grid (Sidebar + Panel) -------------------- */
+.main-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Left Sidebar */
+.left-sidebar {
+    padding-right: 20px;
+}
+
+.sidebar-card {
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-blue);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar-icon {
+    font-size: 2.5rem;
+    color: var(--light-text);
+}
+
+.sidebar-list {
+    width: 100%;
+}
+
+.sidebar-item {
+    background-color: var(--light-text);
+    color: var(--dark-text);
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.sidebar-item.big {
+    background-color: var(--light-gray);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-top: 20px; /* แยกกลุ่ม */
+}
+
+.sidebar-item.highlight {
+    background-color: var(--accent-blue);
+    color: var(--light-text);
+    box-shadow: 0 4px 10px rgba(64, 127, 255, 0.3);
+}
+
+/* Right Panel */
+.right-panel {
+    background-color: var(--light-text);
+    padding: 0;
+}
+
+.panel-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+/* -------------------- 4. Tab Navigation (New Style) -------------------- */
+.tab-navigation {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+    gap: 15px;
+}
+
+.tab-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #999;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab-item.active {
+    color: var(--primary-blue);
+    border-bottom: 3px solid var(--accent-blue);
+}
+
+/* -------------------- 5. Skills Form Content -------------------- */
+
+.skills-form, .language-form {
+    padding-top: 10px;
+}
+
+.skill-section {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.skill-section:last-of-type {
+    border-bottom: none;
+}
+
+.skill-section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+    background-color: var(--light-gray);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+}
+
+.skill-tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background-color: var(--light-gray);
+    color: var(--dark-text);
+    padding: 8px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.skill-tag:hover {
+    background-color: #e0e0e0;
+}
+
+.skill-tag.selected {
+    background-color: var(--accent-blue);
+    color: var(--light-text);
+    border-color: var(--accent-blue);
+    box-shadow: 0 2px 5px rgba(64, 127, 255, 0.2);
+}
+
+/* Custom Skill Row */
+.add-custom-skill-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding-top: 20px;
+    border-top: 2px solid var(--light-gray);
+}
+
+.custom-skill-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+.add-skill-btn {
+    background-color: #66bb6a; /* สีเขียว */
+    color: var(--light-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.add-skill-btn:hover {
+    background-color: #43a047;
+}
+
+.add-icon {
+    font-style: normal;
+    font-weight: 900;
+    margin-right: 5px;
+}
+
+/* Placeholder for Language Tab */
+.placeholder-text {
+    color: #666;
+    padding: 20px;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.panel-title-sub {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+}
+
+/* -------------------- 6. Navigation Buttons -------------------- */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 2px solid var(--light-gray);
+}
+
+.nav-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.prev-btn {
+    background-color: #e0e0e0;
+    color: var(--dark-text);
+}
+
+.prev-btn:hover {
+    background-color: #ccc;
+}
+
+.next-btn {
+    background-color: var(--accent-blue);
+    color: var(--light-text);
+}
+
+.next-btn:hover {
+    background-color: var(--primary-blue);
+}
+
+.arrow-icon {
+    font-style: normal;
+    font-weight: 900;
+    margin: 0 5px;
+}
+
+/* -------------------- 7. Responsive Adjustments -------------------- */
+@media (max-width: 1024px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .left-sidebar {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .sidebar-card {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .avatar-placeholder {
+        margin-bottom: 0;
+    }
+    .sidebar-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .sidebar-item {
+        margin: 5px;
+        padding: 10px 15px;
+    }
+    .sidebar-item.big {
+        margin-top: 5px;
+        font-size: 0.9rem;
+    }
+    .card-body {
+        padding: 20px;
+    }
+    .title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-bg {
+        padding: 0;
+        align-items: flex-start;
+    }
+    .resume-card {
+        border-radius: 0;
+        width: 100%;
+    }
+    .card-header1 {
+        padding: 10px 20px;
+    }
+    .steps {
+        overflow-x: auto;
+        justify-content: initial;
+        padding-bottom: 10px;
+        white-space: nowrap;
+    }
+    .step-item {
+        flex-shrink: 0;
+        width: 100px;
+    }
+    .progress-line {
+        left: 5px;
+        right: 5px;
+    }
+    .navigation-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-btn {
+        width: 100%;
+    }
+}
