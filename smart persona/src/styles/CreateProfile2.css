@@ -86,6 +86,7 @@ body {
     z-index: 2;
 }
 
+/* base */
 .step-item {
     text-align: center;
     color: #777;
@@ -99,26 +100,53 @@ body {
     border-radius: 50%;
     display: inline-block;
     font-weight: bold;
+    position: relative;
 }
 
-/* ทำให้วงกลมเป็นสีเขียวเมื่อ Step นั้น active (กำลังทำงานอยู่) */
-.step-item.active .step-number {
-    background: #4CAF50; /* สีเขียวเข้ม */
-    color: white;
+.step-label {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
 }
 
-/* ทำให้วงกลมเป็นสีเขียวเมื่อ Step นั้น completed (เสร็จสมบูรณ์/แก้ไขแล้ว) */
+/* ========================== */
+/* STEP 1 → GREEN             */
+/* ========================== */
+
 .step-item.completed .step-number {
-    background: #66BB6A; /* สีเขียวอ่อนลงเล็กน้อยสำหรับสถานะเสร็จสมบูรณ์ */
+    background: #4CAF50; /* เขียว */
     color: white;
 }
 
-/* ทำให้ข้อความ label เป็นสีเขียวด้วยเมื่อ active หรือ completed */
-.step-item.active .step-label,
 .step-item.completed .step-label {
-    color: #4CAF50; /* ใช้สีเขียวเดียวกับวงกลม */
+    color: #4CAF50;
     font-weight: 600;
 }
+
+/* ========================== */
+/* STEP 2 → BLUE with RING    */
+/* ========================== */
+
+.step-item.active-blue .step-number {
+    background: #1E40AF; /* ฟ้าเข้ม */
+    color: white;
+}
+
+/* วงแหวนรอบนอก */
+.step-item.active-blue .step-number::before {
+    content: "";
+    position: absolute;
+    inset: -6px;            /* ระยะห่าง (ทำให้เป็นวงนอก) */
+    border-radius: 50%;
+    background: #D7E4F8;    /* ฟ้าอ่อน */
+    z-index: -1;
+}
+
+.step-item.active-blue .step-label {
+    color: #1E40AF;
+    font-weight: 600;
+}
+
 
 /* Main Layout */
 .main-grid {

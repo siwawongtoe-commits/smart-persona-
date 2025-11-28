@@ -69,33 +69,25 @@ export default function CreateResume() {
       <div className="main-content">
         
         {/* Left Sidebar / Menu Section */}
-        <div className="sidebar">
-          {/* Top-left image upload placeholder */}
-          <div className="photo-placeholder-box">
-            {/* User Icon SVG */}
-            <svg className="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            {/* Crop corners (for styling) */}
-            <span className="crop-border top-left"></span>
-            <span className="crop-border top-right"></span>
-            <span className="crop-border bottom-left"></span>
-            <span className="crop-border bottom-right"></span>
-          </div>
+       <section className="left-column">
+          <div className="grid-container">
+            <div className="grid-item item-photo">
+              <div className="photo-placeholder">
+                <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+            </div>
 
-          {/* Sidebar Navigation Items Grid */}
-          <div className="sidebar-grid">
-            {/* Active sidebar item is now Career Goals */}
-            <div className="sidebar-item">Data From</div>
-            <div className="sidebar-item">Name</div>
-            <div className="sidebar-item">Photo</div>
-            <div className="sidebar-item">Basic Data</div>
-            <div className="sidebar-item">Education</div>
-            <div className="sidebar-item active-sidebar">Career Goals</div>
-            <div className="sidebar-item">Skills</div>
-            <div className="sidebar-item">Work Experience</div>
-            <div className="sidebar-item">Attributes</div>
+            <div className="grid-item item-name">Name</div>
+            <div className="grid-item item-education">Education</div>
+            <div className="grid-item item-career-goals">Career Goals</div>
+            <div className="grid-item item-skills">Skills</div>
+            <div className="grid-item item-work-experience">Work Experience</div>
+            <div className="grid-item item-attributes">Attributes</div>
           </div>
-        </div>
-
+        </section>
         {/* Right Form Section - Career Goals Content */}
         <div className="form-section career-goals-section">
           <h3 className="section-title">เป้าหมายในสายอาชีพ</h3>

@@ -53,21 +53,25 @@ const ResumeCreator = () => {
         {/* Main Content */}
         <div className="BodyContent">
           {/* Left Navigation */}
-          <div className="LeftNav">
-            <div className="ProfileIconBox">
-              <div className="ProfileIcon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <section className="left-column6">
+          <div className="grid-container">
+            <div className="grid-item item-photo">
+              <div className="photo-placeholder">
+                <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
               </div>
             </div>
-            {mainNavigation.map(item => (
-              <div 
-                key={item.label} 
-                className={`NavLink ${item.label === 'Attributes' ? 'active' : ''} ${item.label === 'Work Experience' ? 'larger' : ''}`}
-              >
-                {item.label}
-              </div>
-            ))}
+
+            <div className="grid-item item-name">Name</div>
+            <div className="grid-item item-education">Education</div>
+            <div className="grid-item item-career-goals">Career Goals</div>
+            <div className="grid-item item-skills">Skills</div>
+            <div className="grid-item item-work-experience">Work Experience</div>
+            <div className="grid-item item-attributes">Attributes</div>
           </div>
+        </section>
           
           {/* Right Content (Attributes Section) */}
           <div className="RightContent attributes-section">

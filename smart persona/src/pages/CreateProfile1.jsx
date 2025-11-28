@@ -66,23 +66,25 @@ export default function createprofile1() {
                     <div className="main-grid">
                         
                         {/* Left Sidebar (The Preview/Outline) */}
-                        <aside className="left-sidebar">
-                            <div className="sidebar-grid">
-                                {sidebarItems.map((item, i) => (
-                                    <div 
-                                        key={i} 
-                                        // The class names are used to define the grid layout in CSS
-                                        className={`sidebar-item ${item.className}`}
-                                    >
-                                        {/* Special content for the Photo/Avatar block */}
-                                        {item.label === "Photo" && <span className="photo-icon">📷</span>}
-                                        {/* Content for other blocks */}
-                                        {item.label !== "Photo" && item.label}
-                                    </div>
-                                ))}
-                            </div>
-                        </aside>
+                        <section className="left-column">
+          <div className="grid-container">
+            <div className="grid-item item-photo">
+              <div className="photo-placeholder">
+                <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+            </div>
 
+            <div className="grid-item item-name">Name</div>
+            <div className="grid-item item-education">Education</div>
+            <div className="grid-item item-career-goals">Career Goals</div>
+            <div className="grid-item item-skills">Skills</div>
+            <div className="grid-item item-work-experience">Work Experience</div>
+            <div className="grid-item item-attributes">Attributes</div>
+          </div>
+        </section>
                         {/* Right Panel (Data Entry Options - No frame) */}
                         <section className="right-panel">
                             
