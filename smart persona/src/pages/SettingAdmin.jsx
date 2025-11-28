@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "../styles/SettingAdmin.css";
+import { useNavigate } from 'react-router-dom';
 
 // --- Static Data ---
 const resumeSections = [
@@ -10,15 +11,17 @@ const resumeSections = [
 const mainNavigation = [
   { label: 'Saved', component: 'Name' },
   { label: 'Notification', component: 'BasicData' },
-  { label: 'About', component: 'Education' },
-  { label: 'Help Center', component: 'CareerGoals' },
-  { label: 'FAQs', component: 'Skills' },
-  { label: 'Contact Us', component: 'WorkExperience' },
+  { label: 'About', component: '/PrivacyPolicy' },
+  { label: 'Help Center', component: '/Helpcenter' },
+  { label: 'FAQs', component: '/FAQs' },
+  { label: 'Contact Us', component: '/PrivacyPolicy2' },
 ];
 
 // --- Main Component ---
 const ResumeCreator = () => {
   const [activeStep, setActiveStep] = useState(6);
+    const navigate = useNavigate();
+    const handleNavigation = (path) => {navigate(path);};
 
   return (
     <div className="settings-container">
@@ -57,7 +60,12 @@ const ResumeCreator = () => {
 
         <aside className="settings-menu" style={{marginTop: 20}}>
           {mainNavigation.map((item, idx) => (
-            <div key={item.label} className={`setting-item ${item.label === 'Attributes' ? 'active' : ''}`}>
+            <div 
+                key={item.label} 
+                className={`setting-item ${item.label === 'Attributes' ? 'active' : ''}`}
+                // **3. เพิ่ม onClick เพื่อเรียกใช้ฟังก์ชันนำทาง**
+                onClick={() => handleNavigation(item.component)} 
+            >
               <div className="item-content">
                 <span className="item-icon"></span>
                 <div className="item-title">{item.label}</div>

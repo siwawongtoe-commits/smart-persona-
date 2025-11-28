@@ -7,7 +7,7 @@ const FAQs = () => {
       {/* Header Bar */}
       <header className="faqs-header">
         <h1 className="header-title">FAQs</h1>
-        <a href="/Setting">
+        <a href="/Home">
         <button className="header-button">กลับไปหน้าใช้งานของฉัน</button>
         </a>
       </header>

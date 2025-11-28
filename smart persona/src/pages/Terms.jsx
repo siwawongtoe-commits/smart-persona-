@@ -7,7 +7,7 @@ const TermsOfUse = () => {
       {/* Header Bar */}
       <header className="terms-header">
         <h1 className="header-title">Terms</h1>
-        <a href="/Setting">
+        <a href="/Home">
         <button className="header-button">กลับไปหน้าใช้งานของฉัน</button>
         </a>
       </header>

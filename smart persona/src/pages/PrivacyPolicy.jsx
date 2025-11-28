@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
       {/* Header Bar */}
       <header className="privacy-header">
         <h1 className="header-title">Privacy Policy</h1>
-        <a href="/Setting">
+        <a href="/Home">
         <button className="header-button">กลับไปหน้าใช้งานของฉัน</button>
         </a>
       </header>
