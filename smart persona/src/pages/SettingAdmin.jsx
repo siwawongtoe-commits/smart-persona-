@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "../styles/Setting.css";
+import "../styles/SettingAdmin.css";
 
 // --- Static Data ---
 const resumeSections = [
@@ -24,8 +24,8 @@ const ResumeCreator = () => {
     <div className="settings-container">
       <header className="header-bar">
         <div className="logo-section">PerFile</div>
-        <a href="Home">
-        <button className="back-button1">Back</button>
+        <a href="Home-Admin">
+        <button className="back-button-admin">Back</button>
         </a>
       </header>
 
@@ -44,13 +44,8 @@ const ResumeCreator = () => {
           </div>
 
           <div className="user-details">
-            <p className="user-name">สมเกษม ตัวอย่าง</p>
-            <p className="user-email">email@example.com</p>
-          </div>
-
-          <div className="profile-actions">
-            <button className="action-button manage-button">Manage Profile</button>
-            <button className="action-button download-button">Profile Dowload</button>
+            <p className="user-name">@Admin</p>
+            <p className="user-email">adminperfile@gmail.com</p>
           </div>
         </div>
 

@@ -26,7 +26,7 @@ const profiles = [
 
 // Sidebar component
 const Sidebar = () => (
-	<aside className="sidebar4">
+	<aside className="sidebar5">
 		<a href="/CreateProfile1">
 		<div className="sidebar-create-btn">
 			<Plus className="w-5 h-5" />
@@ -137,13 +137,13 @@ export default function Home() {
 	return (
 		<div className="home-container">
 			{/* Header */}
-			<header className="home-header">
+			<header className="home-header1">
 				<div className="header-left">
 					<h1 className="header-title">PerFile</h1>
 				</div>
 				
 				<div className="header-actions">
-					<a href="/" className="header-logout">
+					<a href="/" className="header-logout1">
 						Log out
 					</a>
 				</div>

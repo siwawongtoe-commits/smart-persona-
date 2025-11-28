@@ -7,8 +7,8 @@
 }
 
 /* ===== Header ===== */
-.home-header {
-  background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+.home-header1 {
+  background: #111491;
   color: white;
   padding: 16px 24px;
   display: flex;
@@ -89,7 +89,7 @@
   flex-shrink: 0;
 }
 
-.header-logout {
+.header-logout1 {
   background: #dc2626;
   color: white;
   border: none;
@@ -100,12 +100,8 @@
   cursor: pointer;
   transition: background 0.2s;
   flex-shrink: 0;
-  border: 2px solid white;
 }
 
-.header-logout:hover {
-  background: #b91c1c;
-}
 
 /* ===== Layout ===== */
 .home-layout {
@@ -116,7 +112,7 @@
 }
 
 /* ===== Sidebar ===== */
-.sidebar4 {
+.sidebar5 {
   width: 65px;
   height: 350px;
   background: #9CD1FF;

@@ -40,10 +40,8 @@
   font-size: 1.5em;
 }
 
-
-.back-button1 {
+.back-button-admin {
   background-color: rgb(255, 0, 0);
-  color: white;
   border: none;
   padding: 8px 15px;
   cursor: pointer;

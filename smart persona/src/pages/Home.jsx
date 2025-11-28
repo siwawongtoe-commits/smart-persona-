@@ -137,7 +137,7 @@ export default function Home() {
 	return (
 		<div className="home-container">
 			{/* Header */}
-			<header className="home-header">
+			<header className="home-header1">
 				<div className="header-left">
 					<h1 className="header-title">PerFile</h1>
 				</div>
@@ -145,7 +145,7 @@ export default function Home() {
 					
 				</div>
 				<div className="header-actions">
-					<a href="/" className="header-logout">
+					<a href="/" className="header-logout1">
 						Log out
 					</a>
 				</div>

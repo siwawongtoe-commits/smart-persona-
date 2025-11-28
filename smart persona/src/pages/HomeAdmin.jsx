@@ -37,14 +37,14 @@ const Sidebar = () => (
     <a href="/Dashboard-Admin">
     <div className="sidebar-create-btn">
       <Grid className="w-5 h-5" />
-      <span>Dsahboard</span>
+      <span>Dashboard</span>
     </div>
     </a>
     <div className="sidebar-create-btn">
       <Bell className="w-5 h-5" />
       <span>Notification</span>
     </div>
-    <a href="/Setting">
+    <a href="/Setting-Admin">
     <div className="sidebar-create-btn">
       <User className="w-5 h-5" />
       <span>User</span>
@@ -131,7 +131,7 @@ export default function HomeAdmin() {
 
 				</div>
 				<div className="header-actions">
-					<a href="/" className="header-logout">
+					<a href="/" className="header-admin-logout">
 						Log out
 					</a>
 				</div>

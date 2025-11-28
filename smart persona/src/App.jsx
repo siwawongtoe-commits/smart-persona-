@@ -20,6 +20,7 @@ import CreateProfile7 from "./pages/CreateProfile7";
 import CreateProfile8 from "./pages/CreateProfile8";
 import DashboardAdmin from "./pages/DashboardAdmin";
 import UserProfile from "./pages/UserProfile";
+import SettingAdmin from "./pages/SettingAdmin";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path="/createprofile8" element={<CreateProfile8 />} />
         <Route path="/dashboard-admin" element={<DashboardAdmin />} />
         <Route path="/userprofile" element={<UserProfile />} />
+        <Route path="/setting-admin" element={<SettingAdmin />} />
       </Routes>
     </Router>
   );
