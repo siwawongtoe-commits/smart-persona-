@@ -1,0 +1,272 @@
+/* ---------------------------------------------------- */
+/* 1. Global & Layout Reset */
+/* ---------------------------------------------------- */
+
+.profile-container {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    display: flex;
+    max-width: 1200px;
+    width: 90%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    gap: 30px; /* ระยะห่างระหว่างคอลัมน์ซ้าย-ขวา */
+}
+
+/* ---------------------------------------------------- */
+/* 2. Header Style */
+/* ---------------------------------------------------- */
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.back-button {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 20px;
+    color: #333;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* ---------------------------------------------------- */
+/* 3. Left Column - The Grid */
+/* ---------------------------------------------------- */
+
+.left-column {
+    flex: 2; /* ใช้พื้นที่ประมาณ 2 ส่วน */
+    min-width: 300px; /* กำหนดความกว้างขั้นต่ำ */
+}
+
+.grid-container {
+    display: grid;
+    /* 2 คอลัมน์ที่ขนาดเท่ากัน */
+    grid-template-columns: repeat(2, 1fr); 
+    /* กำหนด Row ตามภาพ: [photo, name], [edu, career], [skills, work], [attr, work] */
+    grid-template-rows: 150px 100px 100px 100px; 
+    gap: 15px; /* ระยะห่างระหว่าง Grid Items */
+}
+
+.grid-item {
+    background-color: #d8d2ef; /* สีม่วงอ่อนตามภาพ */
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* กำหนดการรวมเซลล์ (Spanning) */
+.item-photo {
+    /* เซลล์สำหรับรูปภาพมีกรอบสี่เหลี่ยมตามภาพ */
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    background-color: #fff; /* ส่วนนี้เป็นสีขาวตามภาพ */
+    border: 1px solid #ccc;
+    position: relative;
+    padding: 0;
+}
+
+.photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    color: #555;
+    /* เพิ่มกรอบโฟกัสตามภาพ */
+    border: 2px solid currentColor;
+    border-radius: 5px;
+    padding: 5px;
+    position: relative;
+}
+
+/* การรวมเซลล์สำหรับ Work Experience (กินพื้นที่ 2 แถว) */
+.item-work-experience {
+    grid-row: 3 / span 2; /* เริ่มแถวที่ 3 และกินพื้นที่ 2 แถว */
+}
+
+.item-name {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+
+/* ---------------------------------------------------- */
+/* 4. Right Column - Details & Comment */
+/* ---------------------------------------------------- */
+
+.right-column {
+    flex: 3; /* ใช้พื้นที่ประมาณ 3 ส่วน */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Details Box */
+.details-box {
+    border: 1px solid #ccc; /* ใช้เส้นขอบที่ดูสะอาดตา */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.details-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #555;
+}
+
+.details-box p {
+    margin: 5px 0;
+    color: #333;
+}
+
+
+/* Comment Box */
+.comment-box {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #ffffff; /* กล่อง Comment */
+}
+
+.comment-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.user-comment-input {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.user-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #555;
+}
+
+.input-area {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    min-height: 80px; /* ให้มีพื้นที่สำหรับพิมพ์ */
+}
+
+.username {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+.placeholder {
+    font-size: 14px;
+    color: #888;
+}
+
+.more-options {
+    font-weight: bold;
+    font-size: 18px;
+    color: #555;
+    cursor: pointer;
+}
+
+.post-button-container {
+    text-align: right;
+    margin-top: 15px;
+}
+
+.post-button {
+    background-color: #6a5acd; /* สีม่วงเข้ม */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.post-button:hover {
+    background-color: #5548a8;
+}
+
+/* ---------------------------------------------------- */
+/* 5. Responsive Adjustments */
+/* ---------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        width: 95%;
+        padding: 10px;
+    }
+
+    .grid-container {
+        /* บนมือถือให้เป็นคอลัมน์เดียวเพื่อให้อ่านง่ายขึ้น */
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    
+    /* ยกเลิกการรวมเซลล์สำหรับ Work Experience บนมือถือ */
+    .item-work-experience {
+        grid-row: auto; 
+    }
+    
+    /* จัดลำดับใหม่สำหรับมือถือ */
+    .item-photo { order: 1; }
+    .item-name { order: 2; }
+    .item-education { order: 3; }
+    .item-career-goals { order: 4; }
+    .item-skills { order: 5; }
+    .item-work-experience { order: 6; }
+    .item-attributes { order: 7; }
+    
+    .grid-item {
+        min-height: 100px;
+    }
+}
