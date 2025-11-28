@@ -23,7 +23,7 @@ const UserProfile = () => {
         {/* ซ้าย */}
         <section className="left-column">
           <div className="grid-container">
-            <div className="grid-item item-photo">
+            <div className="grid-item11 item-photo11">
               <div className="photo-placeholder">
                 <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
@@ -32,12 +32,12 @@ const UserProfile = () => {
               </div>
             </div>
 
-            <div className="grid-item item-name">{name}</div>
-            <div className="grid-item item-education">{title}</div>
-            <div className="grid-item item-career-goals">{country}</div>
-            <div className="grid-item item-skills">{tags.join(", ")}</div>
-            <div className="grid-item item-work-experience">{exp}</div>
-            <div className="grid-item item-attributes">-</div>
+            <div className="grid-item11 item-name">{name}</div>
+            <div className="grid-item11 item-education">{title}</div>
+            <div className="grid-item11 item-career-goals">{country}</div>
+            <div className="grid-item11 item-skills">{tags.join(", ")}</div>
+            <div className="grid-item11 item-work-experience">{exp}</div>
+            <div className="grid-item11 item-attributes">-</div>
           </div>
         </section>
 
