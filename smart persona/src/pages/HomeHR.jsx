@@ -171,12 +171,12 @@ export default function Home() {
 
 					{/* Private Profile Section */}
 					<section className="profile-section">
-						<h3 className="section-heading"></h3>
+						<h3 className="section-heading1">Favourite Profile</h3>
 						<div className="profile-grid">
 							{filteredPrivate.length > 0 ? (
 								filteredPrivate.map((p, idx) => <ProfileCard key={idx} profile={p} />)
 							) : (
-								<p className="no-results"></p>
+								<p className="no-results1"></p>
 							)}
 						</div>
 					</section>
