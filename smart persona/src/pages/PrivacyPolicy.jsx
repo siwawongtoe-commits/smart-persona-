@@ -1,5 +1,5 @@
 import React from 'react';
-import './PrivacyPolicy.css'; // นำเข้าไฟล์ CSS
+import "../styles/PrivacyPolicy.css";
 
 const PrivacyPolicy = () => {
   return (
@@ -7,7 +7,9 @@ const PrivacyPolicy = () => {
       {/* Header Bar */}
       <header className="privacy-header">
         <h1 className="header-title">Privacy Policy</h1>
+        <a href="/Setting">
         <button className="header-button">กลับไปหน้าใช้งานของฉัน</button>
+        </a>
       </header>
 
       {/* Main Content Area */}
@@ -15,7 +17,7 @@ const PrivacyPolicy = () => {
         <section className="section introduction-section">
           <h2 className="section-title">Introduction</h2>
           <p>
-            Welcome to Perfrile, your smart and intuitive resume-building platform designed to make job applications effortless and effective. Perfrile lets you create and manage multiple personalized resume profiles, allowing you to tailor each one for different career paths or job opportunities. With our job filtering system, you can easily explore roles that match your skills, interests, and professional goals. And with Perfrile's powerful AI Profile Generator, you can instantly craft polished, compelling content that highlights your strengths and helps you stand out.
+            Welcome to Perfile, your smart and intuitive resume-building platform designed to make job applications effortless and effective. Perfile lets you create and manage multiple personalized resume profiles, allowing you to tailor each one for different career paths or job opportunities. With our job filtering system, you can easily explore roles that match your skills, interests, and professional goals. And with Perfile's powerful AI Profile Generator, you can instantly craft polished, compelling content that highlights your strengths and helps you stand out.
           </p>
           <p>
             Discover a seamless way to build your future—professionally, clearly, and confidently.
@@ -100,7 +102,7 @@ const PrivacyPolicy = () => {
             </li>
             <li>
               <span className="list-heading">Consent and Authorization</span><br />
-              Perfrile requires permission before sharing or transferring data for optional features, resulting in your full control of your information.
+              Perfile requires permission before sharing or transferring data for optional features, resulting in your full control of your information.
             </li>
             <li>
               <span className="list-heading">Security Compliance</span><br />
@@ -118,11 +120,11 @@ const PrivacyPolicy = () => {
           <ol className="policy-list-sub">
             <li>
               <span className="list-heading">Viewing and Editing</span><br />
-              You can view all personal information stored in your Perfrile account at any time, including resume details, profile data, and saved preferences.
+              You can view all personal information stored in your Perfile account at any time, including resume details, profile data, and saved preferences.
             </li>
             <li>
               <span className="list-heading">Updating Information</span><br />
-              Perfrile allows you to freely edit, update, or correct any information—such as work experience, skills, or personal details—to keep your profiles accurate and up to date.
+              Perfile allows you to freely edit, update, or correct any information—such as work experience, skills, or personal details—to keep your profiles accurate and up to date.
             </li>
             {/* ... เพิ่มรายการย่อยที่เหลือ (3-9) ตามภาพ ... */}
             <li>
@@ -135,7 +137,7 @@ const PrivacyPolicy = () => {
             </li>
             <li>
               <span className="list-heading">Deletion Rights</span><br />
-              You have the right to permanently delete specific profiles or your entire account. When deleted, your personal information is removed from Perfrile's active systems.
+              You have the right to permanently delete specific profiles or your entire account. When deleted, your personal information is removed from Perfile's active systems.
             </li>
             <li>
               <span className="list-heading">Sharing Preferences</span><br />
@@ -152,12 +154,6 @@ const PrivacyPolicy = () => {
           </ol>
         </section>
         
-        {/* Scroll down indicator for context */}
-        <div className="scroll-indicator">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 10L12 15L17 10" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </div>
       </main>
     </div>
   );

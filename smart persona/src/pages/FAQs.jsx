@@ -1,5 +1,5 @@
 import React from 'react';
-import './FAQs.css'; // นำเข้าไฟล์ CSS
+import "../styles/FAQs.css";
 
 const FAQs = () => {
   return (
@@ -7,12 +7,14 @@ const FAQs = () => {
       {/* Header Bar */}
       <header className="faqs-header">
         <h1 className="header-title">FAQs</h1>
+        <a href="/Setting">
         <button className="header-button">กลับไปหน้าใช้งานของฉัน</button>
+        </a>
       </header>
 
       {/* Main Content Area */}
       <main className="faqs-content">
-        <h2 className="main-title">Perfrile FAQs ?</h2>
+        <h2 className="main-title">Perfile FAQs ?</h2>
         
         <section className="faqs-section">
           
@@ -24,12 +26,12 @@ const FAQs = () => {
               <span className="list-heading">Account & Registration</span>
               <ul className="faqs-topic-list-sub">
                 <li>
-                  <span className="question">Q: How do I create a Perfrile account?</span>
+                  <span className="question">Q: How do I create a Perfile account?</span>
                   <span className="answer">A: Click the "Sign Up" button on the homepage, enter your email, create a password, and verify your email address. Once verified, you can start building your career profile.</span>
                 </li>
                 <li>
                   <span className="question">Q: Can I have multiple accounts?</span>
-                  <span className="answer">A: Yes, Perfrile is optimized to recommend using a single account to manage multiple profiles efficiently and avoid confusion.</span>
+                  <span className="answer">A: Yes, Perfile is optimized to recommend using a single account to manage multiple profiles efficiently and avoid confusion.</span>
                 </li>
                 <li>
                   <span className="question">Q: I forgot my password. What should I do?</span>
@@ -44,7 +46,7 @@ const FAQs = () => {
               <ul className="faqs-topic-list-sub">
                 <li>
                   <span className="question">Q: How many profiles can I create?</span>
-                  <span className="answer">A: Perfrile allows you to create multiple profiles, each tailored for different job applications or industries. There is no strict limit, but account storage capacity may vary.</span>
+                  <span className="answer">A: Perfile allows you to create multiple profiles, each tailored for different job applications or industries. There is no strict limit, but account storage capacity may vary.</span>
                 </li>
                 <li>
                   <span className="question">Q: Can I edit or update my profile later?</span>
@@ -56,7 +58,7 @@ const FAQs = () => {
                 </li>
                 <li>
                   <span className="question">Q: Can I download or export my resume?</span>
-                  <span className="answer">A: Yes, Perfrile allows downloading resumes in PDF and DOCX formats, ready to submit to employers.</span>
+                  <span className="answer">A: Yes, Perfile allows downloading resumes in PDF and DOCX formats, ready to submit to employers.</span>
                 </li>
               </ul>
             </li>
@@ -85,8 +87,8 @@ const FAQs = () => {
               <span className="list-heading">Job Search & Recommendations</span>
               <ul className="faqs-topic-list-sub">
                 <li>
-                  <span className="question">Q: How does Perfrile suggest jobs?</span>
-                  <span className="answer">A: Perfrile analyzes your background information, skills, and career preferences to filter and recommend jobs that align with your background and goals.</span>
+                  <span className="question">Q: How does Perfile suggest jobs?</span>
+                  <span className="answer">A: Perfile analyzes your background information, skills, and career preferences to filter and recommend jobs that align with your background and goals.</span>
                 </li>
                 <li>
                   <span className="question">Q: Can I customize job recommendations?</span>
@@ -108,11 +110,11 @@ const FAQs = () => {
                   <span className="answer">A: Your data is protected by secure, encrypted servers with strict access controls and regular backups to prevent loss.</span>
                 </li>
                 <li>
-                  <span className="question">Q: Can I delete my data from Perfrile?</span>
+                  <span className="question">Q: Can I delete my data from Perfile?</span>
                   <span className="answer">A: Yes, you can permanently delete your entire account, and the platform will remove your personal data from active systems.</span>
                 </li>
                 <li>
-                  <span className="question">Q: Does Perfrile share my data with third parties?</span>
+                  <span className="question">Q: Does Perfile share my data with third parties?</span>
                   <span className="answer">A: We share data only with trusted third-party service providers under strict agreements or as required by law.</span>
                 </li>
                 <li>
@@ -131,8 +133,8 @@ const FAQs = () => {
                   <span className="answer">A: Check the Help Center for common troubleshooting steps. If the issue persists, contact our support team through email or live chat.</span>
                 </li>
                 <li>
-                  <span className="question">Q: Is Perfrile optimized for mobile use?</span>
-                  <span className="answer">A: Yes, Perfrile is optimized for desktop and mobile devices, allowing you to create and manage profiles on the go.</span>
+                  <span className="question">Q: Is Perfile optimized for mobile use?</span>
+                  <span className="answer">A: Yes, Perfile is optimized for desktop and mobile devices, allowing you to create and manage profiles on the go.</span>
                 </li>
                 <li>
                   <span className="question">Q: What if I lose a profile?</span>
@@ -160,7 +162,7 @@ const FAQs = () => {
         </section>
 
         <p className="copyright-text">
-          &copy; 2025 All rights reserved. _Perfrile
+          &copy; 2025 All rights reserved. _Perfile
         </p>
       </main>
     </div>

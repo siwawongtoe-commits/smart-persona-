@@ -1,5 +1,5 @@
 import React from 'react';
-import './TermsOfUse.css'; // นำเข้าไฟล์ CSS
+import "../styles/Terms.css";
 
 const TermsOfUse = () => {
   return (
@@ -7,7 +7,9 @@ const TermsOfUse = () => {
       {/* Header Bar */}
       <header className="terms-header">
         <h1 className="header-title">Terms</h1>
+        <a href="/Setting">
         <button className="header-button">กลับไปหน้าใช้งานของฉัน</button>
+        </a>
       </header>
 
       {/* Main Content Area */}
@@ -18,13 +20,13 @@ const TermsOfUse = () => {
         <section className="section overview-section">
           <h3 className="section-title">Overview</h3>
           <p>
-            Perfrile is a smart, user-friendly platform designed to simplify the process of creating professional resumes and managing your career profiles. By combining intuitive tools with advanced AI capabilities, Perfrile empowers you to build multiple tailored resumes, discover job opportunities that match your skills, and present your qualifications with confidence.
+            Perfile is a smart, user-friendly platform designed to simplify the process of creating professional resumes and managing your career profiles. By combining intuitive tools with advanced AI capabilities, Perfile empowers you to build multiple tailored resumes, discover job opportunities that match your skills, and present your qualifications with confidence.
           </p>
           <p>
-            The Terms of Use ("Terms") govern your access and use of the Perfrile platform, its services, and all associated content. These Terms constitute a legal agreement between you and Perfrile and set out the overall user agreement. Please read these Terms carefully before proceeding with the use of the services.
+            The Terms of Use ("Terms") govern your access and use of the Perfile platform, its services, and all associated content. These Terms constitute a legal agreement between you and Perfile and set out the overall user agreement. Please read these Terms carefully before proceeding with the use of the services.
           </p>
           <p>
-            This policy outlines how your information is collected, used, stored, shared, and protected. It also explains your rights, how you can manage your data, and how we keep you informed about changes to this policy. Perfrile's mission is to help you take control of your career journey while ensuring your Personal Information remains safe, private, and fully within your control.
+            This policy outlines how your information is collected, used, stored, shared, and protected. It also explains your rights, how you can manage your data, and how we keep you informed about changes to this policy. Perfile's mission is to help you take control of your career journey while ensuring your Personal Information remains safe, private, and fully within your control.
           </p>
         </section>
 
@@ -34,7 +36,7 @@ const TermsOfUse = () => {
           <ol className="terms-list-sub">
             <li>
               <span className="list-heading">Eligibility</span><br />
-              You must be of legal age in your jurisdiction and capable of forming a binding agreement to use Perfrile's services.
+              You must be of legal age in your jurisdiction and capable of forming a binding agreement to use Perfile's services.
             </li>
             <li>
               <span className="list-heading">Account Creation</span><br />
@@ -42,7 +44,7 @@ const TermsOfUse = () => {
             </li>
             <li>
               <span className="list-heading">Permitted Usage</span><br />
-              You agree to use Perfrile only for lawful purposes, including creating resumes, managing career profiles, and exploring job opportunities.
+              You agree to use Perfile only for lawful purposes, including creating resumes, managing career profiles, and exploring job opportunities.
             </li>
             <li>
               <span className="list-heading">User Responsibility and Accuracy</span><br />
@@ -50,7 +52,7 @@ const TermsOfUse = () => {
             </li>
             <li>
               <span className="list-heading">AI Generated Content</span><br />
-              Perfrile uses AI-generated content to support your resume building. You remain responsible for reviewing and verifying the accuracy of all AI-created information before use.
+              Perfile uses AI-generated content to support your resume building. You remain responsible for reviewing and verifying the accuracy of all AI-created information before use.
             </li>
             <li>
               <span className="list-heading">No Unauthorized Activities</span><br />
@@ -58,15 +60,15 @@ const TermsOfUse = () => {
             </li>
             <li>
               <span className="list-heading">Intellectual Property</span><br />
-              All tools, design elements, and technology provided by Perfrile remain the property of the platform. Generated resumes belong to you, but you may not reproduce or distribute platform elements or coding outside of use.
+              All tools, design elements, and technology provided by Perfile remain the property of the platform. Generated resumes belong to you, but you may not reproduce or distribute platform elements or coding outside of use.
             </li>
             <li>
               <span className="list-heading">Termination Rights</span><br />
-              Perfrile reserves the right to suspend or terminate your access if any misuse, fraudulent activity, or violation of these terms is detected.
+              Perfile reserves the right to suspend or terminate your access if any misuse, fraudulent activity, or violation of these terms is detected.
             </li>
             <li>
               <span className="list-heading">Service Availability</span><br />
-              While we strive to maintain smooth and stable service, Perfrile may occasionally undergo maintenance or experience interruptions. We are not liable for temporary service unavailability.
+              While we strive to maintain smooth and stable service, Perfile may occasionally undergo maintenance or experience interruptions. We are not liable for temporary service unavailability.
             </li>
           </ol>
         </section>
@@ -101,7 +103,7 @@ const TermsOfUse = () => {
             </li>
             <li>
               <span className="list-heading">Third-Party Trust</span><br />
-              Any trusted partners involved in supporting Perfrile's services are required to follow strict confidentiality and data protection agreements.
+              Any trusted partners involved in supporting Perfile's services are required to follow strict confidentiality and data protection agreements.
             </li>
             <li>
               <span className="list-heading">Legal Compliance</span><br />
@@ -119,7 +121,7 @@ const TermsOfUse = () => {
         </section>
 
         <p className="copyright-text">
-          &copy; 2025 All rights reserved. _Perfrile
+          &copy; 2025 All rights reserved. _Perfile
         </p>
       </main>
     </div>

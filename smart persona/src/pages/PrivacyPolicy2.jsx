@@ -1,5 +1,5 @@
 import React from 'react';
-import './PrivacyPolicy2.css'; // ใช้ไฟล์ CSS เดียวกันกับส่วนแรก
+import "../styles/PrivacyPolicy2.css";
 
 const PrivacyPolicyPart2 = () => {
   return (
@@ -7,7 +7,9 @@ const PrivacyPolicyPart2 = () => {
       {/* Header Bar */}
       <header className="privacy-header">
         <h1 className="header-title">Privacy Policy 2 & Contact Us</h1>
+        <a href="/Setting">
         <button className="header-button">กลับไปหน้าใช้งานของฉัน</button>
+        </a>
       </header>
 
       {/* Main Content Area */}
@@ -76,7 +78,7 @@ const PrivacyPolicyPart2 = () => {
             </li>
             <li>
               <span className="list-heading">Acceptance of Revised Terms</span><br />
-              By continuing to use Perfrile after an updated policy takes effect, you acknowledge and accept the revised terms.
+              By continuing to use Perfile after an updated policy takes effect, you acknowledge and accept the revised terms.
             </li>
             <li>
               <span className="list-heading">Access to Previous Versions</span><br />
@@ -118,13 +120,13 @@ const PrivacyPolicyPart2 = () => {
             </li>
             <li>
               <span className="list-heading">Additional Support Channels</span><br />
-              If you prefer direct communication, access the [live chat, phone number, or social media handles] based on the Perfrile website.
+              If you prefer direct communication, access the [live chat, phone number, or social media handles] based on the Perfile website.
             </li>
           </ol>
         </section>
 
         <p className="copyright-text">
-          &copy; 2025 All rights reserved. _Perfrile
+          &copy; 2025 All rights reserved. Perfile
         </p>
 
       </main>

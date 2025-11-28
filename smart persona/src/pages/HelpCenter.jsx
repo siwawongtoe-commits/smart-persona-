@@ -1,5 +1,5 @@
 import React from 'react';
-import './HelpCenter.css'; // นำเข้าไฟล์ CSS
+import "../styles/HelpCenter.css";
 
 const HelpCenter = () => {
   return (
@@ -7,7 +7,9 @@ const HelpCenter = () => {
       {/* Header Bar */}
       <header className="help-header">
         <h1 className="header-title">Help Center ( Support )</h1>
+        <a href="/Setting">
         <button className="header-button">กลับไปหน้าใช้งานของฉัน</button>
+        </a>
       </header>
 
       {/* Main Content Area */}
@@ -15,7 +17,7 @@ const HelpCenter = () => {
         <h2 className="main-title">Help Center</h2>
         
         <section className="help-section">
-          <h3 className="help-section-title">Perfrile Help Center</h3>
+          <h3 className="help-section-title">Perfile Help Center</h3>
           
           {/* Main List of Topics */}
           <ol className="help-topic-list-main">
@@ -57,7 +59,7 @@ const HelpCenter = () => {
                 <li>Reviewing AI-Generated Content</li>
                 <li>Tips for reviewing and customizing AI-generated content to ensure accuracy and alignment with your career goals.</li>
                 <li>AI Data Usage Policy</li>
-                <li>How Perfrile uses your data for AI features and your control over AI-generated content.</li>
+                <li>How Perfile uses your data for AI features and your control over AI-generated content.</li>
               </ul>
             </li>
             
@@ -106,7 +108,7 @@ const HelpCenter = () => {
             <li>
               <span className="list-heading">Contacting Support</span>
               <ul className="help-topic-list-sub">
-                <li>Email, live chat, contact forms, and social media channels for reaching Perfrile support.</li>
+                <li>Email, live chat, contact forms, and social media channels for reaching Perfile support.</li>
                 <li>Response Time</li>
                 <li>Typical response times for inquiries and escalation procedures for urgent issues.</li>
                 <li>Feature Requests/Bugs</li>
@@ -118,7 +120,7 @@ const HelpCenter = () => {
         </section>
 
         <p className="copyright-text">
-          &copy; 2025 All rights reserved. _Perfrile
+          &copy; 2025 All rights reserved. _Perfile
         </p>
       </main>
     </div>
