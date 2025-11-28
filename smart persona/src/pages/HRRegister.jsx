@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/HRRegister.css";
-import { Link } from "react-router-dom";
+import { Link,useNavigate  } from "react-router-dom";
 
 
 export default function HRRegister() {
@@ -9,6 +9,8 @@ export default function HRRegister() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();   // ✅ เพิ่มตรงนี้
+
 
   function handleRegister(e) {
     e.preventDefault();
@@ -26,6 +28,8 @@ export default function HRRegister() {
 
     alert("ลงทะเบียนสำเร็จ!");
     setCompany(""); setName(""); setEmail(""); setPassword("");
+    navigate("/HRLogin"); // ✅ พาไปหน้า Login ทันที
+
   }
   return (
     <div className="register-page">
