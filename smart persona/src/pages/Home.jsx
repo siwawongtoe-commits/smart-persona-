@@ -12,7 +12,7 @@ import {
 	User,
 } from "lucide-react";
 import "../styles/Home.css";
-
+import { Link } from "react-router-dom"; // ← เพิ่มตรงนี้
 // Profile data - same as Dashboard
 const profiles = [
 	{ name: "สมชาย ใจดีมาก", title: "Web Developer", country: "Thailand", exp: "4 years", tags: ["Laravel", "Vue js", "SEO"], type: "private"  },
@@ -60,43 +60,42 @@ const Sidebar = () => (
 
 // Profile Card component
 const ProfileCard = ({ profile }) => (
-	<div className="profile-card">
-		<div className="profile-card-header">
-			<span className="profile-role-badge">{profile.role}</span>
-			{profile.status && (
-				<span className={`profile-status-badge ${profile.status}`}>{profile.status}</span>
-			)}
-			<Bookmark className="profile-bookmark-icon" />
-		</div>
+	<Link
+		to={`/UserProfile?name=${encodeURIComponent(profile.name)}&title=${encodeURIComponent(profile.title)}&country=${encodeURIComponent(profile.country)}&exp=${encodeURIComponent(profile.exp)}&tags=${encodeURIComponent(profile.tags.join(","))}`}
+		style={{ textDecoration: "none", color: "inherit" }}
+	>
+		<div className="profile-card">
+			<div className="profile-card-header">
+				<Bookmark className="profile-bookmark-icon" />
+			</div>
 
-		<div className="profile-avatar1 w-20 h-20 rounded-full bg-gradient-to-tr ${avatarBg} flex items-center justify-center shadow-lg ring-4 ring-white}>">
-			
+			<div className="profile-avatar1 w-20 h-20 rounded-full bg-gradient-to-tr flex items-center justify-center shadow-lg ring-4 ring-white">
 				<User className="w-12 h-12 text-white" />
-			
-		</div>
+			</div>
 
-		<div className="profile-card-content">
-			<h3 className="profile-name">{profile.name}</h3>
-			<p className="profile-title">{profile.title}</p>
-			<p className="profile-country">{profile.country}</p>
-			<div className="profile-experience">
-				&lt; - Experience - &gt;
-				<p className="experience-years">{profile.exp}</p>
+			<div className="profile-card-content">
+				<h3 className="profile-name">{profile.name}</h3>
+				<p className="profile-title">{profile.title}</p>
+				<p className="profile-country">{profile.country}</p>
+				<div className="profile-experience">
+					&lt; - Experience - &gt;
+					<p className="experience-years">{profile.exp}</p>
+				</div>
+			</div>
+
+			<div className="profile-tags">
+				{profile.tags.map((tag, idx) => (
+					<span key={idx} className="tag">
+						{tag}
+					</span>
+				))}
+			</div>
+
+			<div className="profile-footer">
+				<small>Edited - 30 minutes ago</small>
 			</div>
 		</div>
-
-		<div className="profile-tags">
-			{profile.tags.map((tag, idx) => (
-				<span key={idx} className="tag">
-					{tag}
-				</span>
-			))}
-		</div>
-
-		<div className="profile-footer">
-			<small>Edited - 30 minutes ago</small>
-		</div>
-	</div>
+	</Link>
 );
 
 export default function Home() {

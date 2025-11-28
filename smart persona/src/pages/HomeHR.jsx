@@ -12,6 +12,7 @@ import {
 	User,
 } from "lucide-react";
 import "../styles/HomeHR.css";
+import { useNavigate } from "react-router-dom";
 
 // Profile data - same as Dashboard
 const profiles = [
@@ -53,45 +54,46 @@ const Sidebar = () => (
 );
 
 // Profile Card component
-const ProfileCard = ({ profile }) => (
-	<div className="profile-card">
-		<div className="profile-card-header">
-			<span className="profile-role-badge">{profile.role}</span>
-			{profile.status && (
-				<span className={`profile-status-badge ${profile.status}`}>{profile.status}</span>
-			)}
-			<Bookmark className="profile-bookmark-icon" />
-		</div>
+const ProfileCard = ({ profile }) => {
+	const navigate = useNavigate();
 
-		<div className="profile-avatar1 w-20 h-20 rounded-full bg-gradient-to-tr ${avatarBg} flex items-center justify-center shadow-lg ring-4 ring-white}>">
-			
+	const openProfile = () => {
+		navigate(`/UserProfile?name=${encodeURIComponent(profile.name)}&title=${encodeURIComponent(profile.title)}&country=${encodeURIComponent(profile.country)}&exp=${encodeURIComponent(profile.exp)}&tags=${encodeURIComponent(profile.tags.join(","))}`);
+	};
+
+	return (
+		<div className="profile-card" onClick={openProfile} style={{ cursor: "pointer" }}>
+			<div className="profile-card-header">
+				<Bookmark className="profile-bookmark-icon" />
+			</div>
+
+			<div className="profile-avatar1 w-20 h-20 rounded-full bg-gradient-to-tr flex items-center justify-center shadow-lg ring-4 ring-white">
 				<User className="w-12 h-12 text-white" />
-			
-		</div>
+			</div>
 
-		<div className="profile-card-content">
-			<h3 className="profile-name">{profile.name}</h3>
-			<p className="profile-title">{profile.title}</p>
-			<p className="profile-country">{profile.country}</p>
-			<div className="profile-experience">
-				&lt; - Experience - &gt;
-				<p className="experience-years">{profile.exp}</p>
+			<div className="profile-card-content">
+				<h3 className="profile-name">{profile.name}</h3>
+				<p className="profile-title">{profile.title}</p>
+				<p className="profile-country">{profile.country}</p>
+
+				<div className="profile-experience">
+					&lt; - Experience - &gt;
+					<p className="experience-years">{profile.exp}</p>
+				</div>
+			</div>
+
+			<div className="profile-tags">
+				{profile.tags.map((tag, idx) => (
+					<span key={idx} className="tag">{tag}</span>
+				))}
+			</div>
+
+			<div className="profile-footer">
+				<small>Edited - 30 minutes ago</small>
 			</div>
 		</div>
-
-		<div className="profile-tags">
-			{profile.tags.map((tag, idx) => (
-				<span key={idx} className="tag">
-					{tag}
-				</span>
-			))}
-		</div>
-
-		<div className="profile-footer">
-			<small>Edited - 30 minutes ago</small>
-		</div>
-	</div>
-);
+	);
+};
 
 export default function Home() {
 	const [searchQuery, setSearchQuery] = useState("");

@@ -10,7 +10,7 @@
 
 /* Card */
 .page-wrapper>.container>.card {
-    transform: translateY(-40px);
+    transform: translateY(-50px);
     /* เลื่อนลงจากเดิม (-50px → -30px) */
 }
 

@@ -107,7 +107,7 @@ input {
 }
 
 /* ปุ่ม login */
-.submit-btn {
+.submit-btn1 {
   width: 100%;
   padding: 12px;
   background: #ffffff;
@@ -117,6 +117,10 @@ input {
   font-size: 16px;
   margin-top: 10px;
   color: #1d2dbb;
+}
+.submit-btn1:hover {
+  background: #1d2dbb;
+  color: #ffffff;
 }
 
 .register-text {

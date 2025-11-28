@@ -58,7 +58,7 @@ alert("เข้าสู่ระบบสำเร็จ!");
             </div>
 
             <h1 id="login-title" className="card-title font-bold mb-2">เข้าสู่ระบบ</h1>
-            <p className="mb-8 muted-small">ต้องการเข้าสู่ระบบด้วยอะไร?</p>
+            <p className="mb-0 muted-small">ต้องการเข้าสู่ระบบด้วยอะไร?</p>
 
              <div className="provider-wrapper2">
               <button className="google-btn google-login">

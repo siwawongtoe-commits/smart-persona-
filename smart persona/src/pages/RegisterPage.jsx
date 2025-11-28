@@ -43,13 +43,14 @@ export default function RegisterPage() {
           <div className="">
            
 
-            <div className="top-right-text4">
-              <Link to="/HRLogin">คุณเป็นผู้ประกอบการหรือเปล่า?</Link>
-            </div>
+          
 
             <div className="brand-title">PerFile</div>
 
-            <div className="card register-card" role="region" aria-labelledby="register-title">
+            <div className="card register-card" role="region" aria-labelledby="register-title"> 
+               <div className="top-right-text4">
+              <Link to="/HRLogin">คุณเป็นผู้ประกอบการหรือเปล่า?</Link>
+            </div>
               <h1 id="register-title" className="card-title">ลงทะเบียน</h1>
 
               <p className="subtitle">เลือกแอพเพื่อสร้าง Main Profile</p>
@@ -157,7 +158,7 @@ export default function RegisterPage() {
                 </div>
 
                 {/* Submit */}
-                <button type="submit" className="btn btn-submit">
+                <button type="submit" className="btn-submit">
                   <span className="icon" aria-hidden>✍️</span>
                   <span>สร้าง Main Profile</span>
                 </button>
