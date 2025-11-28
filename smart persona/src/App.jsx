@@ -22,6 +22,7 @@ import DashboardAdmin from "./pages/DashboardAdmin";
 import UserProfile from "./pages/UserProfile";
 import SettingAdmin from "./pages/SettingAdmin";
 import DashboardHR from "./pages/DashboardHR";
+import SettingHr from "./pages/SettingHR";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
         <Route path="/userprofile" element={<UserProfile />} />
         <Route path="/setting-admin" element={<SettingAdmin />} />
         <Route path="/dashboardhr" element={<DashboardHR />} /> 
+        <Route path="/settinghr" element={<SettingHr />} />
       </Routes>
     </Router>
   );

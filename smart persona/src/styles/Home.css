@@ -350,16 +350,17 @@
 }
 
 /* ===== Profile Card ===== */
-.profile-card1 {
+.profile-card {
   background: rgb(253, 253, 253);
   border-radius: 12px;
-  padding: 16px 8px;
+  padding: 16 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid #9092FF;
   transition: all 0.2s;
   display: flex;
   flex-direction: column;
-  ;
+  align-items: center;
+
 }
 
 .profile-card:hover {
@@ -408,6 +409,7 @@
   color: #d1d5db;
   cursor: pointer;
   transition: color 0.2s;
+  margin-left: 280px;
 }
 
 .profile-bookmark-icon:hover {
@@ -430,9 +432,10 @@
 }
 
 
-.profile-card:nth-child(2) .profile-avatar,
-.profile-card:nth-child(7) .profile-avatar,
-.profile-card:nth-child(10) .profile-avatar {
+
+.profile-card:nth-child(2) .profile-avatar1,
+.profile-card:nth-child(7) .profile-avatar1,
+.profile-card:nth-child(10) .profile-avatar1 {
     border: 3px solid #f44336; 
 }
 .avatar-placeholder {

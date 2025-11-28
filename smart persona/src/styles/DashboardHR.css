@@ -1,369 +1,587 @@
-/* --- Global Reset and Typography --- */
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #f4f7fa; /* สีพื้นหลังอ่อนๆ คล้ายภาพ */
-    color: #333;
+/* ===== Home Page Main Container ===== */
+.home-container {
+  min-height: 100vh;
+  background: #e8f0fe;
+  display: flex;
+  flex-direction: column;
 }
 
-/* --- Dashboard specific wrappers (matches DashboardAdmin.jsx semantic classes) --- */
-.dashboard-hr {
-    min-height: 100vh;
-    padding: 1rem;
-    box-sizing: border-box;
-    background: linear-gradient(to bottom, #E7E9FF 0%, #CCDAFF 100%);
-    font-family: inherit;
-    color: #374151;
+/* ===== Header ===== */
+.home-header1 {
+  background: #111491;
+  color: rgb(255, 255, 255);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.dashboard-hr-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    background: white;
-    box-shadow: 0 18px 36px rgba(2,6,23,0.08), 0 6px 12px rgba(2,6,23,0.04);
-    border-radius: 28px;
-    overflow: hidden;
-    padding: 18px; /* add breathing room so inner content shows rounded corners */
+.header-left {
+  flex-shrink: 0;
 }
 
-/* --- App Layout --- */
-.app-container {
-    display: flex;
-    min-height: 100vh;
+.header-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
 }
 
-/* --- Sidebar (Left Menu) --- */
-.sidebar {
-    width: 80px;
-    background-color: white;
-    /* ไม่มี box-shadow ด้านขวา เพื่อให้ดูกลมกลืนกับพื้นหลังของเนื้อหา */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    /* ใช้ border-radius เพื่อสร้างมุมโค้งด้านนอก (Pink/Purple) */
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    box-sizing: border-box; /* สำคัญสำหรับการคำนวณความสูง */
+.header-search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0 24px;
+  
 }
 
-/* ซ่อนโลโก้ข้อความ */
-.sidebar-logo {
-    display: none; 
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  
 }
 
-.sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin-top: 30px;
+.search-input-wrapper .search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #111491;
 }
 
-.nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50px; /* ลดขนาดไอคอนลงเล็กน้อย */
-    height: 50px;
-    margin-bottom: 25px;
-    cursor: pointer;
-    color: #999;
-    border-radius: 12px; /* มุมโค้งมนของปุ่มเมนู */
-    transition: all 0.2s;
-    position: relative;
-    overflow: hidden; /* สำหรับเอฟเฟกต์สีชมพู */
+.search-input-wrapper .filter-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #111491;
+  cursor: pointer;
 }
 
-.nav-item .material-icons {
-    font-size: 28px;
-    z-index: 2; /* ให้อยู่เหนือสีพื้นหลัง */
+.search-input {
+  width: 100%;
+  padding: 10px 40px;
+  border-radius: 24px;
+  border: 3px solid #ffffff;
+  background: rgb(70, 126, 248);
+  color: #1a1818;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
 }
 
-.nav-item.active {
-    /* ใช้สีชมพู/ม่วงอ่อนสำหรับปุ่ม Active */
-    background-color: #fce4ec; 
-    color: #ec407a; 
+.search-input::placeholder {
+  color: #111491;
+  padding-left: 40px;
 }
 
-/* ใช้ไอคอน Home, Dashboard, Notification เป็นสีเทาเข้มกว่า */
-.nav-item:not(.active):not(.user-profile) {
-    color: #616161; 
+.search-input:focus {
+  border-color: #2a2df0;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
-/* สไตล์วงกลมสีชมพู/ม่วง (User Profile) */
-.user-profile {
-    /* ใช้สีชมพู/ม่วงเข้มสำหรับวงกลมโปรไฟล์ */
-    background-color: #ec407a; 
-    color: white;
-    border-radius: 50%;
-    margin-top: 50px;
-    width: 45px;
-    height: 45px;
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
-/* --- Main Content --- */
-.main-content {
-    flex-grow: 1;
-    padding: 0;
-    background-color: #f4f7fa;
+.header-logout1 {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
 }
 
-/* --- Top Navigation Bar --- */
-.top-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 30px;
-    /* Gradient สีน้ำเงินเข้มตามภาพ */
-    background: linear-gradient(90deg, #1a237e 0%, #303f9f 100%); 
-    color: white;
-    border-radius: 0 0 0 20px; /* มุมโค้งด้านซ้ายล่าง */
+/* ===== Layout ===== */
+.home-layout {
+  display: flex;
+  flex: 1;
+  gap: 16px;
+  padding: 16px;
 }
 
-/* Dashboard header & main (matching JSX semantic classes) */
-.dashboard-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 22px;
-    background: linear-gradient(90deg, #17216a 0%, #1e3a8a 100%);
-    color: white;
+/* ===== Sidebar ===== */
+.sidebar1 {
+  width: 65px;
+  height: 275px;
+  background: #9CD1FF;
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);;
 }
 
-.dashboard-main {
-    padding: 26px;
+
+.sidebar-create-btn {
+  width: 44px;
+  height: 44px;
+  color: rgb(0, 0, 0);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 12px;
+  flex-direction: column;
+  gap: 4px;
+  margin: 5px;
+ 
 }
 
-.local-search { width: 100%; border-radius: 9999px; }
+.sidebar-home-btn {
+  width: 44px;
+  height: 44px;
+  color: rgb(0, 0, 0);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 12px;
+  flex-direction: column;
+  gap: 4px;
+  margin: 5px;
+  padding: 40px;
+}
 
-.profile-card-outer { padding: 2px; border-radius: 16px; position: relative; }
+.sidebar-dashboard-btn {
+  width: 44px;
+  height: 50px;
+  color: rgb(0, 0, 0);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 11px;
+  flex-direction: column;
+  gap: 4px;
+  margin: 5px;
+  padding: 10px;
+}
 
-/* Increase grid gap and padding to match prototype spacing */
-.profiles-grid {
-    display: grid;
+
+
+.sidebar-create-btn:hover 
+
+
+
+  .sidebar-dashboard-btn:hover {
+    background: #2563eb;
+  
+  }
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.sidebar-item {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: white;
+  border: none;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-item:hover {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.sidebar-item.active {
+  background: #dbeafe;
+  color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+/* ===== Main Content ===== */
+.home-main {
+  flex: 1;
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 32px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Title Section ===== */
+.home-title-section {
+  margin-bottom: 32px;
+}
+
+.home-section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.home-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  
+}
+
+.search-local {
+  position: relative;
+  width: 500px;
+  
+}
+
+.search-input-local {
+  width: 100%;
+  padding: 10px 36px 10px 12px;
+  border-radius: 20px;
+  border: 1px solid #004de6;
+  background: rgb(255, 255, 255);
+  color: #1f2937;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+
+}
+
+.search-input-local::placeholder {
+  color: #9ca3af;
+}
+
+.search-input-local:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+.search-icon-local {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.filter-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+/* ===== Profile Section ===== */
+.profile-section {
+  margin-bottom: 40px;
+}
+
+.section-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ===== Profile Grid ===== */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .profile-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: 26px;
-    padding: 22px 26px;
+  }
 }
 
-.search-bar {
-    display: flex;
-    align-items: center;
-    /* แถบค้นหาเป็นสีขาวโปร่งแสง */
-    background-color: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    padding: 5px 15px;
-    width: 600px;
-    margin-left: 10px;
-    position: relative;
-}
-
-.search-bar input {
-    background: none;
-    border: none;
-    color: white;
-    flex-grow: 1;
-    padding: 5px 10px;
-    outline: none;
-}
-
-.search-bar input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.search-icon {
-    color: white;
-    margin-right: 10px;
-}
-
-/* ไอคอน Filter/Menu (เส้นสามเส้น) อยู่ขวาในแถบค้นหา */
-.filter-icon {
-    color: white;
-    cursor: pointer;
-    font-size: 24px;
-    transform: rotate(90deg); /* หมุนไอคอน menu 90 องศา */
-}
-
-.logout-btn {
-    background-color: #f44336; /* สีแดง */
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 15px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* --- Content Header (Search Field below Top Bar) --- */
-.content-header {
-    display: flex;
-    align-items: center;
-    padding: 20px 30px;
-    margin-top: 15px; /* ระยะห่างจาก Top Nav Bar */
-}
-
-.content-header input {
-    flex-grow: 1;
-    padding: 12px 15px;
-    border: none; /* ลบขอบ */
-    border-radius: 10px; /* มุมโค้งมน */
-    font-size: 16px;
-    outline: none;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเล็กน้อย */
-}
-
-.content-header input::placeholder {
-    color: #777;
-}
-
-.settings-icon {
-    font-size: 30px;
-    color: #424242; /* สีเทาเข้มสำหรับไอคอนฟิลเตอร์ */
-    margin-left: 15px;
-    cursor: pointer;
-}
-
-/* --- Profiles Grid --- */
-.profiles-grid {
-    display: grid;
-    /* 4 คอลัมน์สำหรับหน้าจอใหญ่ */
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 20px;
-    padding: 20px 30px;
-}
-
-/* --- Profile Card --- */
+/* ===== Profile Card ===== */
 .profile-card {
-    background-color: white;
-    border-radius: 14px;
-    box-shadow: 0 10px 20px rgba(16,24,40,0.06);
-    padding: 18px 16px 20px 16px;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-    min-height: 220px;
-    align-items: center;
+  background: rgb(253, 253, 253);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #9092FF;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+
 }
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
+.profile-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
 
-.profile-avatar {
-    width: 80px; /* match JSX w-20 (80px) */
+.profile-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 8px;
+  
+}
+
+.profile-role-badge {
+  background: #ffffff;
+  color: #000000;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.profile-status-badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.profile-status-badge.online {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.profile-status-badge.offline {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.profile-bookmark-icon {
+  width: 18px;
+  height: 18px;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-left: 280px;
+}
+
+.profile-bookmark-icon:hover {
+  color: #c0b5b5;
+}
+
+/* .profile-card-avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+} */
+ 
+.profile-avatar1 {
+    width: 80px;
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 6px 12px rgba(16,24,40,0.06);
+    border: 4px solid #34D399;
+    margin-bottom: 20px;
 }
 
-/* การ์ดที่มีอวาตาร์สีชมพู/แดง (สมมติว่าเป็นเพศหญิง) */
-.profile-card:nth-child(2) .profile-avatar,
-.profile-card:nth-child(7) .profile-avatar,
-.profile-card:nth-child(10) .profile-avatar {
-    border: 3px solid #f44336; /* สีแดง */
+.profile-avatar .profile-avatar1 {
+  padding: 20px;
 }
 
-.bookmark-icon {
-    color: #6b7280;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(16,24,40,0.06);
+.profile-card:nth-child(2) .profile-avatar1,
+.profile-card:nth-child(7) .profile-avatar1,
+.profile-card:nth-child(10) .profile-avatar1 {
+    border: 3px solid #f44336; 
+}
+.avatar-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }
 
-.card-body {
-    flex-grow: 1;
-    margin-bottom: 15px;
-    text-align: center; /* จัดให้อยู่ตรงกลางตามภาพ */
+/* ===== Profile Card Content ===== */
+.profile-card-content {
+  text-align: center;
+  margin-bottom: 12px;
 }
 
 .profile-name {
-    margin: 5px 0;
-    font-size: 1.1em;
-    font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 4px 0;
 }
 
-.profile-role, .profile-location {
-    margin: 2px 0;
-    font-size: 0.85em;
-    color: #666;
+.profile-title {
+  font-size: 12px;
+  color: #000000;
+  margin: 0 0 2px 0;
+  font-weight: 500;
+}
+
+.profile-country {
+  font-size: 11px;
+  color: #6b7280;
+  margin: 0 0 8px 0;
 }
 
 .profile-experience {
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: #3f51b5; /* สีน้ำเงินอ่อนลง */
-    font-weight: 500;
+  font-size: 11px;
+  color: #6b7280;
+  margin-bottom: 4px;
 }
 
-.profile-experience strong {
-    font-weight: bold;
+.experience-years {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000000;
+  margin: 4px 0 0 0;
 }
 
-.card-footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin-top: auto;
+/* ===== Profile Tags ===== */
+.profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
-.skill-tag {
-    background: #fff;
-    color: #2563eb;
-    padding: 6px 10px;
-    border-radius: 999px;
-    font-size: 0.75em;
-    font-weight: 600;
-    border: 1px solid rgba(94,180,255,0.25);
-    box-shadow: 0 2px 4px rgba(94,180,255,0.05);
+.tag {
+  background: #ffffff;
+  color: #111491;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  border: 1px solid #5EB4FF;
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 1400px) {
-    .profiles-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+/* ===== Profile Footer ===== */
+.profile-footer {
+  border-top: 1px solid #f0f4ff;
+  padding-top: 8px;
+  text-align: center;
 }
 
-@media (max-width: 1024px) {
-    .profiles-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.profile-footer small {
+  font-size: 11px;
+  color: #9ca3af;
 }
 
+/* ===== No Results ===== */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #9ca3af;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+/* ===== Scrollbar ===== */
+.home-main::-webkit-scrollbar {
+  width: 8px;
+}
+
+.home-main::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+.home-main::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+.home-main::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 60px;
-        border-radius: 0;
-    }
-    .nav-item {
-        width: 45px;
-        height: 45px;
-    }
-    .top-navbar {
-        padding: 10px 15px;
-        border-radius: 0;
-    }
-    .search-bar {
-        width: auto;
-    }
-    .profiles-grid {
-        grid-template-columns: 1fr;
-        padding: 15px;
-    }
+  .home-layout {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+  }
+
+  .home-main {
+    padding: 20px;
+  }
+
+  .home-controls {
+    flex-direction: column;
+    width: 100%;
+    
+  }
+
+  .search-local {
+    width: 100%;
+    color: #f10101;
+  }
+
+  .profile-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 }

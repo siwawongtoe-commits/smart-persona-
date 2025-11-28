@@ -60,7 +60,7 @@ const Sidebar = () => (
 
 // Profile Card component
 const ProfileCard = ({ profile }) => (
-	<div className="profile-card1">
+	<div className="profile-card">
 		<div className="profile-card-header">
 			<span className="profile-role-badge">{profile.role}</span>
 			{profile.status && (
@@ -69,7 +69,7 @@ const ProfileCard = ({ profile }) => (
 			<Bookmark className="profile-bookmark-icon" />
 		</div>
 
-		<div className="profile-avatar w-20 h-20 rounded-full bg-gradient-to-tr ${avatarBg} flex items-center justify-center shadow-lg ring-4 ring-white}>">
+		<div className="profile-avatar1 w-20 h-20 rounded-full bg-gradient-to-tr ${avatarBg} flex items-center justify-center shadow-lg ring-4 ring-white}>">
 			
 				<User className="w-12 h-12 text-white" />
 			

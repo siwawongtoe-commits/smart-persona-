@@ -11,7 +11,7 @@ import {
 	Grid,
 	User,
 } from "lucide-react";
-import "../styles/HomeHr.css";
+import "../styles/HomeHR.css";
 
 // Profile data - same as Dashboard
 const profiles = [
@@ -20,21 +20,20 @@ const profiles = [
 	{ name: "กวิน สุวีวรินทร์", title: "UX/UI Designer", country: "Thailand", exp: "6 years", tags: ["Photoshop", "Illustrator", "Design"], type: "private" },
 	{ name: "ศิริ วัฒนกุล", title: "Web Developer", country: "Thailand", exp: "4 years", tags: ["Laravel", "Vue js", "SEO"], type: "private" },
 	{ name: "เชน ธนภูมิ", title: "Mobile App Developer", country: "Thailand", exp: "3.5 years", tags: ["Kotlin", "Flutter", "Swift"], type: "private"},
-	// { name: "ธนการ หลายพันธ์", title: "Data Scientist", country: "Thailand | Singapore", exp: "4 years", tags: ["Python", "Machine Learning", "SQL"], type: "public" },
-	// { name: "ณิชาพัชร์ เกษมสุข", title: "Cybersecurity Analyst", country: "Thailand", exp: "5 years", tags: ["Network Security", "Linux", "Penetration Testing"], type: "public", },
+	{ name: "ธนการ หลายพันธ์", title: "Data Scientist", country: "Thailand | Singapore", exp: "4 years", tags: ["Python", "Machine Learning", "SQL"], type: "private" },
+	{ name: "ณิชาพัชร์ เกษมสุข", title: "Cybersecurity Analyst", country: "Thailand", exp: "5 years", tags: ["Network Security", "Linux", "Penetration Testing"], type: "private", },
 ];
 
 // Sidebar component
 const Sidebar = () => (
 	<aside className="sidebar1">
-		
-		<a href="/Home">
+		<a href="/Home-HR">
 		<div className="sidebar-create-btn">
 			<HomeIcon className="w-5 h-5" />
 			<span>Home</span>
 		</div>
 		</a>
-		<a href="/Dashboard">
+		<a href="/DashboardHR">
 			<div className="sidebar-create-btn">
 				<Grid className="w-5 h-5" />
 				<span>Dashboard</span>
@@ -44,7 +43,7 @@ const Sidebar = () => (
 			<Bell className="w-5 h-5" />
 			<span>Notification</span>
 		</div>
-		<a href="/Setting">
+		<a href="/SettingHR">
 			<div className="sidebar-create-btn">
 				<User className="w-5 h-5" />
 				<span>User</span>
@@ -64,10 +63,10 @@ const ProfileCard = ({ profile }) => (
 			<Bookmark className="profile-bookmark-icon" />
 		</div>
 
-		<div className="profile-card-avatar">
-			<div className="avatar-placeholder">
+		<div className="profile-avatar1 w-20 h-20 rounded-full bg-gradient-to-tr ${avatarBg} flex items-center justify-center shadow-lg ring-4 ring-white}>">
+			
 				<User className="w-12 h-12 text-white" />
-			</div>
+			
 		</div>
 
 		<div className="profile-card-content">
@@ -132,7 +131,7 @@ export default function Home() {
 	return (
 		<div className="home-container">
 			{/* Header */}
-			<header className="home-header">
+			<header className="home-header1">
 				<div className="header-left">
 					<h1 className="header-title">PerFile</h1>
 				</div>
@@ -140,7 +139,7 @@ export default function Home() {
 					
 				</div>
 				<div className="header-actions">
-					<a href="/" className="header-logout">
+					<a href="/" className="header-logout1">
 						Log out
 					</a>
 				</div>
@@ -172,7 +171,7 @@ export default function Home() {
 
 					{/* Private Profile Section */}
 					<section className="profile-section">
-						
+						<h3 className="section-heading"></h3>
 						<div className="profile-grid">
 							{filteredPrivate.length > 0 ? (
 								filteredPrivate.map((p, idx) => <ProfileCard key={idx} profile={p} />)
@@ -184,12 +183,12 @@ export default function Home() {
 
 					{/* Public Profile Section */}
 					<section className="profile-section">
-						
+						<h3 className="section-heading"></h3>
 						<div className="profile-grid">
 							{filteredPublic.length > 0 ? (
 								filteredPublic.map((p, idx) => <ProfileCard key={idx} profile={p} />)
 							) : (
-								<p className="no-results">ไม่พบโปรไฟล์</p>
+								<p className="no-results"></p>
 							)}
 						</div>
 					</section>
