@@ -1,9 +1,4 @@
 /* --- Global & Layout Styles --- */
-body {
-    background-color: #f0f4f8; /* Light blue/gray background for the entire page */
-    padding: 20px;
-    margin: 0;
-}
 
 .resume-container {
     max-width: 1200px;

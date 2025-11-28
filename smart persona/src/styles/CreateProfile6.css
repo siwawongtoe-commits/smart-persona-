@@ -1,8 +1,8 @@
 /* Color Variables */
 :root {
   --primary-color: #593DFF;
-  --background-light: #E6EFFF; /* Light blue/purple gradient background */
-  --background-dark: #AECBFF;
+  --background-light: #c4d7e8; /* Light blue/purple gradient background */
+  --background-dark: #c4d7e8;
   --card-background: #FFFFFF;
   --text-primary: #333333;
   --text-secondary: #666666;
