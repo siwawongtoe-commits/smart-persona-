@@ -23,11 +23,11 @@ import UserProfile from "./pages/UserProfile";
 import SettingAdmin from "./pages/SettingAdmin";
 import DashboardHR from "./pages/DashboardHR";
 import SettingHr from "./pages/SettingHR";
-import FAQs from "./pages/FAQs";
-import HelpCenter from "./pages/HelpCenter";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import PrivacyPolicy2 from "./pages/PrivacyPolicy2";
-import Terms from "./pages/Terms";
+// import FAQs from "./pages/FAQs";
+// import HelpCenter from "./pages/HelpCenter";
+// import PrivacyPolicy from "./pages/PrivacyPolicy";
+// import PrivacyPolicy2 from "./pages/PrivacyPolicy2";
+// import Terms from "./pages/Terms";
 
 function App() {
   return (
@@ -56,11 +56,11 @@ function App() {
         <Route path="/setting-admin" element={<SettingAdmin />} />
         <Route path="/dashboardhr" element={<DashboardHR />} /> 
         <Route path="/settinghr" element={<SettingHr />} />
-        <Route path="/FAQs" element={<FAQs/>} />
+        {/* <Route path="/FAQs" element={<FAQs/>} />
         <Route path="/HelpCenter" element={<HelpCenter />} />
         <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
         <Route path="/PrivacyPolicy2" element={<PrivacyPolicy2 />} />
-        <Route path="/Terms" element={<Terms />} />
+        <Route path="/Terms" element={<Terms />} /> */}
         
       </Routes>
     </Router>
