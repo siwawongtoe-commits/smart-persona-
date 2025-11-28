@@ -45,7 +45,6 @@ export default function CreateProfile3() {
 
                     {/* Step Indicator */}
                     <div className="progress-wrapper">
-                        <div className="progress-line" />
                         <div className="steps">
                             {steps.map((txt, i) => (
                                 <div
@@ -85,14 +84,13 @@ export default function CreateProfile3() {
         </section>
 
                         {/* Right Panel (Basic Data Form) */}
-                        <section className="right-panel">
-                            <h3 className="panel-title">ข้อมูลพื้นฐาน</h3>
-
-                            <div className="form-content">
+                        <section className="right-panel1">
+                            <h3 className="panel-title1">ข้อมูลพื้นฐาน</h3>
+                            <div className="form-content1">
                                 {/* 1. Name */}
                                 <div className="form-group row">
                                     <label htmlFor="name">ชื่อ-นามสกุล</label>
-                                    <input type="text" id="name" placeholder="Name-Last Name" className="text-input" />
+                                    <input type="text" id="name" placeholder="Name - Lastname" className="text-input1" />
                                 </div>
 
                                 {/* 2. Gender, Age, Phone */}
@@ -101,9 +99,8 @@ export default function CreateProfile3() {
                                         <label>เพศ</label>
                                         <div className="inline-group">
                                             <select className="select-input">
-                                                <option>select</option>
+                                                <option>Select</option>
                                             </select>
-                                            <input type="text" defaultValue="00" className="small-input" maxLength="2" />
                                         </div>
                                     </div>
                                     <div className="input-with-label">
@@ -124,11 +121,11 @@ export default function CreateProfile3() {
                                 <div className="form-group double-row">
                                     <div className="input-with-label">
                                         <label htmlFor="email">Email</label>
-                                        <input type="email" id="email" className="text-input" />
+                                        <input type="email" id="email" className="text-input1" />
                                     </div>
                                     <div className="input-with-label">
                                         <label htmlFor="lineId">ID Line</label>
-                                        <input type="text" id="lineId" className="text-input" />
+                                        <input type="text" id="lineId" className="text-input1" />
                                     </div>
                                 </div>
 
@@ -152,7 +149,7 @@ export default function CreateProfile3() {
                                 </div>
 
                                 {/* Navigation Buttons */}
-                                <div className="navigation-buttons">
+                                <div className="navigation-buttons1">
                                     <a href="/CreateProfile2">
                                     <button className="nav-btn prev-btn">
                                         <i className="arrow-icon">←</i> Back

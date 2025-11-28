@@ -93,7 +93,6 @@ export default function CreateProfile5() {
 
                     {/* Step Indicator */}
                     <div className="progress-wrapper">
-                        <div className="progress-line" />
                         <div className="steps">
                             {steps.map((txt, i) => (
                                 <div
@@ -144,12 +143,6 @@ export default function CreateProfile5() {
                                 >
                                     ทักษะความสามารถ
                                 </div>
-                                <div 
-                                    className={`tab-item ${activeTab === 'languages' ? 'active' : ''}`}
-                                    onClick={() => setActiveTab('languages')}
-                                >
-                                    ทักษะภาษาต่างประเทศ
-                                </div>
                             </div>
 
                             {activeTab === 'skills' && (
@@ -185,7 +178,7 @@ export default function CreateProfile5() {
                                     </div>
                                     
                                     {/* Navigation Buttons */}
-                                    <div className="navigation-buttons">
+                                    <div className="navigation-buttons1">
                                         <Link to="/CreateProfile4">
                                             <button className="nav-btn prev-btn">
                                                 <i className="arrow-icon">←</i> Back

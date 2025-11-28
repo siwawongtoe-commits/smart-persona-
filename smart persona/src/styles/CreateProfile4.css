@@ -66,14 +66,11 @@
 }
 
 /* --- Right Panel (Form) --- */
-.right-panel {
+.right-panel1 {
     flex: 1;
-    padding: 25px;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
 }
 
-.panel-title {
+.panel-title1 {
     font-size: 20px;
     font-weight: bold;
     color: var(--primary-color);
@@ -164,7 +161,7 @@
 }
 
 /* Navigation Buttons (Same as before) */
-.navigation-buttons {
+.navigation-buttons1 {
     display: flex;
     justify-content: flex-end;
     gap: 15px;

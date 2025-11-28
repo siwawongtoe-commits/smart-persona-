@@ -40,7 +40,6 @@ export default function createprofile1() {
 
                     {/* --- Progress Steps (1-8 Straight Line) --- */}
                     <div className="progress-wrapper">
-                        <div className="progress-line" />
                         <div className="steps">
                             {steps.map((txt, i) => (
                                 <div
@@ -91,7 +90,7 @@ export default function createprofile1() {
                                 <SocialIcon type="x" />
                                 <SocialIcon type="pinterest" />
                             </div>
-                            <p className="social-note">*สามารถกรอกข้อมูลได้แค่บางส่วนเท่านั้น</p>
+                            <p className="social-note1">*สามารถกรอกข้อมูลได้แค่บางส่วนเท่านั้น</p>
 
                             {/* Separator */}
                             <div className="separator">

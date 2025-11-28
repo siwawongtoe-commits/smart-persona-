@@ -39,7 +39,6 @@ export default function CreateProfile2() {
 					</div>
 
 					<div className="progress-wrapper">
-						<div className="progress-line" />
 						<div className="steps">
 							{steps.map((txt, i) => (
 								<div
@@ -80,8 +79,7 @@ export default function CreateProfile2() {
 							</div>
 						</section>
 						<section className="right-panel">
-							<h3 className="panel-title">รูปภาพในรูปแบบ</h3>
-
+							<h3 className="panel-title1">รูปภาพในรูปแบบ</h3>
 							<div className="photo-box">
 								<div className="photo-placeholder">📷</div>
 								<div className="photo-actions">

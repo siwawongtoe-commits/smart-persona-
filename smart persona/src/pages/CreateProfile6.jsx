@@ -1,50 +1,117 @@
-import React, { useState } from 'react';
-import "../styles/CreateProfile6.css";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../styles/CreateProfile6.css";
 
-// --- Static Data ---
-const resumeSections = [
-  'Data From', 'Photo', 'Basic Data', 'Education', 
-  'Skills', 'Attributes', 'Work Experience', 'Career Goals'
-];
+// Component สำหรับหน้ากรอกข้อมูล Skills (ทักษะความสามารถ)
+export default function CreateProfile5() {
+    // กำหนดรายการขั้นตอนทั้งหมดใน Progress Bar
+    const steps = [
+        "Data From",
+        "Photo",
+        "Basic Data",
+        "Education",
+        "Skills", // Active Step Index = 4
+        "Attributes",
+        "Work Experience",
+        "Career Goals",
+    ];
 
-const mainNavigation = [
-  { label: 'Name', component: 'Name' },
-  { label: 'Basic Data', component: 'BasicData' },
-  { label: 'Education', component: 'Education' },
-  { label: 'Career Goals', component: 'CareerGoals' },
-  { label: 'Skills', component: 'Skills' },
-  { label: 'Work Experience', component: 'WorkExperience' },
-  { label: 'Attributes', component: 'Attributes' },
-];
+    // กำหนดรายการเมนูใน Sidebar Navigation
+    const sidebarItems = [
+        "Name",
+        "Basic Data",
+        "Education",
+        "Career Goals",
+        "Skills", // Active Sidebar Index = 4
+        "Work Experience",
+        "Attributes",
+    ];
 
-// --- Main Component ---
-const ResumeCreator = () => {
-  // Step 6: Attributes is the active step
-  const [activeStep, setActiveStep] = useState(6); 
+    // กำหนดให้ขั้นตอนปัจจุบันคือ Skills (Index 4)
+    const currentStepIndex = 5;
+    // กำหนดให้ Sidebar ที่ active คือ Skills (Index 4)
+    const currentSidebarIndex = 4;
 
-  return (
-    // Assuming AppContainer, ContentBox, etc., are standard HTML elements 
-    // styled with the CSS provided below (using class names)
-    <div className="AppContainer attributes-page">
-      <div className="PerFileHeader">PerFile</div>
-      <div className="ContentBox">
-        <h1 className="MainTitle">Create Your Resume</h1>
-        
-        {/* Search Bar */}
-        
+    // State สำหรับการจัดการ Tab: 'skills' หรือ 'languages'
+    const [activeTab, setActiveTab] = useState('skills');
 
-        {/* Steps Navigation */}
-        <div className="StepsContainer">
-          {resumeSections.map((section, index) => (
-            <div key={section} className={`StepItem ${index === activeStep - 1 ? 'active' : ''}`}>
-              <div className={`StepNumber ${index === activeStep - 1 ? 'active' : ''}`}>{index + 1}</div>
-              <div className="StepLabel">{section}</div>
+    // ข้อมูลทักษะจำลอง
+    const softSkills = ["การสื่อสาร", "การทำงานร่วมกัน", "การเป็นผู้นำ", "การแก้ปัญหา", "การบริหารเวลา", "การจัดการความขัดแย้ง"];
+    const profSkills = ["การวิเคราะห์ข้อมูล (Data Analysis)", "การบริหารจัดการโครงการ (Project Management)", "การจัดซื้อจัดจ้าง", "การเงิน/บัญชี"];
+    const techSkills = {
+        "Microsoft": ["Word", "Excel", "PowerPoint", "Outlook", "Teams"],
+        "Adobe": ["Photoshop", "Illustrator", "Premiere Pro", "After Effects", "Audition", "InDesign", "Lightroom"],
+        "Design & Tools": ["Canva", "DaVinci Resolve", "AutoCAD", "Figma", "Sketch", "Blender"],
+        "Front-end": ["HTML", "CSS", "JavaScript", "React", "Vue", "Angular", "Tailwind CSS"],
+        "Back-end": ["Python", "Java", "PHP", "Go (Golang)", "Node.js", "C#", "SQL"],
+    };
+    
+    // State สำหรับจำลองการเลือก Tag
+    const [selectedTags, setSelectedTags] = useState(["JavaScript", "React", "Photoshop", "การสื่อสาร"]);
+
+    // Function สำหรับการเลือก/ยกเลิกการเลือก Tag
+    const toggleTag = (tag) => {
+        setSelectedTags(prev => 
+            prev.includes(tag) 
+                ? prev.filter(t => t !== tag) 
+                : [...prev, tag]
+        );
+    };
+
+    // Component สำหรับแสดงกลุ่มทักษะ
+    const SkillGroup = ({ title, skills }) => (
+        <div className="skill-section">
+            <h4 className="skill-section-title">{title}</h4>
+            <div className="skill-tag-container">
+                {skills.map((skill) => (
+                    <span 
+                        key={skill} 
+                        className={`skill-tag ${selectedTags.includes(skill) ? 'selected' : ''}`}
+                        onClick={() => toggleTag(skill)}
+                    >
+                        {skill}
+                    </span>
+                ))}
             </div>
-          ))}
         </div>
+    );
 
-        {/* Main Content */}
+    return (
+        <div className="page-bg">
+            <div className="resume-card">
+                <header className="card-header1">
+                    <div className="logo1">PerFile</div>
+                </header>
+
+                <div className="card-body">
+                    <h2 className="title">Create Your Resume</h2>
+
+                    {/* Search Bar (นำมาจากโค้ดเดิม) */}
+                    <div className="search-row">
+                       
+                    </div>
+
+                    {/* Step Indicator */}
+                    <div className="progress-wrapper">
+                        <div className="steps">
+                            {steps.map((txt, i) => (
+                                <div
+                                    key={i}
+                                    className={`step-item 
+                                        ${i === currentStepIndex ? "active" : ""} 
+                                        ${i < currentStepIndex ? "completed" : ""}
+                                    `}
+                                >
+                                    <span className="step-number">{i + 1}</span>
+                                    <span className="step-label">{txt}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="main-grid">
+
+{/* Main Content */}
         <div className="BodyContent">
           {/* Left Navigation */}
           <section className="left-column6">
@@ -86,9 +153,9 @@ const ResumeCreator = () => {
             </a>
           </div>
         </div>
-      </div>
-    </div>
-  );
-};
-
-export default ResumeCreator;
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}

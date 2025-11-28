@@ -35,7 +35,7 @@
 
 /* -------------------- 2. Header and Step Indicator -------------------- */
 .card-header1 {
-    background-color: var(--primary-blue);
+    background-color: #111491;
     padding: 15px 40px;
 }
 
@@ -242,7 +242,6 @@
 /* Right Panel */
 .right-panel {
     background-color: var(--light-text);
-    padding: 0;
 }
 
 .panel-title {
@@ -283,8 +282,6 @@
 }
 
 .skill-section {
-    margin-bottom: 25px;
-    padding-bottom: 15px;
     border-bottom: 1px dashed #e0e0e0;
 }
 
@@ -295,9 +292,9 @@
 .skill-section-title {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--dark-text);
+    color: #ffffff;
     margin-bottom: 15px;
-    background-color: var(--light-gray);
+    background-color: #111491;
     display: inline-block;
     padding: 5px 10px;
     border-radius: var(--border-radius);
@@ -307,6 +304,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-bottom: 15px;
 }
 
 .skill-tag {
@@ -339,7 +337,6 @@
     margin-top: 30px;
     margin-bottom: 40px;
     padding-top: 20px;
-    border-top: 2px solid var(--light-gray);
 }
 
 .custom-skill-input {
@@ -389,11 +386,9 @@
 }
 
 /* -------------------- 6. Navigation Buttons -------------------- */
-.navigation-buttons {
+.navigation-buttons1 {
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
-    border-top: 2px solid var(--light-gray);
 }
 
 .nav-btn {
@@ -435,6 +430,12 @@
     .main-grid {
         grid-template-columns: 1fr;
     }
+    
+.grid-container {
+   align-items: center;
+   justify-content: center;
+   margin: 10px;
+}
 
     .left-sidebar {
         padding-right: 0;

@@ -131,9 +131,18 @@ body {
 }
 
 /* --- Main Content Layout --- */
-.main-content {
-    display: flex;
-    gap: 20px;
+.main-content1 {
+display: flex;
+    max-width: 1200px;
+    width: 1100px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    gap: 130px;
+    align-items: auto;
+    justify-content: auto;
 }
 
 /* --- Left Sidebar/Menu --- */
@@ -183,6 +192,7 @@ body {
     gap: 15px;
 }
 
+
 .sidebar-item {
     padding: 25px 10px;
     border-radius: 10px;
@@ -227,6 +237,7 @@ body {
 .goal-input-area {
     width: 80%;
     margin-bottom: 50px;
+    color: black;
 }
 
 .goal-input-area textarea {
@@ -238,6 +249,8 @@ body {
     resize: vertical;
     min-height: 200px; /* Provide ample space for writing */
     box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    background-color: #FFFFFF;
 }
 
 /* --- Action Buttons (Adjusted for centralized layout) --- */

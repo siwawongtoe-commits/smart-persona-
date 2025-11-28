@@ -45,7 +45,6 @@ export default function CreateProfile2() {
 
                     {/* Step Indicator */}
                     <div className="progress-wrapper">
-                        <div className="progress-line" />
                         <div className="steps">
                             {steps.map((txt, i) => (
                                 <div
@@ -85,8 +84,8 @@ export default function CreateProfile2() {
         </section>
 
                         {/* Right Panel (Education Form) */}
-                        <section className="right-panel">
-                            <h3 className="panel-title">การศึกษา</h3>
+                        <section className="right-panel1">
+                            <h3 className="panel-title1">การศึกษา</h3>
 
                             <div className="form-content education-form">
                                 
@@ -134,7 +133,7 @@ export default function CreateProfile2() {
                                 </div>
                                 
                                 {/* Navigation Buttons */}
-                                <div className="navigation-buttons">
+                                <div className="navigation-buttons1">
                                     <a href="/CreateProfile3">
                                     <button className="nav-btn prev-btn">
                                         <i className="arrow-icon">←</i> Back

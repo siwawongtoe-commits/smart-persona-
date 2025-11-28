@@ -1,64 +1,118 @@
-import React from "react";
-// Import CSS file
-import "../styles/CreateProfile7.css"; 
-// Assuming you still want to use Link for navigation
-import { Link } from "react-router-dom"; 
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/CreateProfile7.css";
 
-export default function CreateResume() {
-  // Define the steps for the progress bar
-  const steps = [
-    "Data From",
-    "Photo",
-    "Basic Data",
-    "Education",
-    "Skills",
-    "Attributes",
-    "Work Experience",
-    "Career Goals",
-  ];
-  // The current step is Work Experience (index 6, which is step 7)
-  const currentStepIndex = 6; 
+// Component สำหรับหน้ากรอกข้อมูล Skills (ทักษะความสามารถ)
+export default function CreateProfile5() {
+    // กำหนดรายการขั้นตอนทั้งหมดใน Progress Bar
+    const steps = [
+        "Data From",
+        "Photo",
+        "Basic Data",
+        "Education",
+        "Skills", // Active Step Index = 4
+        "Attributes",
+        "Work Experience",
+        "Career Goals",
+    ];
 
-  // Define the items for the sidebar/menu
-  // Note: The order in the array doesn't matter much since we use CSS Grid for layout
-  const sidebarItems = [
-    "Data From", 
-    "Photo", 
-    "Basic Data",
-    "Education",
-    "Skills",
-    "Attributes",
-    "Name",
-    "Career Goals",
-    "Work Experience",
-  ];
+    // กำหนดรายการเมนูใน Sidebar Navigation
+    const sidebarItems = [
+        "Name",
+        "Basic Data",
+        "Education",
+        "Career Goals",
+        "Skills", // Active Sidebar Index = 4
+        "Work Experience",
+        "Attributes",
+    ];
 
-  return (
-    <div className="resume-container">
-      <header className="header">
-        <div className="logo">PerFile</div>
-      </header>
+    // กำหนดให้ขั้นตอนปัจจุบันคือ Skills (Index 4)
+    const currentStepIndex = 6;
+    // กำหนดให้ Sidebar ที่ active คือ Skills (Index 4)
+    const currentSidebarIndex = 4;
 
-      <h2 className="title">Create Your Resume</h2>
+    // State สำหรับการจัดการ Tab: 'skills' หรือ 'languages'
+    const [activeTab, setActiveTab] = useState('skills');
 
-      {/* Search Box with Filter Icon */}
-      
+    // ข้อมูลทักษะจำลอง
+    const softSkills = ["การสื่อสาร", "การทำงานร่วมกัน", "การเป็นผู้นำ", "การแก้ปัญหา", "การบริหารเวลา", "การจัดการความขัดแย้ง"];
+    const profSkills = ["การวิเคราะห์ข้อมูล (Data Analysis)", "การบริหารจัดการโครงการ (Project Management)", "การจัดซื้อจัดจ้าง", "การเงิน/บัญชี"];
+    const techSkills = {
+        "Microsoft": ["Word", "Excel", "PowerPoint", "Outlook", "Teams"],
+        "Adobe": ["Photoshop", "Illustrator", "Premiere Pro", "After Effects", "Audition", "InDesign", "Lightroom"],
+        "Design & Tools": ["Canva", "DaVinci Resolve", "AutoCAD", "Figma", "Sketch", "Blender"],
+        "Front-end": ["HTML", "CSS", "JavaScript", "React", "Vue", "Angular", "Tailwind CSS"],
+        "Back-end": ["Python", "Java", "PHP", "Go (Golang)", "Node.js", "C#", "SQL"],
+    };
+    
+    // State สำหรับจำลองการเลือก Tag
+    const [selectedTags, setSelectedTags] = useState(["JavaScript", "React", "Photoshop", "การสื่อสาร"]);
 
-      {/* Progress Steps Section */}
-      <div className="steps-container">
-        {steps.map((txt, i) => (
-          <div 
-            key={i} 
-            className={`step-item ${i === currentStepIndex ? "active" : ""}`}
-          >
-            <span className="step-number">{i + 1}</span>
-            <span className="step-name">{txt}</span>
-          </div>
-        ))}
-      </div>
+    // Function สำหรับการเลือก/ยกเลิกการเลือก Tag
+    const toggleTag = (tag) => {
+        setSelectedTags(prev => 
+            prev.includes(tag) 
+                ? prev.filter(t => t !== tag) 
+                : [...prev, tag]
+        );
+    };
 
-      {/* Main Content Area */}
-      <div className="main-content">
+    // Component สำหรับแสดงกลุ่มทักษะ
+    const SkillGroup = ({ title, skills }) => (
+        <div className="skill-section">
+            <h4 className="skill-section-title">{title}</h4>
+            <div className="skill-tag-container">
+                {skills.map((skill) => (
+                    <span 
+                        key={skill} 
+                        className={`skill-tag ${selectedTags.includes(skill) ? 'selected' : ''}`}
+                        onClick={() => toggleTag(skill)}
+                    >
+                        {skill}
+                    </span>
+                ))}
+            </div>
+        </div>
+    );
+
+    return (
+        <div className="page-bg">
+            <div className="resume-card">
+                <header className="card-header1">
+                    <div className="logo1">PerFile</div>
+                </header>
+
+                <div className="card-body">
+                    <h2 className="title">Create Your Resume</h2>
+
+                    {/* Search Bar (นำมาจากโค้ดเดิม) */}
+                    <div className="search-row">
+                       
+                    </div>
+
+                    {/* Step Indicator */}
+                    <div className="progress-wrapper">
+                        <div className="steps">
+                            {steps.map((txt, i) => (
+                                <div
+                                    key={i}
+                                    className={`step-item 
+                                        ${i === currentStepIndex ? "active" : ""} 
+                                        ${i < currentStepIndex ? "completed" : ""}
+                                    `}
+                                >
+                                    <span className="step-number">{i + 1}</span>
+                                    <span className="step-label">{txt}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="main-grid">
+
+{/* Main Content Area */}
+      <div className="main-content1">
         
         {/* Left Sidebar / Menu Section */}
        <section className="left-column">
@@ -82,7 +136,7 @@ export default function CreateResume() {
         </section>
 
         {/* Right Form Section - Work Experience Content */}
-        <div className="form-section">
+        <div className="form-section1">
           <h3 className="section-title">ประสบการณ์ทำงาน</h3>
 
           <div className="work-exp-inputs">
@@ -109,12 +163,15 @@ export default function CreateResume() {
 
           <div className="action-buttons">
             <a href="/CreateProfile8">
-            <button className="next-btn">Next ➜</button>
+            <button className="next-btn1">Next ➜</button>
             </a>
-            <button className="info-btn">i</button>
+            <button className="info-btn1">i</button>
           </div>
         </div>
       </div>
-    </div>
-  );
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }
