@@ -414,12 +414,27 @@
   color: #c0b5b5;
 }
 
-.profile-card-avatar {
+/* .profile-card-avatar {
   display: flex;
   justify-content: center;
   margin-bottom: 12px;
+} */
+ 
+.profile-avatar1 {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 12px rgba(16,24,40,0.06);
+    border: 4px solid #34D399;
 }
 
+
+.profile-card:nth-child(2) .profile-avatar,
+.profile-card:nth-child(7) .profile-avatar,
+.profile-card:nth-child(10) .profile-avatar {
+    border: 3px solid #f44336; 
+}
 .avatar-placeholder {
   width: 80px;
   height: 80px;
