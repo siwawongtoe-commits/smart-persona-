@@ -19,7 +19,7 @@ import CreateProfile6 from "./pages/CreateProfile6";
 import CreateProfile7 from "./pages/CreateProfile7";
 import CreateProfile8 from "./pages/CreateProfile8";
 import DashboardAdmin from "./pages/DashboardAdmin";
-// import UserProfile from "./pages/UserProfile";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   return (
@@ -44,7 +44,7 @@ function App() {
         <Route path="/createprofile7" element={<CreateProfile7 />} />
         <Route path="/createprofile8" element={<CreateProfile8 />} />
         <Route path="/dashboard-admin" element={<DashboardAdmin />} />
-        {/* <Route path="/userprofile" element={<UserProfile />} /> */}
+        <Route path="/userprofile" element={<UserProfile />} />
       </Routes>
     </Router>
   );
