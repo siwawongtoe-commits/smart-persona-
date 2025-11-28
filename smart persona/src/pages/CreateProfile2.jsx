@@ -35,14 +35,7 @@ export default function CreateProfile2() {
 					<h2 className="title">Create Your Resume</h2>
 
 					<div className="search-row">
-						<div className="search-pill">
-							<input
-								className="search-input"
-								type="text"
-								placeholder="Search Resume Templates"
-							/>
-							<button className="filter-btn">⚙️</button>
-						</div>
+						
 					</div>
 
 					<div className="progress-wrapper">

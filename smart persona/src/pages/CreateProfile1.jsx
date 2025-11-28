@@ -35,15 +35,7 @@ export default function createprofile1() {
 
                     {/* --- Search Bar --- */}
                     <div className="search-row">
-                        <div className="search-pill">
-                            <span className="search-icon">🔍</span> 
-                            <input
-                                className="search-input"
-                                type="text"
-                                placeholder="Search Resume Templates"
-                            />
-                            <button className="filter-btn">☰</button>
-                        </div>
+                        
                     </div>
 
                     {/* --- Progress Steps (1-8 Straight Line) --- */}

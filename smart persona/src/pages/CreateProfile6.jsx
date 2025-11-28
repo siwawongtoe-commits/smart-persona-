@@ -32,13 +32,7 @@ const ResumeCreator = () => {
         <h1 className="MainTitle">Create Your Resume</h1>
         
         {/* Search Bar */}
-        <div className="SearchContainer">
-          <span className="SearchIcon">🔍</span>
-          <input className="SearchInput" placeholder="Search Resume Templates" />
-          <div className="FilterIcon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
-          </div>
-        </div>
+        
 
         {/* Steps Navigation */}
         <div className="StepsContainer">

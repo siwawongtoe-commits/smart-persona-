@@ -24,7 +24,7 @@ html, body {
   min-width: 320px;
   min-height: 100vh;
   width: 100%;
-  background: #fff; /* หรือสีพื้นหลังของแอปทั้งหมด */
+  background: #ffffff; /* หรือสีพื้นหลังของแอปทั้งหมด */
 }
 
 /* 3. Base Link and Button Styles (Fallback/General) */

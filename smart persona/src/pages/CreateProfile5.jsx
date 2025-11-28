@@ -88,17 +88,7 @@ export default function CreateProfile5() {
 
                     {/* Search Bar (นำมาจากโค้ดเดิม) */}
                     <div className="search-row">
-                        <div className="search-pill">
-                            <i className="search-icon">🔍</i> 
-                            <input
-                                className="search-input"
-                                type="text"
-                                placeholder="Search Resume Templates"
-                            />
-                            <button className="filter-btn">
-                                <i className="filter-icon">&#x2630;</i>
-                            </button>
-                        </div>
+                       
                     </div>
 
                     {/* Step Indicator */}

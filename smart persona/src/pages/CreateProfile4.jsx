@@ -40,22 +40,7 @@ export default function CreateProfile2() {
                     <h2 className="title">Create Your Resume</h2>
 
                     <div className="search-row">
-                        <div className="search-pill">
-                            {/* Placeholder icon (e.g., search icon) */}
-                            <i className="search-icon">🔍</i> 
-                            <input
-                                className="search-input"
-                                type="text"
-                                placeholder="Search Resume Templates"
-                            />
-                            {/* Filter icon */}
-                            <button className="filter-btn">
-                                <i className="filter-icon">
-                                    {/* Placeholder for a filter icon */}
-                                    &#x2630;
-                                </i>
-                            </button>
-                        </div>
+                        
                     </div>
 
                     {/* Step Indicator */}
