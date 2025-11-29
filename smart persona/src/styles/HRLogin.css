@@ -142,7 +142,7 @@ input::placeholder {
 
 .top-right-text2 a{
   position: absolute;
-  top: 148px;
+  top: 130px;
   left: 50%;
   transform: translateX(40px); /* ลดจาก 210 → 170 px */
   font-size: 14px;
