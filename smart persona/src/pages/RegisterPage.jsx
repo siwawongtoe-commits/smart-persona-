@@ -31,7 +31,7 @@ export default function RegisterPage() {
   localStorage.setItem("users", JSON.stringify(users));
 
   alert("สมัครสมาชิกสำเร็จ!");
-  navigate("/home");
+  navigate("/");
 }
 
 
@@ -52,7 +52,7 @@ export default function RegisterPage() {
               <Link to="/HRLogin">คุณเป็นผู้ประกอบการหรือเปล่า?</Link>
             </div>
               <h1 id="register-title" className="card-title">ลงทะเบียน</h1>
-
+           
               <p className="subtitle">เลือกแอพเพื่อสร้าง Main Profile</p>
 
               <div className="provider-wrapper" style={{ marginTop: 8 }}>

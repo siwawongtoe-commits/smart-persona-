@@ -21,20 +21,29 @@ const mainNavigation = [
 const ResumeCreator = () => {
   const [activeStep, setActiveStep] = useState(6);
   const navigate = useNavigate();
-  const handleNavigation = (path) => {navigate(path);};
+
+  // ⭐ ดึงข้อมูลผู้ใช้จาก localStorage
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {
+    name: "Guest User",
+    email: "no-email"
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
 
   return (
     <div className="settings-container">
       <header className="header-bar">
         <div className="logo-section">PerFile</div>
         <a href="Home">
-        <button className="back-button1">Back</button>
+          <button className="back-button1">Back</button>
         </a>
       </header>
 
       <main className="settings-content">
         <div className="settings-title">
-          <div style={{display: 'flex', flexDirection: 'column'}}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <h1 className="MainTitle">Setting</h1>
           </div>
         </div>
@@ -42,13 +51,13 @@ const ResumeCreator = () => {
         <div className="user-profile-card">
           <div className="profile-image">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
             </svg>
           </div>
 
           <div className="user-details">
-            <p className="user-name">สมเกษม ตัวอย่าง</p>
-            <p className="user-email">email@example.com</p>
+            <p className="user-name">{currentUser.name}</p>
+            <p className="user-email">{currentUser.email}</p>
           </div>
 
           <div className="profile-actions">
@@ -63,13 +72,13 @@ const ResumeCreator = () => {
           <div className="detail-item">Phone : 099-xxx-xxxx</div>
         </section>
 
-        <aside className="settings-menu" style={{marginTop: 20}}>
+        <aside className="settings-menu" style={{ marginTop: 20 }}>
           {mainNavigation.map((item, idx) => (
-            <div 
-                key={item.label} 
-                className={`setting-item ${item.label === 'Attributes' ? 'active' : ''}`}
-                // **3. เพิ่ม onClick เพื่อเรียกใช้ฟังก์ชันนำทาง**
-                onClick={() => handleNavigation(item.component)} 
+            <div
+              key={item.label}
+              className={`setting-item ${item.label === 'Attributes' ? 'active' : ''}`}
+              // **3. เพิ่ม onClick เพื่อเรียกใช้ฟังก์ชันนำทาง**
+              onClick={() => handleNavigation(item.component)}
             >
               <div className="item-content">
                 <span className="item-icon"></span>
@@ -82,7 +91,7 @@ const ResumeCreator = () => {
 
         <div className="action-buttons-group">
           <a href="/">
-          <button className="action-button logout-button">Log Out</button>
+            <button className="action-button logout-button">Log Out</button>
           </a>
         </div>
       </main>

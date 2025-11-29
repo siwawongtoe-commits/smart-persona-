@@ -1,12 +1,6 @@
-import React, { useState } from 'react';
-import "../styles/SettingHR.css";
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-// --- Static Data ---
-const resumeSections = [
-  'Data From', 'Photo', 'Basic Data', 'Education',
-  'Skills', 'Attributes', 'Work Experience', 'Career Goals'
-];
+import "../styles/SettingHR.css";
 
 const mainNavigation = [
   { label: 'Saved', component: 'Name' },
@@ -17,28 +11,25 @@ const mainNavigation = [
   { label: 'Contact Us', component: '/PrivacyPolicy2' },
 ];
 
-// --- Main Component ---
-const ResumeCreator = () => {
-  const [activeStep, setActiveStep] = useState(6);
-    const navigate = useNavigate();
-    const handleNavigation = (path) => {navigate(path);};
+const SettingHR = () => {
+  const [currentUser, setCurrentUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const users = JSON.parse(localStorage.getItem("currentUserHR")) || { HR: [], Admin: [] };
+    if (users.HR.length > 0) setCurrentUser(users.HR[users.HR.length - 1]);
+  }, []);
+
+  const handleNavigation = (path) => { navigate(path); };
 
   return (
     <div className="settings-container">
       <header className="header-bar">
         <div className="logo-section">PerFile</div>
-        <a href="Home-HR">
-        <button className="back-button1">Back</button>
-        </a>
+        <a href="/Home-HR"><button className="back-button1">Back</button></a>
       </header>
 
       <main className="settings-content">
-        <div className="settings-title">
-          <div style={{display: 'flex', flexDirection: 'column'}}>
-            <h1 className="MainTitle">Setting</h1>
-          </div>
-        </div>
-
         <div className="user-profile-card">
           <div className="profile-image">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
@@ -47,8 +38,8 @@ const ResumeCreator = () => {
           </div>
 
           <div className="user-details">
-            <p className="user-name">HR. เกษม ตัวอย่าง</p>
-            <p className="user-email">hrkasem@pefile.net</p>
+            <p className="user-name">{currentUser ? currentUser.name : "HR. Guest"}</p>
+            <p className="user-email">{currentUser ? currentUser.email : "no-email@example.com"}</p>
           </div>
 
           <div className="profile-actions">
@@ -56,22 +47,10 @@ const ResumeCreator = () => {
           </div>
         </div>
 
-        <section className="profile-detail-section">
-          <h3 className="detail-heading">Profile Detail</h3>
-          <div className="detail-item">Joined on October 2025</div>
-          <div className="detail-item">Phone : 099-xxx-xxxx</div>
-        </section>
-
         <aside className="settings-menu" style={{marginTop: 20}}>
           {mainNavigation.map((item, idx) => (
-            <div 
-                key={item.label} 
-                className={`setting-item ${item.label === 'Attributes' ? 'active' : ''}`}
-                // **3. เพิ่ม onClick เพื่อเรียกใช้ฟังก์ชันนำทาง**
-                onClick={() => handleNavigation(item.component)} 
-            >
+            <div key={idx} className="setting-item" onClick={() => handleNavigation(item.component)}>
               <div className="item-content">
-                <span className="item-icon"></span>
                 <div className="item-title">{item.label}</div>
               </div>
               <div className="item-arrow">›</div>
@@ -80,13 +59,11 @@ const ResumeCreator = () => {
         </aside>
 
         <div className="action-buttons-group">
-          <a href="/">
-          <button className="action-button logout-button">Log Out</button>
-          </a>
+          <a href="/"><button className="action-button logout-button">Log Out</button></a>
         </div>
       </main>
     </div>
   );
 };
 
-export default ResumeCreator;
+export default SettingHR;

@@ -1,12 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "../styles/SettingAdmin.css";
 import { useNavigate } from 'react-router-dom';
-
-// --- Static Data ---
-const resumeSections = [
-  'Data From', 'Photo', 'Basic Data', 'Education',
-  'Skills', 'Attributes', 'Work Experience', 'Career Goals'
-];
 
 const mainNavigation = [
   { label: 'Saved', component: 'Name' },
@@ -17,26 +11,30 @@ const mainNavigation = [
   { label: 'Contact Us', component: '/PrivacyPolicy2' },
 ];
 
-// --- Main Component ---
 const ResumeCreator = () => {
+  const [currentAdmin, setCurrentAdmin] = useState(null);
   const [activeStep, setActiveStep] = useState(6);
-    const navigate = useNavigate();
-    const handleNavigation = (path) => {navigate(path);};
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (storedUser && storedUser.role === "Admin") {
+      setCurrentAdmin(storedUser);
+    }
+  }, []);
+
+  const handleNavigation = (path) => { navigate(path); };
 
   return (
     <div className="settings-container">
       <header className="header-bar">
         <div className="logo-section">PerFile</div>
-        <a href="Home-Admin">
-        <button className="back-button-admin">Back</button>
-        </a>
+        <button className="back-button-admin" onClick={() => navigate("/Home-Admin")}>Back</button>
       </header>
 
       <main className="settings-content">
         <div className="settings-title">
-          <div style={{display: 'flex', flexDirection: 'column'}}>
-            <h1 className="MainTitle">Setting</h1>
-          </div>
+          <h1 className="MainTitle">Setting</h1>
         </div>
 
         <div className="user-profile-card">
@@ -47,8 +45,8 @@ const ResumeCreator = () => {
           </div>
 
           <div className="user-details">
-            <p className="user-name">@Admin</p>
-            <p className="user-email">adminperfile@gmail.com</p>
+            <p className="user-name">{currentAdmin?.name}</p>
+            <p className="user-email">{currentAdmin?.email}</p>
           </div>
         </div>
 
@@ -63,7 +61,6 @@ const ResumeCreator = () => {
             <div 
                 key={item.label} 
                 className={`setting-item ${item.label === 'Attributes' ? 'active' : ''}`}
-                // **3. เพิ่ม onClick เพื่อเรียกใช้ฟังก์ชันนำทาง**
                 onClick={() => handleNavigation(item.component)} 
             >
               <div className="item-content">
@@ -76,9 +73,7 @@ const ResumeCreator = () => {
         </aside>
 
         <div className="action-buttons-group">
-          <a href="/">
-          <button className="action-button logout-button">Log Out</button>
-          </a>
+          <button className="action-button logout-button" onClick={() => navigate("/")}>Log Out</button>
         </div>
       </main>
     </div>

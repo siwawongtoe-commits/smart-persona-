@@ -35,7 +35,16 @@ if (!loggedUsers.some(u => u.email === found.email)) {
   loggedUsers.push(found);
 }
 
+// ถ้า user ยังไม่อยู่ใน loggedUsers ก็เพิ่ม
+if (!loggedUsers.some(u => u.email === found.email)) {
+  loggedUsers.push(found);
+}
+
 localStorage.setItem("loggedUsers", JSON.stringify(loggedUsers));
+
+// ⭐ ตั้ง currentUser เป็นผู้ที่ล็อกอินล่าสุด
+localStorage.setItem("currentUser", JSON.stringify(found));
+
 
 alert("เข้าสู่ระบบสำเร็จ!");
   navigate("/home");

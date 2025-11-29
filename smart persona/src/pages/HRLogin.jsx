@@ -10,11 +10,11 @@ export default function HRLogin() {
 
   // ตัวอย่าง admin 5 คน
   const admins = [
-    { email: "siwawong.toe@spumail.net", password: "67122203", name: "Admin1" },
-    { email: "admin3@company.com", password: "admin123", name: "Admin2" },
-    { email: "admin3@company.com", password: "admin123", name: "Admin3" },
-    { email: "admin4@company.com", password: "admin123", name: "Admin4" },
-    { email: "admin5@company.com", password: "admin123", name: "Admin5" },
+    { email: "admin1@company.com", password: "123456", name: "armin" },
+    { email: "admin3@company.com", password: "admin123", name: "wave" },
+    { email: "admin4@company.com", password: "admin123", name: "phat" },
+    { email: "admin5@company.com", password: "admin123", name: "Q" },
+    { email: "admin6@company.com", password: "admin123", name: "toon" },
   ];
 
   // ดึง HR users จาก localStorage
@@ -51,16 +51,20 @@ export default function HRLogin() {
   };
 
   if (foundHR) {
-    addUser("HR", foundHR);
-    navigate("/home-hr");
-    return;
-  }
+  addUser("HR", foundHR);
+  localStorage.setItem("currentUser", JSON.stringify({ role: "HR", ...foundHR }));
+  navigate("/home-hr");
+  return;
+}
 
-  if (foundAdmin) {
-    addUser("Admin", foundAdmin);
-    navigate("/home-admin");
-    return;
-  }
+if (foundAdmin) {
+  addUser("Admin", foundAdmin);
+  localStorage.setItem("currentUser", JSON.stringify({ role: "Admin", ...foundAdmin }));
+  navigate("/home-admin");
+  return;
+}
+
+  
 
   alert("อีเมลหรือรหัสผ่านไม่ถูกต้อง หรือไม่ใช่ HR/Admin");
 }
