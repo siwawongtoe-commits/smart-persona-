@@ -333,3 +333,14 @@
     padding-bottom: 5px;
     justify-content: center;
 }
+.social-icons-row {
+    display: flex;
+    gap: 12px; /* ระยะห่างระหว่างไอคอน */
+}
+
+.social-icon-img {
+    width: 32px;   /* ขนาดไอคอน */
+    height: 32px;
+    object-fit: contain;
+    cursor: pointer; /* เปลี่ยนเป็น pointer ถ้าต้องการคลิกได้ */
+}

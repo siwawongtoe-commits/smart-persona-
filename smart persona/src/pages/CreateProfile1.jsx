@@ -35,7 +35,7 @@ export default function createprofile1() {
 
                     {/* --- Search Bar --- */}
                     <div className="search-row">
-                        
+
                     </div>
 
                     {/* --- Progress Steps (1-8 Straight Line) --- */}
@@ -52,43 +52,42 @@ export default function createprofile1() {
                             ))}
                         </div>
                     </div>
-                    
+
                     {/* --- Main Content: Sidebar and Panel --- */}
                     <div className="main-grid">
-                        
+
                         {/* Left Sidebar (The Preview/Outline) */}
                         <section className="left-column">
-          <div className="grid-container">
-            <div className="grid-item item-photo">
-              <div className="photo-placeholder">
-                <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-              </div>
-            </div>
+                            <div className="grid-container">
+                                <div className="grid-item item-photo">
+                                    <div className="photo-placeholder">
+                                        <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg>
+                                    </div>
+                                </div>
 
-            <div className="grid-item item-name">Name</div>
-            <div className="grid-item item-education">Education</div>
-            <div className="grid-item item-career-goals">Career Goals</div>
-            <div className="grid-item item-skills">Skills</div>
-            <div className="grid-item item-work-experience">Work Experience</div>
-            <div className="grid-item item-attributes">Attributes</div>
-          </div>
-        </section>
+                                <div className="grid-item item-name">Name</div>
+                                <div className="grid-item item-education">Education</div>
+                                <div className="grid-item item-career-goals">Career Goals</div>
+                                <div className="grid-item item-skills">Skills</div>
+                                <div className="grid-item item-work-experience">Work Experience</div>
+                                <div className="grid-item item-attributes">Attributes</div>
+                            </div>
+                        </section>
                         {/* Right Panel (Data Entry Options - No frame) */}
                         <section className="right-panel">
-                            
+
                             {/* Social Media Data Entry */}
                             <h3 className="panel-heading">กรอกข้อมูลอัตโนมัติ</h3>
                             <div className="social-icons-row">
-                                <SocialIcon type="linkedin" />
-                                <SocialIcon type="facebook" />
-                                <SocialIcon type="instagram" />
-                                <SocialIcon type="tiktok" />
-                                <SocialIcon type="youtube" />
-                                <SocialIcon type="x" />
-                                <SocialIcon type="pinterest" />
+                                <img src="/linkedin.png" alt="LinkedIn" className="social-icon-img" />
+                                <img src="/facebook.png" alt="Facebook" className="social-icon-img" />
+                                <img src="/tiktok.png" alt="TikTok" className="social-icon-img" />
+                                <img src="/youtube.png" alt="YouTube" className="social-icon-img" />
+                                <img src="/twitter.png" alt="X (Twitter)" className="social-icon-img" />
+                                <img src="/pinterest.png" alt="Pinterest" className="social-icon-img" />
                             </div>
                             <p className="social-note1">*สามารถกรอกข้อมูลได้แค่บางส่วนเท่านั้น</p>
 
@@ -100,9 +99,9 @@ export default function createprofile1() {
                             {/* Manual Data Entry */}
                             <h3 className="panel-heading">Fill the information </h3>
                             <a href="/CreateProfile2">
-                            <button className="start-manual-btn">
-                                Start <span className="info-icon">ⓘ</span>
-                            </button>
+                                <button className="start-manual-btn">
+                                    Start <span className="info-icon">ⓘ</span>
+                                </button>
                             </a>
 
                         </section>

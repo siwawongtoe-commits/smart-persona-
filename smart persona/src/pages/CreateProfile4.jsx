@@ -92,19 +92,19 @@ export default function CreateProfile2() {
                                 {/* 1st Row: ระดับการศึกษา, จบการศึกษาเมื่อ, คณะ, สาขา (ใช้ select ทั้งหมด) */}
                                 <div className="form-group quadruple-row education-row-1">
                                     <div className="input-with-label">
-                                        <label>ระดับการศึกษา</label>
-                                        <select className="select-input"><option>ระดับการศึกษา</option></select>
+                                        ระดับการศึกษา
+                                        <select className="select-input"><option></option></select>
                                     </div>
                                     <div className="input-with-label">
-                                        <label>จบการศึกษาเมื่อ</label>
-                                        <select className="select-input"><option>จบการศึกษาเมื่อปี</option></select>
+                                       จบการศึกษาเมื่อ
+                                        <select className="select-input"><option></option></select>
                                     </div>
                                     <div className="input-with-label">
-                                        <label>คณะ</label>
+                                        คณะ
                                         <input type="text" className="text-input" />
                                     </div>
                                     <div className="input-with-label">
-                                        <label>สาขา</label>
+                                       สาขา
                                         <input type="text" className="text-input" />
                                     </div>
                                 </div>
@@ -112,15 +112,14 @@ export default function CreateProfile2() {
                                 {/* 2nd Row: มหาวิทยาลัย/วิทยาลัย/โรงเรียน, ประเภท, เกรดเฉลี่ย */}
                                 <div className="form-group triple-row education-row-2">
                                     <div className="input-with-label">
-                                        <label>มหาวิทยาลัย/วิทยาลัย/โรงเรียน</label>
-                                        <input type="text" className="text-input" />
+                                        มหาวิทยาลัย/วิทยาลัย/โรงเรียน                                        <input type="text" className="text-input" />
                                     </div>
                                     <div className="input-with-label">
-                                        <label>ประเภท</label>
-                                        <select className="select-input"><option>ประเภท</option></select>
+                                        ประเภท
+                                        <select className="select-input"><option></option></select>
                                     </div>
                                     <div className="input-with-label">
-                                        <label>เกรดเฉลี่ย</label>
+                                       เกรดเฉลี่ย
                                         <input type="text" className="text-input" />
                                     </div>
                                 </div>
